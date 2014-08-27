@@ -6,9 +6,10 @@
 ////构造可重用的组件，以及HTML扩展。
 
 angular.module('angularLeteusgoApp')
-    .controller('goodsListCtrl', function ($scope,localStorageService) {
-        var itemList=new LoadItem();
-        localStorageService.set('itemList',itemList);
+    .controller('goodsListCtrl', function ($scope,localStorageService,loadItemService) {
+        $scope.itemList=loadItemService.loadItem();
+        console.log($scope.itemList);
+        localStorageService.set('itemList',$scope.itemList);
         localStorageService.set('totalCount',getTotalCount());
         $scope.products = localStorageService.get('itemList');
         $scope.$parent.totalCount=getTotalCount();
