@@ -22,6 +22,8 @@ angular.module('angularLeteusgoApp')
             localStorageService.set('totalCount',goodsItemService.getTotalCount($scope.cartList));
             $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
         };
+
+
     });
 
 
