@@ -1,15 +1,16 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-    .controller('shoppingListCtrl', function ($scope,goodsItemService) {
-        var cartList = JSON.parse(localStorage.getItem('cartProduct'));
-        $scope.orderItems = JSON.parse(localStorage.getItem('cartProduct'));
-        $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
-        $scope.totalMoney = getTotalMoney();
+    .controller('shoppingListCtrl', function ($scope,goodsItemService,cartItemService,localStorageService) {
+        $scope.cartList = localStorageService.get('cartProduct');
+        $scope.cartItem=localStorageService.get('cartProduct');
+        $scope.orderItems = localStorageService.get('cartProduct');
+        $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
+        $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItem);
         $scope.remove = function(){
-            localStorage.removeItem('cartProduct');
-            localStorage.setItem('totalCount',0);
-            $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
+            localStorageService.remove('cartProduct');
+            localStorageService.set('totalCount',0);
+            $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
         };
     });
 
