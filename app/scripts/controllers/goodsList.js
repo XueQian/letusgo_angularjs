@@ -6,21 +6,22 @@
 ////构造可重用的组件，以及HTML扩展。
 
 angular.module('angularLeteusgoApp')
-    .controller('goodsListCtrl', function ($scope,localStorageService,loadItemService) {
+    .controller('goodsListCtrl', function ($scope,localStorageService,loadItemService,goodsItemService) {
         $scope.itemList=loadItemService.loadItem();
-        console.log($scope.itemList);
         localStorageService.set('itemList',$scope.itemList);
         localStorageService.set('totalCount',getTotalCount());
         $scope.products = localStorageService.get('itemList');
+
+
         $scope.$parent.totalCount=getTotalCount();
         $scope.addToCart=function(productItem){
             var cartList = JSON.parse(localStorage.getItem('cartProduct'));
             if(cartList===null){
                 cartList=[];
             }
-            var cartitem = isExistItem(productItem,cartList);
-            if(cartitem){
-                cartitem.count++;
+            $scope.cartitem = goodsItemService.isExistItem(productItem,cartList);
+            if($scope.cartitem){
+                $scope.cartitem.count++;
             }else{
                 cartList.push(new CartItem(productItem,1));
             }
@@ -29,18 +30,6 @@ angular.module('angularLeteusgoApp')
             $scope.$parent.totalCount=getTotalCount();
         };
     });
-function isExistItem(product,cartList) {
-    var item_;
-    for (var i = 0; i < cartList.length; i++) {
-        if (product.name === cartList[i].item.name) {
-            item_ = cartList[i];
-            break;
-        } else {
-            item_=false;
-        }
-    }
-    return item_;
-}
 function getTotalCount(){
     var items=JSON.parse(localStorage.getItem('cartProduct'));
     var totalCount=0;
