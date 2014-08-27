@@ -7,15 +7,13 @@
 
 angular.module('angularLeteusgoApp')
     .controller('goodsListCtrl', function ($scope,localStorageService,loadItemService,goodsItemService) {
+        var cartList = JSON.parse(localStorage.getItem('cartProduct'));
         $scope.itemList=loadItemService.loadItem();
         localStorageService.set('itemList',$scope.itemList);
-        localStorageService.set('totalCount',getTotalCount());
+        localStorageService.set('totalCount',goodsItemService.getTotalCount(cartList));
         $scope.products = localStorageService.get('itemList');
-
-
-        $scope.$parent.totalCount=getTotalCount();
+        $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
         $scope.addToCart=function(productItem){
-            var cartList = JSON.parse(localStorage.getItem('cartProduct'));
             if(cartList===null){
                 cartList=[];
             }
@@ -26,19 +24,9 @@ angular.module('angularLeteusgoApp')
                 cartList.push(new CartItem(productItem,1));
             }
             localStorage.setItem('cartProduct',JSON.stringify(cartList));
-            localStorage.setItem('totalCount',JSON.stringify(getTotalCount()));
-            $scope.$parent.totalCount=getTotalCount();
+            localStorage.setItem('totalCount',JSON.stringify(goodsItemService.getTotalCount(cartList)));
+            $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
         };
     });
-function getTotalCount(){
-    var items=JSON.parse(localStorage.getItem('cartProduct'));
-    var totalCount=0;
-    if(items===null){
-        totalCount=0;
-    }else{
-        for(var i=0;i<items.length;i++){
-            totalCount+=items[i].count;
-        }
-    }
-    return totalCount;
-}
+
+

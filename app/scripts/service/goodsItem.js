@@ -2,11 +2,18 @@
 
 angular.module('angularLeteusgoApp')
     .service('goodsItemService', function () {
-//        this.getTotalCount = function() {
-//
-//
-//
-//        };
+        this.getTotalCount = function(cartList) {
+            var totalCount=0;
+            if(cartList===null){
+                totalCount=0;
+            }else{
+                for(var i=0;i<cartList.length;i++){
+                    totalCount+=cartList[i].count;
+                }
+            }
+            return totalCount;
+
+        };
 //        this.addToCart = function() {
 //
 //
