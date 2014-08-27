@@ -7,23 +7,21 @@
 
 angular.module('angularLeteusgoApp')
     .controller('goodsListCtrl', function ($scope,localStorageService,loadItemService,goodsItemService) {
-        $scope.cartList = localStorageService.get('cartProduct');
-        $scope.itemList=loadItemService.loadItem();
-        localStorageService.set('itemList',$scope.itemList);
-        localStorageService.set('totalCount',goodsItemService.getTotalCount($scope.cartList));
+        var cartList = localStorageService.get('cartProduct');
+        var itemList=loadItemService.loadItem();
+        localStorageService.set('itemList',itemList);
+        localStorageService.set('totalCount',goodsItemService.getTotalCount(cartList));
         $scope.products = localStorageService.get('itemList');
-        $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
+        $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
         $scope.addToCart=function(productItem){
-            if($scope.cartList===null){
-                $scope.cartList=[];
+            if(cartList===null){
+               cartList=[];
             }
-            $scope.cartList = goodsItemService.addToCartList(productItem, $scope.cartList);
-            localStorageService.set('cartProduct',$scope.cartList);
-            localStorageService.set('totalCount',goodsItemService.getTotalCount($scope.cartList));
-            $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
+            cartList = goodsItemService.addToCartList(productItem, cartList);
+            localStorageService.set('cartProduct',cartList);
+            localStorageService.set('totalCount',goodsItemService.getTotalCount(cartList));
+            $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
         };
-
-
     });
 
 
