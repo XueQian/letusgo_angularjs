@@ -1,33 +1,21 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-    .controller('cartCtrl', function ($scope,goodsItemService) {
-        var cartItem=JSON.parse(localStorage.getItem('cartProduct'));
-        var cartList = JSON.parse(localStorage.getItem('cartProduct'));
-        $scope.cartItems = cartItem;
-        $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
-        $scope.totalMoney = getTotalMoney();
+    .controller('cartCtrl', function ($scope,goodsItemService,localStorageService,cartItemService) {
+        $scope.cartItem=localStorageService.get('cartProduct');
+        $scope.cartList = localStorageService.get('cartProduct');
+        $scope.cartItems = $scope.cartItem;
+        $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
+        $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItem);
         $scope.changeCount = function(item_){
-            for(var i=0;i<cartItem.length;i++){
-                if(cartItem[i].item.name===item_.item.name){
-                    cartItem[i].count=item_.count;
+            for(var i=0;i<$scope.cartItem.length;i++){
+                if($scope.cartItem[i].item.name===item_.item.name){
+                    $scope.cartItem[i].count=item_.count;
                 }
             }
-            localStorage.setItem('cartProduct',JSON.stringify(cartItem));
-            localStorage.setItem('totalCount',JSON.stringify(goodsItemService.getTotalCount(cartList)));
-            $scope.totalMoney = getTotalMoney();
-            $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
+            localStorageService.set('cartProduct',$scope.cartItem);
+            localStorageService.set('totalCount',goodsItemService.getTotalCount($scope.cartList));
+            $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItem);
+            $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
         };
     });
-function getTotalMoney(){
-    var cartItem=JSON.parse(localStorage.getItem('cartProduct'));
-    var totalMoney=0;
-    if(cartItem === null){
-        totalMoney = 0;
-    }else{
-       for (var i = 0; i < cartItem.length; i++) {
-        totalMoney+=cartItem[i].item.price*cartItem[i].count;
-        }
-    }
-    return totalMoney;
-}

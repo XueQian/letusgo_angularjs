@@ -7,25 +7,25 @@
 
 angular.module('angularLeteusgoApp')
     .controller('goodsListCtrl', function ($scope,localStorageService,loadItemService,goodsItemService) {
-        var cartList = JSON.parse(localStorage.getItem('cartProduct'));
+        $scope.cartList = localStorageService.get('cartProduct');
         $scope.itemList=loadItemService.loadItem();
         localStorageService.set('itemList',$scope.itemList);
-        localStorageService.set('totalCount',goodsItemService.getTotalCount(cartList));
+        localStorageService.set('totalCount',goodsItemService.getTotalCount($scope.cartList));
         $scope.products = localStorageService.get('itemList');
-        $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
+        $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
         $scope.addToCart=function(productItem){
-            if(cartList===null){
-                cartList=[];
+            if($scope.cartList===null){
+                $scope.cartList=[];
             }
-            $scope.cartitem = goodsItemService.isExistItem(productItem,cartList);
             if($scope.cartitem){
                 $scope.cartitem.count++;
             }else{
-                cartList.push(new CartItem(productItem,1));
+                $scope.cartList.push(new CartItem(productItem,1));
             }
-            localStorage.setItem('cartProduct',JSON.stringify(cartList));
-            localStorage.setItem('totalCount',JSON.stringify(goodsItemService.getTotalCount(cartList)));
-            $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
+            $scope.cartitem = goodsItemService.isExistItem(productItem,$scope.cartList);
+            localStorageService.set('cartProduct',$scope.cartList);
+            localStorageService.set('totalCount',goodsItemService.getTotalCount($scope.cartList));
+            $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
         };
     });
 

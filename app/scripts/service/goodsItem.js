@@ -12,7 +12,6 @@ angular.module('angularLeteusgoApp')
                 }
             }
             return totalCount;
-
         };
 //        this.addToCart = function() {
 //
