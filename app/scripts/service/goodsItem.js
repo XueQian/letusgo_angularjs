@@ -13,22 +13,17 @@ angular.module('angularLeteusgoApp')
             }
             return totalCount;
         };
-//        this.addToCart = function() {
-//
-//
-//
-//        };
-        this.isExistItem = function(product,cartList){
-            var item_;
+
+        this.addToCartList = function(product,cartList){
             for (var i = 0; i < cartList.length; i++) {
                 if (product.name === cartList[i].item.name) {
-                    item_ = cartList[i];
-                    break;
-                } else {
-                    item_=false;
+                    cartList[i].count++;
+                    return cartList;
                 }
             }
-            return item_;
+            var cartItem = {item:product, count:1};
+            cartList.push(cartItem);
+            return cartList;
         }
     });
 

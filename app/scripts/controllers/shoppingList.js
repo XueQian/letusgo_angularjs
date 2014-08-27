@@ -10,7 +10,7 @@ angular.module('angularLeteusgoApp')
         $scope.remove = function(){
             localStorageService.remove('cartProduct');
             localStorageService.set('totalCount',0);
-            $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
+            $scope.$parent.totalCount = 0;
         };
     });
 

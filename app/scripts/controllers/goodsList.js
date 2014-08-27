@@ -17,12 +17,7 @@ angular.module('angularLeteusgoApp')
             if($scope.cartList===null){
                 $scope.cartList=[];
             }
-            if($scope.cartitem){
-                $scope.cartitem.count++;
-            }else{
-                $scope.cartList.push(new CartItem(productItem,1));
-            }
-            $scope.cartitem = goodsItemService.isExistItem(productItem,$scope.cartList);
+            $scope.cartList = goodsItemService.addToCartList(productItem, $scope.cartList);
             localStorageService.set('cartProduct',$scope.cartList);
             localStorageService.set('totalCount',goodsItemService.getTotalCount($scope.cartList));
             $scope.$parent.totalCount=goodsItemService.getTotalCount($scope.cartList);
