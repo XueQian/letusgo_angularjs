@@ -1,14 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name angularLeteusgoApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the angularLeteusgoApp
- */
 angular.module('angularLeteusgoApp')
-  .controller('indexCtrl', function ($scope) {
+  .controller('indexCtrl', function () {
 //    $scope.awesomeThings = [
 //      'HTML5 Boilerplate',
 //      'AngularJS',

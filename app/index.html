@@ -46,17 +46,15 @@
                             </div>
                         </nav>
                     </div>
-
                     <div class="col-md-1 col-md-offset-11">
-                        <h5> 去购物车
-                        </h5>
-
                         <h2>
                             <a href="#cart">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
                             </a>
                         </h2>
-
+                        <h6>
+                            购物车（{{totalCount}}）
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -100,15 +98,20 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/controllers/index.js"></script>
+<script src="scripts/model/item.js"></script>
+<script src="scripts/model/cartItem.js"></script>
 <script src="scripts/controllers/goodsList.js"></script>
+<script src="scripts/model/loadItem.js"></script>
+<script src="scripts/controllers/index.js"></script>
 <script src="scripts/controllers/shoppingList.js"></script>
 <script src="scripts/controllers/cart.js"></script>
+
 <!-- endbuild -->
 </body>
 </html>
