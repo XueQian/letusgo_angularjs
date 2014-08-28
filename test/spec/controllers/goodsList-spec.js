@@ -6,16 +6,12 @@ describe("goodsListCtrl", function () {
 
     beforeEach(function () {
         module('angularLeteusgoApp');
-
         inject(function ($injector) {
-
             $scope = $injector.get('$rootScope').$new();
             localStorageService = $injector.get('localStorageService');
             loadItemService = $injector.get('loadItemService');
             goodsItemService = $injector.get('goodsItemService');
-
             var $controller = $injector.get('$controller');
-
             createController = function () {
                 return $controller('goodsListCtrl', {
                     $scope: $scope,
@@ -26,17 +22,21 @@ describe("goodsListCtrl", function () {
             };
         });
     });
-
-    describe('title', function () {
+    describe('operate itemList', function () {
+        var itemList;
         beforeEach(function () {
+            itemList= [{barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}];
+            console.log(localStorageService);
+            spyOn(localStorageService,'get').andReturn(itemList);
             createController();
         });
-        spyOn(localStorageService,'get').andReturn(storedPlans);
+        it('products is OK', function () {
+            expect($scope.products).toEqual([{barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}]);
+        });
+        it('use localStorageService .set', function () {
+            expect($scope.products).toEqual([{barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}]);
+        });
 
-        it('should has title "修改会议基础信息"', function () {
-            createController();
-            expect($scope.title).toEqual('修改会议基础信息');
-        });
     });
 
 

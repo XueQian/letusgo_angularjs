@@ -6,20 +6,20 @@
 ////构造可重用的组件，以及HTML扩展。
 
 angular.module('angularLeteusgoApp')
-    .controller('goodsListCtrl', function ($scope,localStorageService,loadItemService,goodsItemService) {
-        var cartList = localStorageService.get('cartProduct');
-        var itemList=loadItemService.loadItem();
-        localStorageService.set('itemList',itemList);
-        localStorageService.set('totalCount',goodsItemService.getTotalCount(cartList));
-        $scope.products = localStorageService.get('itemList');
+    .controller('goodsListCtrl', function ($scope,goodsItemService) {
+        var itemList=goodsItemService.loadItem();
+        var cartList = goodsItemService.get('cartProduct');
+        goodsItemService.set('itemList',itemList);
+        goodsItemService.set('totalCount',goodsItemService.getTotalCount(cartList));
+        $scope.products = goodsItemService.get('itemList');
         $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
         $scope.addToCart=function(productItem){
-            if(cartList===null){
-               cartList=[];
+            if(cartList == null){
+                cartList = [];
             }
             cartList = goodsItemService.addToCartList(productItem, cartList);
-            localStorageService.set('cartProduct',cartList);
-            localStorageService.set('totalCount',goodsItemService.getTotalCount(cartList));
+            goodsItemService.set('cartProduct',cartList);
+            goodsItemService.set('totalCount',goodsItemService.getTotalCount(cartList));
             $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
         };
     });

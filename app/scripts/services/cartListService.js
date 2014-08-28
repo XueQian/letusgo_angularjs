@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-    .service('cartItemService', function () {
+    .service('cartItemService', function (localStorageService) {
         this.getTotalMoney=function(cartItems) {
             var totalMoney = 0;
             if (cartItems === null) {
