@@ -34,6 +34,9 @@ angular.module('angularLeteusgoApp')
             });
             if(!flag){
                 var cartItem = {item: product, count: 1};
+                if (cartLists === null){
+                    cartLists = [];
+                }
                 cartLists.push(cartItem);
             }
             return cartLists;
