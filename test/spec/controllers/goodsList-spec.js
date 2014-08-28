@@ -1,20 +1,48 @@
 'use strict';
 
-describe('Controller: AboutCtrl', function () {
+describe("goodsListCtrl", function () {
 
-    beforeEach(module('angularLeteusgoApp'));
+    var $scope, createController, localStorageService, loadItemService,goodsItemService;
 
-    var AboutCtrl,
-        scope;
+    beforeEach(function () {
+        module('angularLeteusgoApp');
 
-    beforeEach(inject(function ($controller, $rootScope) {
-        scope = $rootScope.$new();
-        AboutCtrl = $controller('AboutCtrl', {
-            $scope: scope
+        inject(function ($injector) {
+
+            $scope = $injector.get('$rootScope').$new();
+            localStorageService = $injector.get('localStorageService');
+            loadItemService = $injector.get('loadItemService');
+            goodsItemService = $injector.get('goodsItemService');
+
+            var $controller = $injector.get('$controller');
+
+            createController = function () {
+                return $controller('goodsListCtrl', {
+                    $scope: $scope,
+                    localStorageService: localStorageService,
+                    loadItemService: loadItemService,
+                    goodsItemService: goodsItemService
+                });
+            };
         });
-    }));
-
-    it('should attach a list of awesomeThings to the scope', function () {
-        expect(scope.awesomeThings.length).toBe(3);
     });
+
+    describe('title', function () {
+        beforeEach(function () {
+            createController();
+        });
+        spyOn(localStorageService,'get').andReturn(storedPlans);
+
+        it('should has title "修改会议基础信息"', function () {
+            createController();
+            expect($scope.title).toEqual('修改会议基础信息');
+        });
+    });
+
+
+
+
+
+
+
 });

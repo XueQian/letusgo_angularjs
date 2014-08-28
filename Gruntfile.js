@@ -9,6 +9,7 @@
 
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks('grunt-karma');
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
