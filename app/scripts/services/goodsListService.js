@@ -20,23 +20,24 @@ angular.module('angularLeteusgoApp')
       }) || 0;
     };
 
-    this.addToCartList = function (product, cartLists) {
+    this.addToCartList = function (item, cartItems) {
 
-      var hasExistItem = _.any(cartLists, function (cartList) {
-        return product.name === cartList.item.name;
+      var hasExistItem = _.any(cartItems, function (cartItem) {
+        return item.name === cartItem.item.name;
       });
 
       if (hasExistItem) {
-        _(cartLists).forEach(function (cartList) {
-          if (product.name === cartList.item.name) {
-            cartList.count++;
-          }
+
+        var existCartItem = _.find(cartItems, function(cartItem) {
+          return item.name === cartItem.item.name;
         });
+        existCartItem.count++;
+
       } else {
-        cartLists.push({item: product, count: 1});
+        cartItems.push({item: item, count: 1});
       }
 
-      return cartLists;
+      return cartItems;
     };
 
     this.get = function (key) {
