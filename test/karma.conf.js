@@ -3,7 +3,7 @@
 // Generated on 2014-08-20 using
 // generator-karma 0.8.3
 
-module.exports = function(config) {
+module.exports = function (config) {
   'use strict';
 
   config.set({
@@ -16,6 +16,9 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
+    // coverage reporter generates the coverage
+    reporters: ['progress', 'coverage'],
+
     // list of files / patterns to load in the browser
     files: [
       'bower_components/angular/angular.js',
@@ -27,11 +30,18 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-local-storage/angular-local-storage.js',
-       'bower_components/lodash/dist/lodash.compat.js',
+      'bower_components/lodash/dist/lodash.compat.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
+
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/scripts/**/*.js': ['coverage']
+    },
 
     // list of files / patterns to exclude
     exclude: [],
@@ -54,7 +64,8 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-coverage'
     ],
 
     // Continuous Integration mode
@@ -65,7 +76,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_INFO
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {
