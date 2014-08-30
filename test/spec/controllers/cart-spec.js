@@ -62,29 +62,32 @@ describe("cartCtrl", function () {
       var item_ = [
         {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 1}
       ];
-      spyOn(localStorageService, 'set');
+      spyOn(goodsItemService, 'set');
 
       createController();
+
       $scope.changeCount(item_);
 
-      expect(localStorageService.set.callCount).toEqual(2);
+      expect(goodsItemService.set.callCount).toEqual(2);
     });
 
-    xit('same name, count=count', function () {
+    it('same name, count=count', function () {
       var item_ =
         {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 1}
       ;
-     spyOn(goodsItemService, 'get').andReturn(item_);
-      console.log(item_.count);
-      spyOn(cartItemService,'getTotalMoney');
-      //var cartItems=[{item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 0}];
 
-      var cartItem =
-        {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 0}
+      spyOn(cartItemService,'getTotalMoney');
+
+      var cartItems =[{item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 0}
+]
       ;
-      spyOn(localStorageService,'get').andReturn(cartItem);
+      spyOn(goodsItemService,'get').andReturn(cartItems);
+     // console.log(cartItem.count);
+
+
       createController();
-      var result=cartItem.count;
+      $scope.changeCount(item_);
+      var result=$scope.cartItems[0].count;
 
       expect(result).toEqual(1);
     });

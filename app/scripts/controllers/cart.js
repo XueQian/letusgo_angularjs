@@ -10,13 +10,11 @@ angular.module('angularLeteusgoApp')
     $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItems);
 
     $scope.changeCount = function (item_) {
-      console.log('1');
       _($scope.cartItems).forEach(function (cartItem) {
-        console.log('2');
 
         if (cartItem.item.name === item_.item.name) {
-          console.log(cartItem+"______cartItem");
-          console.log(item_);
+         // console.log(cartItem+"______cartItem");
+         // console.log(item_);
           cartItem.count = item_.count;
         }
       });

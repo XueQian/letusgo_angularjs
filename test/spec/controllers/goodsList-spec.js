@@ -12,7 +12,7 @@ describe("goodsListCtrl", function () {
 
       $scope = $injector.get('$rootScope').$new();
       goodsItemService = $injector.get('goodsItemService');
-      localStorageService =  $injector.get('localStorageService');
+      localStorageService = $injector.get('localStorageService');
       var $controller = $injector.get('$controller');
 
       createController = function () {
@@ -48,16 +48,16 @@ describe("goodsListCtrl", function () {
 
   });
 
-  describe('addToCart', function () {
+  describe('addToCart .set ', function () {
 
     it('use localStorageService .set', function () {
-      var productItem  ={barcode: 'ITEM00002', category: '手机数码', name: '手机１', price: 1111, unit: '件'};
+      var productItem = {barcode: 'ITEM00002', category: '手机数码', name: '手机１', price: 1111, unit: '件'};
 
-      spyOn(localStorageService, 'set');
+      spyOn(goodsItemService, 'set');
       createController();
       $scope.addToCart(productItem);
 
-      expect(localStorageService.set.callCount).toEqual(4);
+      expect(goodsItemService.set.callCount).toEqual(4);
 
     });
 
@@ -67,10 +67,36 @@ describe("goodsListCtrl", function () {
       expect($scope.$emit).toHaveBeenCalledWith('_parent_totalCount');
 
     });
+    xit('cartList is OK', function () {
+
+     var  cartList = [
+        {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}
+      ];
+
+      spyOn(goodsItemService, 'get').andReturn(cartList);
+      createController();
+
+      expect($scope.products[0].name).toEqual('服装１');
+    });
+
+    it('addToCart if is ok', function () {
+
+      var productItem={};
+
+      var  cartList = null;
+
+      spyOn(goodsItemService, 'get').andReturn(cartList);
+
+      createController();
+      $scope.addToCart(productItem);
+
+      expect(goodsItemService.getTotalCount(cartList)).toBe(0);
+    });
 
   });
-
 });
+
+
 
 
 
