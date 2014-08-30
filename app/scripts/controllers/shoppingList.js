@@ -1,21 +1,21 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-    .controller('shoppingListCtrl', function ($scope,goodsItemService,cartItemService) {
+  .controller('shoppingListCtrl', function ($scope, goodsItemService, cartItemService) {
 
-        var cartList = goodsItemService.get('cartProduct');
-        $scope.cartItem=goodsItemService.get('cartProduct');
+    $scope.orderItems = goodsItemService.get('cartProduct');
 
-        $scope.orderItems = goodsItemService.get('cartProduct');
-        $scope.$parent.totalCount=goodsItemService.getTotalCount(cartList);
+    $scope.$emit('_parent_totalCount');
 
-        $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItem);
+    $scope.totalMoney = cartItemService.getTotalMoney($scope.orderItems);
 
-        $scope.remove = function(){
+    $scope.remove = function () {
 
-            cartItemService.remove('cartProduct');
-            goodsItemService.set('totalCount',0);
-            $scope.$parent.totalCount = 0;
-        };
-    });
+      cartItemService.remove('cartProduct');
+
+      goodsItemService.set('totalCount', 0);
+
+      $scope.$emit('_parent_totalCount===0');
+    };
+  });
 
