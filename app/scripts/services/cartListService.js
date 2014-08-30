@@ -6,10 +6,10 @@ angular.module('angularLeteusgoApp')
 
       var totalMoney = 0;
 
-        _(cartItems).forEach(function (cartItem) {
+      _(cartItems).forEach(function (cartItem) {
 
-          totalMoney += cartItem.item.price * cartItem.count;
-        });
+        totalMoney += cartItem.item.price * cartItem.count;
+      });
 
       return totalMoney;
     };

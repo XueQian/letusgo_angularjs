@@ -67,17 +67,6 @@ describe("goodsListCtrl", function () {
       expect($scope.$emit).toHaveBeenCalledWith('_parent_totalCount');
 
     });
-    xit('cartList is OK', function () {
-
-     var  cartList = [
-        {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}
-      ];
-
-      spyOn(goodsItemService, 'get').andReturn(cartList);
-      createController();
-
-      expect($scope.products[0].name).toEqual('服装１');
-    });
 
     it('addToCart if is ok', function () {
 

@@ -13,8 +13,7 @@ angular.module('angularLeteusgoApp')
       _($scope.cartItems).forEach(function (cartItem) {
 
         if (cartItem.item.name === item_.item.name) {
-         // console.log(cartItem+"______cartItem");
-         // console.log(item_);
+
           cartItem.count = item_.count;
         }
       });

@@ -28,7 +28,7 @@ angular.module('angularLeteusgoApp')
 
       if (hasExistItem) {
 
-        var existCartItem = _.find(cartItems, function(cartItem) {
+        var existCartItem = _.find(cartItems, function (cartItem) {
           return item.name === cartItem.item.name;
         });
         existCartItem.count++;
