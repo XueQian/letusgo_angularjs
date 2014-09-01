@@ -1,72 +1,80 @@
 <!doctype html>
 <html class="no-js">
 <head>
-    <meta charset="utf-8">
-    <title>letUsGo!!</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <!--<link rel="stylesheet" href="styles/main.css">-->
-    <!-- endbuild -->
+  <meta charset="utf-8">
+  <title>letUsGo!!</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <!--<link rel="stylesheet" href="styles/main.css">-->
+  <!-- endbuild -->
 </head>
 <body ng-app="angularLeteusgoApp">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
+  your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Add your site or application content here -->
 <div class="container" ng-controller="indexCtrl">
-    <div class="header">
-        <div class="panel panel panel-primary well well-sm">
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-2">
-                        <h4>Let Us Go !!!</h4>
+  <div class="header">
+    <div class="panel panel panel-primary well well-sm">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-2">
+            <h4>Let Us Go !!!</h4>
 
-                        <h1><span class="glyphicon glyphicon-send"></span></h1>
-                    </div>
-                    <div class="col-md-7">
-                        <nav class="navbar navbar-inverse" role="navigation">
-                            <div class="container-fluid">
-                                <div class="collapse navbar-collapse" id="navigation_home">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#index">首页</a></li>
-                                        <li><a href="#goodsList">商品列表</a></li>
-                                        <li><a href="#cart">购物车</a></li>
-                                        <p class="navbar-text">亲，进店有好礼咕～～（╯﹏╰）ｂ</p>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="col-md-1 col-md-offset-11">
-                        <h2>
-                            <a href="#cart">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                            </a>
-                        </h2>
-                        <h6>
-                            购物车（{{totalCount}}）
-                        </h6>
-                    </div>
+            <h1><span class="glyphicon glyphicon-send"></span></h1>
+          </div>
+          <div class="col-md-7">
+            <nav class="navbar navbar-inverse" role="navigation">
+              <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navigation_home">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#index">首页</a></li>
+                    <li><a href="#goodsList">商品列表</a></li>
+                    <li><a href="#cart">购物车</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理商场 <span
+                        class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#changeCategory">修改商品分类</a></li>
+                        <li><a href="#changeGoodsItems">修改商品信息</a></li>
+                      </ul>
+                    </li>
+                    <p class="navbar-text">亲，进店有好礼咕～～（╯﹏╰）ｂ</p>
+                  </ul>
                 </div>
-            </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-md-1 col-md-offset-11">
+            <h2>
+              <a href="#cart">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+              </a>
+            </h2>
+            <h6>
+              购物车（{{totalCount}}）
+            </h6>
+          </div>
         </div>
-
+      </div>
     </div>
 
-    <div ng-view=""></div>
+  </div>
 
-    <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> Have a nice day!!</p>
-    </div>
+  <div ng-view=""></div>
+
+  <div class="footer">
+    <p><span class="glyphicon glyphicon-heart"></span> Have a nice day!!</p>
+  </div>
 </div>
 
 

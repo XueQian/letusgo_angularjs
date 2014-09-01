@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-  .controller('changeCategoryCtrl', function ($scope, goodsItemService) {
+    .controller('changeCategoryCtrl', function ($scope, goodsItemService) {
 
-    var itemList = goodsItemService.loadItem();
-    $scope.products = goodsItemService.get('itemList');
+        var itemList = goodsItemService.loadItem();
+        //goodsItemService.set('itemList', itemList);
+        $scope.products = goodsItemService.get('itemList');
 
-  });
+    });

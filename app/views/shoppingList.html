@@ -1,30 +1,32 @@
 <div class="panel panel-danger well well-sm">
-    <div class="panel-heading">
-        <p class="h3">购物清单</p>
+  <div class="panel-heading">
+    <p class="h3">购物清单</p>
+  </div>
+
+  <div class="panel-body" id="order">
+    <p class="text-center h4">购物清单</p>
+
+    <div class="row text-center">
+      <div class="col-md-3">名称</div>
+      <div class="col-md-3">数量</div>
+      <div class="col-md-3">单价</div>
+      <div class="col-md-3">小计</div>
     </div>
 
-    <div class="panel-body" id="order">
-        <p class="text-center h4">购物清单</p>
-
-        <div class="row text-center">
-            <div class="col-md-3">名称</div>
-            <div class="col-md-3">数量</div>
-            <div class="col-md-3">单价</div>
-            <div class="col-md-3">小计</div>
-        </div>
-
-        <div ng-repeat="orderItem in orderItems">
-            <div class="row text-center">
-                <div class="col-md-3">{{orderItem.item.name}}</div>
-                <div class="col-md-3">{{orderItem.count}}</div>
-                <div class="col-md-3">{{orderItem.item.price}}</div>
-                <div class="col-md-3">{{orderItem.item.price*orderItem.count}}</div>
-            </div>
-        </div>
-        <hr>
-        <p class="text-right text-danger h4"><label>总计：{{totalMoney}}元</label></p>
-        <p class="text-right" id="ok"><a class="btn btn-primary btn-lg"role="button" ng-click="remove()"href="#index">付款</a></p>
-
-
+    <div ng-repeat="orderItem in orderItems">
+      <div class="row text-center">
+        <div class="col-md-3">{{orderItem.item.name}}</div>
+        <div class="col-md-3">{{orderItem.count}}</div>
+        <div class="col-md-3">{{orderItem.item.price}}</div>
+        <div class="col-md-3">{{orderItem.item.price*orderItem.count}}</div>
+      </div>
     </div>
+    <hr>
+    <p class="text-right text-danger h4"><label>总计：{{totalMoney}}元</label></p>
+
+    <p class="text-right" id="ok"><a class="btn btn-primary btn-lg" role="button" ng-click="remove()"
+                                     href="#index">付款</a></p>
+
+
+  </div>
 </div>

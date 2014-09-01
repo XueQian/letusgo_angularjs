@@ -1,34 +1,34 @@
 <div class="panel panel-danger well well-sm">
-    <div class="panel-heading">
-        <div class="row text-center">
-            <div class="col-md-3"><label class="h4">名称</label></div>
-            <div class="col-md-3"><label class="h4">单价</label></div>
-            <div class="col-md-3"><label class="h4">数量</label></div>
-            <div class="col-md-3"><label class="h4">小计</label></div>
-        </div>
+  <div class="panel-heading">
+    <div class="row text-center">
+      <div class="col-md-3"><label class="h4">名称</label></div>
+      <div class="col-md-3"><label class="h4">单价</label></div>
+      <div class="col-md-3"><label class="h4">数量</label></div>
+      <div class="col-md-3"><label class="h4">小计</label></div>
     </div>
+  </div>
 
 
-    <div class="panel-body" ng-repeat="cartItem in cartItems">
-        <div class="row text-center">
-            <div class="col-md-3">{{cartItem.item.name}}</div>
-            <div class="col-md-3">{{cartItem.item.price}}</div>
-            <div class="col-md-3 form-inline num">
-                <input type="number" min='0' ng-model="cartItem.count" ng-change="changeCount(cartItem)"
-                       value="{{cartItem.count}}">
-            </div>
-            <div class="col-md-3" ng-model="count">
-                {{cartItem.item.price*cartItem.count}}
-            </div>
-        </div>
+  <div class="panel-body" ng-repeat="cartItem in cartItems">
+    <div class="row text-center">
+      <div class="col-md-3">{{cartItem.item.name}}</div>
+      <div class="col-md-3">{{cartItem.item.price}}</div>
+      <div class="col-md-3 form-inline num">
+        <input type="number" min='0' ng-model="cartItem.count" ng-change="changeCount(cartItem)"
+               value="{{cartItem.count}}">
+      </div>
+      <div class="col-md-3" ng-model="count">
+        {{cartItem.item.price*cartItem.count}}
+      </div>
     </div>
+  </div>
 
-    <p class="text-danger text-right">
-        <label>总计：{{totalMoney}}元</label>
-    </p>
+  <p class="text-danger text-right">
+    <label>总计：{{totalMoney}}元</label>
+  </p>
 
-    <p class="text-right">
-        <a class="btn btn-primary" role="button" ng-click="order()" href="#shoppingList">结算</a>
-    </p>
+  <p class="text-right">
+    <a class="btn btn-primary" role="button" ng-click="order()" href="#shoppingList">结算</a>
+  </p>
 
 </div>
