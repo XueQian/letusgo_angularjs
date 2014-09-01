@@ -1,11 +1,23 @@
 <div class="panel panel-danger well well-sm " ng-app>
   <div class="panel-heading">
-    <table>
-      <tr>
-        <th><h2 id="goodsList_category">修改商品分类</h2></th>
-        <th><h4 class="text-right">CHANGE CATEGORY</h4></th>
-      </tr>
-    </table>
+    <div class="row">
+      <div class="col-md-6">
+        <table>
+          <tr>
+            <th><h2 id="goodsList_category">修改商品分类</h2></th>
+            <th><h4 class="text-right">CHANGE CATEGORY</h4></th>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-4">....</div>
+      <div class="col-md-2">
+        <h1 class="text-right">
+          <button type="button" data-toggle="modal" data-target=".add-category" id="' +item[m].category + '"
+                  class="btn btn-primary btn-lg " ng-click="">增加
+          </button>
+        </h1>
+      </div>
+    </div>
   </div>
   <table class="table table-striped text-center" id="goodsList_table">
     <tr id="goodsList_header">
@@ -16,15 +28,40 @@
     <tr ng-repeat="product in products">
       <td id="goodsList_category">{{product.category}}</td>
       <td id="goodsList_addButton">
-        <button type="button" id="' +item[m].category + '" class="btn btn-primary " ng-click="">增加</button>
         <button type="button" id="' +item[m].category + '" class="btn btn-danger " ng-click="">删除</button>
-        <button type="button" id="' +item[m].category + '" class="btn btn-primary " ng-click="">修改</button>
+        <button type="button" id="' +item[m].category + '" class="btn btn-warning " ng-click="">修改</button>
       </td>
     </tr>
 
   </table>
 
+  <div class="modal fad add-category" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">添加商品信息</h4>
+        </div>
+        <div class="modal-body">
+          <div class=" row text-center form-group">
+            <div class="col-md-3 col-md-offset-1 h5">分类</div>
+            <div class="col-md-7">
+              <input class="form-control" required
+                     placeholder="请输入商品类别">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">添加</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+</div>
+
 
 
 
