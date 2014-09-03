@@ -12,9 +12,9 @@
       <div class="col-md-4">....</div>
       <div class="col-md-2">
         <h1 class="text-right">
-          <button type="button" data-toggle="modal" data-target=".add-goodsItems" id="' +item[m].name + '"
-                  class="btn btn-primary btn-lg" ng-click="">增加
-          </button>
+          <a role="button"  id="' +item[m].name + '"
+             a href="#addGoodsItems" class="btn btn-primary btn-lg" >增加
+          </a>
         </h1>
       </div>
     </div>
@@ -42,50 +42,53 @@
   </table>
 
 
-  <div class="modal fad add-goodsItems" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-       aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">添加商品信息</h4>
-        </div>
-        <div class="modal-body">
-          <div class=" row text-center form-group">
-            <div class="col-md-3 col-md-offset-1 h5">分类</div>
-            <div class="col-md-7">
-              <input class="form-control" required
-                     placeholder="请输入商品类别">
-            </div>
-          </div>
-          <div class=" row text-center form-group">
-            <div class="col-md-3 col-md-offset-1 h5">名称</div>
-            <div class="col-md-7">
-              <input class="form-control" required
-                     placeholder="请输入商品名称">
-            </div>
-          </div>
-          <div class=" row text-center form-group">
-            <div class="col-md-3 col-md-offset-1 h5">单价</div>
-            <div class="col-md-7">
-              <input class="form-control" required
-                     placeholder="请输入商品单价">
-            </div>
-          </div>
-          <div class=" row text-center form-group">
-            <div class="col-md-3 col-md-offset-1 h5">单位</div>
-            <div class="col-md-7">
-              <input class="form-control" required
-                     placeholder="请输入商品单位">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">添加</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--
+  data-toggle="modal" data-target=".add-goodsItems"
+
+  <div class="modal fad add-goodsItems" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"-->
+       <!--aria-hidden="true">-->
+    <!--<div class="modal-dialog modal-sm">-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<h4 class="modal-title" id="myModalLabel">添加商品信息</h4>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+          <!--<div class=" row text-center form-group">-->
+            <!--<div class="col-md-3 col-md-offset-1 h5">分类</div>-->
+            <!--<div class="col-md-7">-->
+              <!--<input class="form-control" required-->
+                     <!--placeholder="请输入商品类别">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class=" row text-center form-group">-->
+            <!--<div class="col-md-3 col-md-offset-1 h5">名称</div>-->
+            <!--<div class="col-md-7">-->
+              <!--<input class="form-control" required-->
+                     <!--placeholder="请输入商品名称">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class=" row text-center form-group">-->
+            <!--<div class="col-md-3 col-md-offset-1 h5">单价</div>-->
+            <!--<div class="col-md-7">-->
+              <!--<input class="form-control" required-->
+                     <!--placeholder="请输入商品单价">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class=" row text-center form-group">-->
+            <!--<div class="col-md-3 col-md-offset-1 h5">单位</div>-->
+            <!--<div class="col-md-7">-->
+              <!--<input class="form-control" required-->
+                     <!--placeholder="请输入商品单位">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="modal-footer">-->
+            <!--<button type="button" class="btn btn-primary">添加</button>-->
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
 </div>
 

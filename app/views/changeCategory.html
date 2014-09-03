@@ -12,9 +12,9 @@
       <div class="col-md-4">....</div>
       <div class="col-md-2">
         <h1 class="text-right">
-          <button type="button" data-toggle="modal" data-target=".add-category" id="' +item[m].category + '"
-                  class="btn btn-primary btn-lg " ng-click="">增加
-          </button>
+          <a id="' +item[m].category + '"
+                  role="button" a href="#addCategory" class="btn btn-primary btn-lg" >增加
+          </a>
         </h1>
       </div>
     </div>
@@ -35,29 +35,31 @@
 
   </table>
 
-  <div class="modal fad add-category" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-       aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">添加商品信息</h4>
-        </div>
-        <div class="modal-body">
-          <div class=" row text-center form-group">
-            <div class="col-md-3 col-md-offset-1 h5">分类</div>
-            <div class="col-md-7">
-              <input class="form-control" required
-                     placeholder="请输入商品类别">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">添加</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--
+  data-toggle="modal" data-target=".add-category"
+  <div class="modal fad add-category" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"-->
+  <!--aria-hidden="true">-->
+  <!--<div class="modal-dialog modal-sm">-->
+  <!--<div class="modal-content">-->
+  <!--<div class="modal-header">-->
+  <!--<h4 class="modal-title" id="myModalLabel">添加商品信息</h4>-->
+  <!--</div>-->
+  <!--<div class="modal-body">-->
+  <!--<div class=" row text-center form-group">-->
+  <!--<div class="col-md-3 col-md-offset-1 h5">分类</div>-->
+  <!--<div class="col-md-7">-->
+  <!--<input class="form-control" required-->
+  <!--placeholder="请输入商品类别" ng-model="addCategoryModel">-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="modal-footer">-->
+  <!--<button type="button" class="btn btn-primary" onclick="addCategory()">添加</button>-->
+  <!--<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
 </div>
 
 </div>
