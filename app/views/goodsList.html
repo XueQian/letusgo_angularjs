@@ -16,7 +16,7 @@
       <th class="text-center">添加</th>
     </tr>
     <tr ng-repeat="product in products">
-      <td id="goodsList_category">{{product.category}}</td>
+      <td id="goodsList_category">{{getCategoryName(product.category)}}</td>
       <td id="goodsList_name">{{product.name}}</td>
       <td id="goodsList_price">{{product.price}}</td>
       <td id="goodsList_unit">{{product.unit}}</td>

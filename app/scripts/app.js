@@ -39,13 +39,13 @@ angular
         templateUrl: 'views/shoppingList.html',
         controller: 'shoppingListCtrl'
       })
-      .when('/changeCategory', {
-        templateUrl: 'views/changeCategory.html',
-        controller: 'changeCategoryCtrl'
+      .when('/manageCategory', {
+        templateUrl: 'views/manageCategory.html',
+        controller: 'manageCategoryCtrl'
       })
-      .when('/changeGoodsItems', {
-        templateUrl: 'views/changeGoodsItems.html',
-        controller: 'changeGoodsItemsCtrl'
+      .when('/manageGoodsItems', {
+        templateUrl: 'views/manageGoodsItems.html',
+        controller: 'manageGoodsItemsCtrl'
       })
       .when('/addCategory', {
         templateUrl: 'views/addCategory.html',
