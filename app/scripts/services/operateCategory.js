@@ -18,6 +18,7 @@ angular.module('angularLeteusgoApp')
       });
       return result ? result.name: id;
     };
+
   });
 
 

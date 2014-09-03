@@ -14,7 +14,6 @@ angular.module('angularLeteusgoApp')
         $scope.products = goodsItemService.get('itemList');
         $scope.$emit('_parent_totalCount');
 
-
         $scope.addToCart = function (productItem) {
 
             if (cartList === null) {

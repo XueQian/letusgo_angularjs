@@ -28,13 +28,13 @@
       <th class="text-center">操作</th>
     </tr>
     <tr ng-repeat="product in products">
-      <td id="goodsList_category">{{product.category}}</td>
+      <td id="goodsList_category">{{getCategoryName(product.category)}}</td>
       <td id="goodsList_name">{{product.name}}</td>
       <td id="goodsList_price">{{product.price}}</td>
       <td id="goodsList_unit">{{product.unit}}</td>
       <td id="goodsList_addButton">
 
-        <button type="button" id="' +item[m].name + '" class="btn btn-danger " ng-click="">删除</button>
+        <button type="button"  class="btn btn-danger " ng-click="deleteCategory($index)">删除</button>
         <button type="button" id="' +item[m].name + '" class="btn btn-warning " ng-click="">修改</button>
       </td>
     </tr>
