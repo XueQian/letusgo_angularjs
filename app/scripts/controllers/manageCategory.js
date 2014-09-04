@@ -11,6 +11,12 @@ angular.module('angularLeteusgoApp')
       goodsItemService.set('categoryList', $scope.categorys);
     };
 
-//    $scope.addCategory = operateCategoryService.addCategory($scope.category,$scope.categorys);
+    $scope.addCategory = function () {
+
+      var temp = operateCategoryService.addCategory($scope.category,$scope.categorys);
+
+      goodsItemService.set('categoryList',temp);
+    }
+
 
   });
