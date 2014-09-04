@@ -25,25 +25,21 @@ angular.module('angularLeteusgoApp')
       }
     };
 
-//    this.addGoodsItems = function (item, itemList) {
-//
-//      var hasExistGoodsItems = _.any(categoryLists, function (categoryList) {
-//
-//        return category.name === categoryList.name;
-//      });
-//
-//      if (!hasExistCategory) {
-//
-//        var id = parseInt(categoryLists[categoryLists.length - 1].id);
-//
-//        category.id = ++id;
-//
-//        categoryLists.push(category);
-//
-//      }
-//
-//      localStorageService.set('categoryLists', categoryLists);
-//    };
+    this.addGoodsItems = function (item, itemLists) {
+
+      var hasExistGoodsItems = _.any(itemLists, function (itemList) {
+
+        return item.name === itemList.name;
+      });
+
+      if (!hasExistGoodsItems) {
+
+        itemLists.push(itemList);
+
+      }
+
+      localStorageService.set('itemLists', itemLists);
+    };
 
 
   });

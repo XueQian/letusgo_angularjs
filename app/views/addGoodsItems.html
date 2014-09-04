@@ -19,18 +19,21 @@
       <th class="text-center">单位</th>
       <th class="text-center">操作</th>
     </tr>
-    <tr ng-repeat="product in products">
-      <td id="goodsList_category">{{product.category}}</td>
-      <td id="goodsList_name">{{product.name}}</td>
-      <td id="goodsList_price">{{product.price}}</td>
-      <td id="goodsList_unit">{{product.unit}}</td>
-      <td id="goodsList_addButton">
-
-        <button type="button" id="' +item[m].name + '" class="btn btn-primary " ng-click="">确定</button>
-        <button type="button" id="' +item[m].name + '" class="btn btn-default " ng-click="">取消</button>
+    <tr>
+      <td><select class="form-control" ng-model='item.category'>
+        <option value="category.id" ng-selected="item.category==category.id" ng-repeat="category in categorys">
+          {{category.name}}
+        </option>
+      </select>
+      </td>
+      <td><input type="text" class="form-control" ng-model="item.name"></td>
+      <td><input type="text" class="form-control" ng-model="item.price"></td>
+      <td><input type="text" class="form-control" ng-model="item.unit"></td>
+      <td>
+        <a class="btn btn-primary" role="button" ng-click="" href="#manageGoodsItems">确定</a>
+        <a class="btn btn-default" role="button" href="#manageGoodsItems">取消</a>
       </td>
     </tr>
-
   </table>
 </div>
 

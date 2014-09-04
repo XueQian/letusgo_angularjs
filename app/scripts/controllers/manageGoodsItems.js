@@ -16,4 +16,8 @@ angular.module('angularLeteusgoApp')
       goodsItemService.set('itemLists', $scope.products);
     }
 
+    $scope.categorys = operateCategoryService.loadCategorys();
+
+    console.log( $scope.categorys );
+
   });
