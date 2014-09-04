@@ -4,7 +4,7 @@ angular.module('angularLeteusgoApp')
   .service('operateCategoryService', function (localStorageService) {
     this.loadCategorys = function () {
 
-      var categoryList = [
+      var categoryLists = [
         {id: 1, name: '服装鞋包'},
         {id: 2, name: '手机数码'},
         {id: 3, name: '全球美食'},
@@ -12,16 +12,16 @@ angular.module('angularLeteusgoApp')
         {id: 5, name: '母婴用品'}
       ];
 
-      var temp = localStorageService.get('categoryList');
+      var temp = localStorageService.get('categoryLists');
 
       if (temp) {
 
         return temp;
       } else {
 
-        localStorageService.set('categoryList', categoryList);
+        localStorageService.set('categoryLists', categoryLists);
 
-        return categoryList;
+        return categoryLists;
       }
     };
 
@@ -47,11 +47,19 @@ angular.module('angularLeteusgoApp')
         categoryLists.push(category);
       }
 
-      return categoryLists;
+      localStorageService.set('categoryLists',categoryLists);
     };
 
   });
 
+//$scope.id = parseInt($scope.categories[$scope.categories.length-1].id);
+//$scope.add = function(){
+//  if(!$scope.name){return;}
+//  var category = {};
+//  category.id = ++$scope.id;
+//  category.name = $scope.name;
+//  $scope.categories.push(category);
+//};
 
 
 

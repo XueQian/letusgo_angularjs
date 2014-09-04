@@ -8,14 +8,12 @@ angular.module('angularLeteusgoApp')
     $scope.deleteCategory = function (index) {
 
       $scope.categorys.splice(index, 1);
-      goodsItemService.set('categoryList', $scope.categorys);
+      goodsItemService.set('categoryLists', $scope.categorys);
     };
 
     $scope.addCategory = function () {
 
-      var temp = operateCategoryService.addCategory($scope.category,$scope.categorys);
-
-      goodsItemService.set('categoryList',temp);
+      operateCategoryService.addCategory($scope.category, $scope.categorys);
     }
 
 

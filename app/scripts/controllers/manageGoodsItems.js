@@ -10,8 +10,9 @@ angular.module('angularLeteusgoApp')
     };
 
     $scope.deleteCategory = function (index) {
+
       $scope.products.splice(index, 1);
-      console.log("1111111111");
+
       goodsItemService.set('itemList', $scope.products);
     }
 
