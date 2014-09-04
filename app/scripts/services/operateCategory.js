@@ -34,7 +34,7 @@ angular.module('angularLeteusgoApp')
 
       return result ? result.name : id;
     };
-//
+
 //    this.addCategory = function (category,categoryLists) {
 //
 //      var hasExistCategory = _.any(categoryLists, function (categoryList) {

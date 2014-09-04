@@ -49,11 +49,11 @@ angular
       })
       .when('/addCategory', {
         templateUrl: 'views/addCategory.html',
-        controller: 'addCategoryCtrl'
+        controller: 'manageCategoryCtrl'
       })
       .when('/addGoodsItems', {
         templateUrl: 'views/addGoodsItems.html',
-        controller: 'addGoodsItemsCtrl'
+        controller: 'manageGoodsItemsCtrl'
       })
       .otherwise({
         redirectTo: '/'

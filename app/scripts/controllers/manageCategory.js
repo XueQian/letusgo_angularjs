@@ -6,8 +6,8 @@ angular.module('angularLeteusgoApp')
     $scope.categorys = operateCategoryService.loadCategorys();
 
     $scope.deleteCategory = function (index) {
+
       $scope.categorys.splice(index, 1);
-      console.log("2222222");
       goodsItemService.set('categoryList', $scope.categorys);
     };
 
