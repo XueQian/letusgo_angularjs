@@ -13,7 +13,7 @@ angular.module('angularLeteusgoApp')
 
       $scope.products.splice(index, 1);
 
-      goodsItemService.set('itemList', $scope.products);
+      goodsItemService.set('itemLists', $scope.products);
     }
 
   });

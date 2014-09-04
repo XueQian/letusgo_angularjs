@@ -4,7 +4,7 @@ angular.module('angularLeteusgoApp')
   .service('goodsItemService', function (localStorageService) {
     this.loadItem = function () {
 
-      return localStorageService.get('itemList') || [];
+      return localStorageService.get('itemLists') || [];
     };
 
     this.getTotalCount = function (cartLists) {

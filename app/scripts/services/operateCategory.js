@@ -35,25 +35,24 @@ angular.module('angularLeteusgoApp')
       return result ? result.name : id;
     };
 
-    this.addCategory = function (category,categoryLists) {
+    this.addCategory = function (category, categoryLists) {
 
       var hasExistCategory = _.any(categoryLists, function (categoryList) {
 
         return category.name === categoryList.name;
       });
 
-      if(!hasExistCategory){
+      if (!hasExistCategory) {
 
-       var  id = parseInt(categoryLists[categoryLists.length-1].id);
-
-        console.log(id);
+        var id = parseInt(categoryLists[categoryLists.length - 1].id);
 
         category.id = ++id;
 
         categoryLists.push(category);
+
       }
 
-      localStorageService.set('categoryLists',categoryLists);
+      localStorageService.set('categoryLists', categoryLists);
     };
 
   });
