@@ -55,6 +55,14 @@ angular
         templateUrl: 'views/addGoodsItems.html',
         controller: 'manageGoodsItemsCtrl'
       })
+      .when('/modifyCategory', {
+        templateUrl: 'views/modifyCategory.html',
+        controller: 'manageCategoryCtrl'
+      })
+      .when('/modifyGoodsItems', {
+        templateUrl: 'views/modifyGoodsItems.html',
+        controller: 'manageGoodsItemsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
