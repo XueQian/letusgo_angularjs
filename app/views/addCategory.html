@@ -17,11 +17,11 @@
       <th class="text-center">操作</th>
 
     </tr>
-    <tr ng-repeat="product in products">
-      <td id="goodsList_category">{{product.category}}</td>
-      <td id="goodsList_addButton">
-        <button type="button" id="' +item[m].category + '" class="btn btn-primary " a href="#goodsList" ng-click="">确定</button>
-        <button type="button" id="' +item[m].category + '" class="btn btn-default " ng-click="">取消</button>
+    <tr>
+     <td><input type="text" class="form-control" ng-model="categorys.name"></td>
+      <td>
+        <a class="btn btn-primary" role="button" ng-click="$scope.addCategory" href="#manageCategory">确定</a>
+        <a class="btn btn-default" role="button"  href="#manageCategory">取消</a>
       </td>
     </tr>
   </table>

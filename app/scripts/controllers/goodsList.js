@@ -1,32 +1,34 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-    .controller('goodsListCtrl', function ($scope, goodsItemService,operateCategoryService) {
+  .controller('goodsListCtrl', function ($scope, goodsItemService, operateCategoryService) {
 
-        var itemList = goodsItemService.loadItem();
-        var cartList = goodsItemService.get('cartProduct');
-    $scope.getCategoryName = function(id){
+    var itemList = goodsItemService.loadItem();
+    var cartList = goodsItemService.get('cartProduct');
+
+    $scope.getCategoryName = function (id) {
       return operateCategoryService.getCategoryById(id);
     };
-        goodsItemService.set('itemList', itemList);
-        goodsItemService.set('totalCount', goodsItemService.getTotalCount(cartList));
 
-        $scope.products = goodsItemService.get('itemList');
-        $scope.$emit('_parent_totalCount');
+    goodsItemService.set('itemList', itemList);
+    goodsItemService.set('totalCount', goodsItemService.getTotalCount(cartList));
 
-        $scope.addToCart = function (productItem) {
+    $scope.products = goodsItemService.get('itemList');
+    $scope.$emit('_parent_totalCount');
 
-            if (cartList === null) {
-                cartList = [];
-            }
+    $scope.addToCart = function (productItem) {
 
-            cartList = goodsItemService.addToCartList(productItem, cartList);
+      if (cartList === null) {
+        cartList = [];
+      }
 
-            goodsItemService.set('cartProduct', cartList);
-            goodsItemService.set('totalCount', goodsItemService.getTotalCount(cartList));
+      cartList = goodsItemService.addToCartList(productItem, cartList);
 
-            $scope.$emit('_parent_totalCount');
-        };
-    });
+      goodsItemService.set('cartProduct', cartList);
+      goodsItemService.set('totalCount', goodsItemService.getTotalCount(cartList));
+
+      $scope.$emit('_parent_totalCount');
+    };
+  });
 
 
