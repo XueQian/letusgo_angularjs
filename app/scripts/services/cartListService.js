@@ -1,23 +1,23 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-    .service('cartItemService', function (localStorageService) {
-        this.getTotalMoney = function (cartItems) {
+  .service('cartItemService', function (localStorageService) {
+    this.getTotalMoney = function (cartItems) {
 
-            var totalMoney = 0;
+      var totalMoney = 0;
 
-            _(cartItems).forEach(function (cartItem) {
+      _(cartItems).forEach(function (cartItem) {
 
-                totalMoney += cartItem.item.price * cartItem.count;
-            });
+        totalMoney += cartItem.item.price * cartItem.count;
+      });
 
-            return totalMoney;
-        };
+      return totalMoney;
+    };
 
-        this.remove = function (key) {
+    this.remove = function (key) {
 
-            return  localStorageService.remove(key);
-        };
+      return  localStorageService.remove(key);
+    };
 
-    });
+  });
 

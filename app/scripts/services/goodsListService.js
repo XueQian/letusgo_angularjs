@@ -1,45 +1,45 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-    .service('goodsItemService', function (localStorageService) {
-        this.loadItem = function () {
+  .service('goodsItemService', function (localStorageService) {
+    this.loadItem = function () {
 
-          return localStorageService.get('itemList') || [];
-        };
+      return localStorageService.get('itemList') || [];
+    };
 
-        this.getTotalCount = function (cartLists) {
-            return _.reduce(_.pluck(cartLists, 'count'), function (count1, count2) {
-                return count1 + count2;
-            }) || 0;
-        };
+    this.getTotalCount = function (cartLists) {
+      return _.reduce(_.pluck(cartLists, 'count'), function (count1, count2) {
+        return count1 + count2;
+      }) || 0;
+    };
 
-        this.addToCartList = function (item, cartItems) {
+    this.addToCartList = function (item, cartItems) {
 
-            var hasExistItem = _.any(cartItems, function (cartItem) {
-                return item.name === cartItem.item.name;
-            });
+      var hasExistItem = _.any(cartItems, function (cartItem) {
+        return item.name === cartItem.item.name;
+      });
 
-            if (hasExistItem) {
+      if (hasExistItem) {
 
-                var existCartItem = _.find(cartItems, function (cartItem) {
-                    return item.name === cartItem.item.name;
-                });
-                existCartItem.count++;
+        var existCartItem = _.find(cartItems, function (cartItem) {
+          return item.name === cartItem.item.name;
+        });
+        existCartItem.count++;
 
-            } else {
-                cartItems.push({item: item, count: 1});
-            }
+      } else {
+        cartItems.push({item: item, count: 1});
+      }
 
-            return cartItems;
-        };
+      return cartItems;
+    };
 
-        this.get = function (key) {
-            return localStorageService.get(key);
-        };
+    this.get = function (key) {
+      return localStorageService.get(key);
+    };
 
-        this.set = function (key, value) {
-            return localStorageService.set(key, value);
-        };
+    this.set = function (key, value) {
+      return localStorageService.set(key, value);
+    };
 
-    });
+  });
 
