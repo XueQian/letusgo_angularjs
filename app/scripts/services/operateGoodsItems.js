@@ -30,14 +30,15 @@ angular.module('angularLeteusgoApp')
       var hasExistGoodsItems = _.any(itemLists, function (itemList) {
 
         return item.name === itemList.name;
+
       });
 
       if (!hasExistGoodsItems) {
+        console.log(item);
 
-        itemLists.push(itemList);
+        itemLists.push(item);
 
       }
-
       localStorageService.set('itemLists', itemLists);
     };
 

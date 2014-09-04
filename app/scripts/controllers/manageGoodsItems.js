@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-  .controller('manageGoodsItemsCtrl', function ($scope, goodsItemService, operateCategoryService, operateGoodsItems) {
+  .controller('manageGoodsItemsCtrl', function ($scope, goodsItemService, operateCategoryService, operateGoodsItems,localStorageService) {
 
     $scope.products = operateGoodsItems.loadGoodsItems();
 
@@ -18,6 +18,13 @@ angular.module('angularLeteusgoApp')
 
     $scope.categorys = operateCategoryService.loadCategorys();
 
-    console.log( $scope.categorys );
+   $scope.itemLists = localStorageService.get('itemLists');
+
+    console.log($scope.products+'111111111111111');
+
+    $scope.addGoodsItems = function () {
+
+      operateGoodsItems.addGoodsItems($scope.item, $scope.itemLists);
+    }
 
   });
