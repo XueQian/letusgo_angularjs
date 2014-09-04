@@ -44,6 +44,12 @@ angular.module('angularLeteusgoApp')
 
       if(!hasExistCategory){
 
+       var  id = parseInt(categoryLists[categoryLists.length-1].id);
+
+        console.log(id);
+
+        category.id = ++id;
+
         categoryLists.push(category);
       }
 
@@ -52,14 +58,7 @@ angular.module('angularLeteusgoApp')
 
   });
 
-//$scope.id = parseInt($scope.categories[$scope.categories.length-1].id);
-//$scope.add = function(){
-//  if(!$scope.name){return;}
-//  var category = {};
-//  category.id = ++$scope.id;
-//  category.name = $scope.name;
-//  $scope.categories.push(category);
-//};
+
 
 
 
