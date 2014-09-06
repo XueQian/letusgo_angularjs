@@ -34,13 +34,11 @@ angular.module('angularLeteusgoApp')
       });
 
       if (!hasExistGoodsItems) {
-        console.log(item);
 
         itemLists.push(item);
 
       }
       localStorageService.set('itemLists', itemLists);
     };
-
 
   });

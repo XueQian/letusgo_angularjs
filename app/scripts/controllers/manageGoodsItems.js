@@ -18,9 +18,10 @@ angular.module('angularLeteusgoApp')
 
     $scope.categorys = operateCategoryService.loadCategorys();
 
-   $scope.itemLists = localStorageService.get('itemLists');
+    $scope.itemLists = localStorageService.get('itemLists');
 
-    console.log($scope.products+'111111111111111');
+    $scope.myCategory = operateCategoryService.getCategoryName();
+    console.log($scope.myCategory +'3333333333');
 
     $scope.addGoodsItems = function () {
 
