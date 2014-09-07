@@ -11,22 +11,24 @@
       </div>
     </div>
   </div>
-  <table class="table table-striped text-center" id="goodsList_table">
-    <tr id="goodsList_header">
-      <th class="text-center">分类</th>
-      <th class="text-center">操作</th>
-
-    </tr>
-    <tr>
-      <td><input type="text" class="form-control" ng-model="category.name"></td>
-      <td>
-        <a class="btn btn-primary" role="button" ng-click="addCategory()" href="#manageCategory">确定</a>
-        <a class="btn btn-default" role="button" href="#manageCategory">取消</a>
-      </td>
-    </tr>
-  </table>
-
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2 text-center">
+      分类
+    </div>
+    <div class="col-md-6 col-md-offset-1 text-center">
+      操作
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2 text-center">
+      <input type="text" class="form-control" ng-model="category.name" placeholder="请输入类别名称"></div>
+    <div class="col-md-6 col-md-offset-1 text-center">
+      <a class="btn btn-primary" role="button" ng-click="addCategory()" href="#manageCategory">确定</a>
+      <a class="btn btn-default" role="button" href="#manageCategory">取消</a>
+    </div>
+  </div>
 </div>
+
 
 
 
