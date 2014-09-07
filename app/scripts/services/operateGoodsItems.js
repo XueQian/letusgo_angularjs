@@ -44,22 +44,21 @@ angular.module('angularLeteusgoApp')
     this.getGoodsItemsByBarcode = function (barcode) {
       var itemLists = localStorageService.get('itemLists');
 
-      return _.find(itemLists,{barcode: barcode}) || {};
+      return _.find(itemLists, {barcode: barcode}) || {};
     };
 
     this.modifyGoods = function (itemList) {
       var itemLists = localStorageService.get('itemLists');
 
-        _.forEach(itemLists,function(item,index){
-    if(item.name === itemList.name){
-      itemLists[index] = itemList;
-    }
-  });
+      _.forEach(itemLists, function (item, index) {
+
+        if (item.barcode === itemList.barcode) {
+          itemLists[index] = itemList;
+        }
+      });
+
       localStorageService.set('itemLists', itemLists);
-  return itemList;
-
-
+      return itemList;
     }
-
   });
 

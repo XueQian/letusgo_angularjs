@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-  .service('operateCategoryService', function (localStorageService,operateGoodsItems) {
+  .service('operateCategoryService', function (localStorageService, operateGoodsItems) {
     this.loadCategorys = function () {
 
       var categoryLists = [
@@ -39,7 +39,7 @@ angular.module('angularLeteusgoApp')
     }
 
     this.getItemsById = function (id) {
-     var result =  _.find(operateGoodsItems.loadGoodsItems(),function(itemList){
+      var result = _.find(operateGoodsItems.loadGoodsItems(), function (itemList) {
 
         return itemList.category = id;
       });
