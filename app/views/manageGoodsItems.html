@@ -1,7 +1,7 @@
 <div class="panel panel-danger well well-sm " ng-app>
   <div class="panel-heading">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <table>
           <tr>
             <th><h2 id="goodsList_category">修改商品信息</h2></th>
@@ -9,10 +9,16 @@
           </tr>
         </table>
       </div>
-      <div class="col-md-4" ng-init="products">
-        Search: <input ng-model="searchProduct" class="form-control">
+      <div class="col-md-2" ng-init="categorys">
+        按分类查找: <input ng-model="search.category" class="form-control">
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2" ng-init="categorys">
+        按商品名称查找: <input ng-model="search.name" class="form-control">
+      </div>
+      <div class="col-md-2" ng-init="categorys">
+        按单价查找: <input ng-model="search.price" class="form-control">
+      </div>
+      <div class="col-md-1">
         <h1 class="text-right">
           <a role="button" id="' +item[m].name + '"
              a href="#addGoodsItems" class="btn btn-primary btn-lg">增加
@@ -29,7 +35,7 @@
       <th class="text-center">单位</th>
       <th class="text-center">操作</th>
     </tr>
-    <tr ng-repeat="product in products | filter:searchProduct">
+    <tr ng-repeat="product in products |filter:search:strict">
       <td id="goodsList_category">{{getCategoryName(product.category)}}</td>
       <td id="goodsList_name">{{product.name}}</td>
       <td id="goodsList_price">{{product.price}}</td>
