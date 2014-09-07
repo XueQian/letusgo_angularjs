@@ -9,7 +9,9 @@
           </tr>
         </table>
       </div>
-      <div class="col-md-4">....</div>
+      <div class="col-md-4" ng-init="products">
+        Search: <input ng-model="searchProduct" class="form-control">
+      </div>
       <div class="col-md-2">
         <h1 class="text-right">
           <a role="button" id="' +item[m].name + '"
@@ -27,7 +29,7 @@
       <th class="text-center">单位</th>
       <th class="text-center">操作</th>
     </tr>
-    <tr ng-repeat="product in products">
+    <tr ng-repeat="product in products | filter:searchProduct">
       <td id="goodsList_category">{{getCategoryName(product.category)}}</td>
       <td id="goodsList_name">{{product.name}}</td>
       <td id="goodsList_price">{{product.price}}</td>
