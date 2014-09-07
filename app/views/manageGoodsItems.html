@@ -1,14 +1,17 @@
 <div class="panel panel-danger well well-sm " ng-app>
+
   <div class="panel-heading">
     <div class="row">
+
       <div class="col-md-5">
         <table>
           <tr>
-            <th><h2 id="goodsList_category">修改商品信息</h2></th>
+            <th><h2>管理商品信息</h2></th>
             <th><h4 class="text-right">MANAGE GOODSITEMS</h4></th>
           </tr>
         </table>
       </div>
+
       <div class="col-md-2">
         按分类查找: <input ng-model="search.category" class="form-control" placeholder="请输入商品类别">
       </div>
@@ -20,28 +23,29 @@
       </div>
       <div class="col-md-1">
         <h1 class="text-right">
-          <a role="button" id="' +item[m].name + '"
-             a href="#addGoodsItems" class="btn btn-primary btn-lg">增加
-          </a>
+          <a role="button" href="#addGoodsItems" class="btn btn-primary btn-lg">添加</a>
         </h1>
       </div>
+
     </div>
   </div>
-  <table class="table table-striped text-center" id="goodsList_table">
-    <tr id="goodsList_header">
+
+  <table class="table text-center">
+
+    <tr>
       <th class="text-center">分类</th>
       <th class="text-center">名称</th>
       <th class="text-center">单价</th>
       <th class="text-center">单位</th>
       <th class="text-center">操作</th>
     </tr>
-    <tr ng-repeat="product in products |filter:search:strict">
-      <td id="goodsList_category">{{getCategoryName(product.category)}}</td>
-      <td id="goodsList_name">{{product.name}}</td>
-      <td id="goodsList_price">{{product.price}}</td>
-      <td id="goodsList_unit">{{product.unit}}</td>
-      <td id="goodsList_addButton">
 
+    <tr ng-repeat="product in products |filter:search:strict">
+      <td>{{getCategoryName(product.category)}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.unit}}</td>
+      <td>
         <button type="button" class="btn btn-danger " ng-click="deleteCategory($index)">删除</button>
         <a class="btn btn-warning" role="button" href="#/modifyGoodsItems/{{product.barcode}}">修改</a>
       </td>
