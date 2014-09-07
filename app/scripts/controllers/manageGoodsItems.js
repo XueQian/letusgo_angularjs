@@ -28,4 +28,6 @@ angular.module('angularLeteusgoApp')
       operateGoodsItems.addGoodsItems($scope.item, $scope.itemLists);
     };
 
+
+
   });

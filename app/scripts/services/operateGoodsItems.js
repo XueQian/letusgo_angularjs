@@ -41,4 +41,25 @@ angular.module('angularLeteusgoApp')
       localStorageService.set('itemLists', itemLists);
     };
 
+    this.getGoodsItemsByBarcode = function (barcode) {
+      var itemLists = localStorageService.get('itemLists');
+
+      return _.find(itemLists,{barcode: barcode}) || {};
+    };
+
+    this.modifyGoods = function (itemList) {
+      var itemLists = localStorageService.get('itemLists');
+
+        _.forEach(itemLists,function(item,index){
+    if(item.name === itemList.name){
+      itemLists[index] = itemList;
+    }
   });
+      localStorageService.set('itemLists', itemLists);
+  return itemList;
+
+
+    }
+
+  });
+

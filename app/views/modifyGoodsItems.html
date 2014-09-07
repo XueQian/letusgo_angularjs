@@ -28,11 +28,11 @@
       <td>
         <select ng-model="myCategory" ng-options="category.name for category in categorys"></select>
       </td>
-      <td><input type="text" class="form-control" ng-model="itemList.name" ng-repeat="itemList in itemLists"></td>
-      <td><input type="text" class="form-control" ng-model="item.price"></td>
-      <td><input type="text" class="form-control" ng-model="item.unit"></td>
+      <td><input type="text" class="form-control" ng-model="itemList.name" ></td>
+      <td><input type="text" class="form-control" ng-model="itemList.price"></td>
+      <td><input type="text" class="form-control" ng-model="itemList.unit"></td>
       <td>
-        <a class="btn btn-primary" role="button" ng-click="addGoodsItems()" href="#manageGoodsItems">确定</a>
+        <a class="btn btn-primary" role="button" ng-click="modifyGoods(itemList)" href="#manageGoodsItems">确定</a>
         <a class="btn btn-default" role="button" href="#manageGoodsItems">取消</a>
       </td>
     </tr>

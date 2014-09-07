@@ -59,9 +59,9 @@ angular
         templateUrl: 'views/modifyCategory.html',
         controller: 'manageCategoryCtrl'
       })
-      .when('/modifyGoodsItems', {
+      .when('/modifyGoodsItems/:barcode', {
         templateUrl: 'views/modifyGoodsItems.html',
-        controller: 'manageGoodsItemsCtrl'
+        controller: 'modifyGoodsItemsCtrl'
       })
       .otherwise({
         redirectTo: '/'
