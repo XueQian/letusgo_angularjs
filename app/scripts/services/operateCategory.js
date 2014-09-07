@@ -76,6 +76,23 @@ angular.module('angularLeteusgoApp')
       localStorageService.set('categoryLists', categoryLists);
     };
 
+    this.modifyCategory = function (category) {
+      var categoryLists = localStorageService.get('categoryLists');
+
+      _.forEach(categoryLists, function (category, index) {
+
+        if (category.id === category.id) {
+          categoryLists[index] = category;
+        }
+      });
+
+      localStorageService.set('categoryLists', categoryLists);
+      return category;
+
+
+
+    };
+
   });
 
 

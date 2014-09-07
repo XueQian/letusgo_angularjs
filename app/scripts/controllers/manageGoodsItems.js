@@ -9,6 +9,7 @@ angular.module('angularLeteusgoApp')
       return operateCategoryService.getCategoryById(id);
     };
 
+
     $scope.deleteCategory = function (index) {
 
       $scope.products.splice(index, 1);
