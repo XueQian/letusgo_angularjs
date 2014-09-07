@@ -14,7 +14,7 @@ angular.module('angularLeteusgoApp')
       $scope.products.splice(index, 1);
 
       goodsItemService.set('itemLists', $scope.products);
-    }
+    };
 
     $scope.categorys = operateCategoryService.loadCategorys();
 
@@ -26,6 +26,6 @@ angular.module('angularLeteusgoApp')
     $scope.addGoodsItems = function () {
 
       operateGoodsItems.addGoodsItems($scope.item, $scope.itemLists);
-    }
+    };
 
   });

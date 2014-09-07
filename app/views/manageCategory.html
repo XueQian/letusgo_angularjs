@@ -28,7 +28,7 @@
     <tr ng-repeat="category in categorys">
       <td id="goodsList_category">{{category.name}}</td>
       <td id="goodsList_addButton">
-        <button type="button" id="' +item[m].category + '" class="btn btn-danger " ng-click="deleteCategory($index)">
+        <button type="button"  class="btn btn-danger " ng-click="deleteCategory($index)">
           删除
         </button>
         <a class="btn btn-warning" role="button" href="#modifyCategory">修改</a>
