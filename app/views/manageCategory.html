@@ -1,4 +1,5 @@
 <div class="panel panel-danger well well-sm " ng-app>
+
   <div class="panel-heading">
     <div class="row">
       <div class="col-md-6">
@@ -9,32 +10,37 @@
           </tr>
         </table>
       </div>
+
       <div class="col-md-3">
-        查找: <input ng-model="seachCategory" class="form-control" placeholder="请输入类别名称">
+        查找: <input ng-model="searchCategory" class="form-control" placeholder="请输入类别名称">
       </div>
+
       <div class="col-md-2 col-md-offset-1">
         <h1 class="text-right">
-          <a id="' +item[m].category + '"
-             role="button" a href="#addCategory" class="btn btn-primary btn-lg">增加
-          </a>
+          <a role="button" a href="#addCategory" class="btn btn-primary btn-lg">增加</a>
         </h1>
       </div>
+
     </div>
   </div>
-  <table class="table table-striped text-center" id="goodsList_table">
-    <tr id="goodsList_header">
+
+  <table class="table text-center">
+
+    <tr>
       <th class="text-center">分类</th>
       <th class="text-center">操作</th>
     </tr>
-    <tr ng-repeat="category in categorys | filter:seachCategory">
+
+    <tr ng-repeat="category in categorys | filter:searchCategory">
       <td id="goodsList_category">{{category.name}}</td>
       <td id="goodsList_addButton">
-        <button type="button"  class="btn btn-danger " ng-click="deleteCategory($index)">
+        <button type="button" class="btn btn-danger " ng-click="deleteCategory($index)">
           删除
         </button>
         <a class="btn btn-warning" role="button" href="#modifyCategory">修改</a>
       </td>
     </tr>
+
   </table>
 </div>
 
