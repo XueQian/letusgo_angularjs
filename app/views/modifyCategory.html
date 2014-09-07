@@ -1,4 +1,5 @@
 <div class="panel panel-danger well well-sm " ng-app>
+
   <div class="panel-heading">
     <div class="row">
       <div class="col-md-6">
@@ -11,22 +12,25 @@
       </div>
     </div>
   </div>
-  <table class="table table-striped text-center" id="goodsList_table">
-    <tr id="goodsList_header">
-      <th class="text-center">分类</th>
-      <th class="text-center">操作</th>
 
-    </tr>
-    <tr>
-      <td>
-        <select ng-model="myCategory" ng-options="category.name for category in categorys"></select>
-      </td>
-      <td>
-        <a class="btn btn-primary" role="button" ng-click="modifyCategory(category)" href="#manageCategory">确定</a>
-        <a class="btn btn-default" role="button" href="#manageCategory">取消</a>
-      </td>
-    </tr>
-  </table>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2 text-center">
+      分类
+    </div>
+    <div class="col-md-6 col-md-offset-1 text-center">
+      操作
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2 text-center">
+      <select ng-model="myCategory" ng-options="category.name for category in categorys"></select>
+    </div>
+    <div class="col-md-6 col-md-offset-1 text-center">
+      <a class="btn btn-primary" role="button" ng-click="modifyCategory(category)" href="#manageCategory">确定</a>
+      <a class="btn btn-default" role="button" href="#manageCategory">取消</a>
+    </div>
+  </div>
 
 </div>
 
