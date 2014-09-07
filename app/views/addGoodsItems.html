@@ -11,32 +11,36 @@
       </div>
     </div>
   </div>
-  <table class="table table-striped text-center" id="goodsList_table">
-    <tr id="goodsList_header">
-      <th class="text-center">分类</th>
-      <th class="text-center">名称</th>
-      <th class="text-center">单价</th>
-      <th class="text-center">单位</th>
-      <th class="text-center">操作</th>
-    </tr>
-    <tr>
-      <!--<td><select class="form-control" ng-model="myCategory" >-->
-        <!--<option  value="category.id" ng-selected="item.category==category.id" ng-repeat="category in categorys">-->
-          <!--{{category.name}}-->
-        <!--</option>-->
-      <!--</select>-->
-      <td>
+  <div class="row">
+    <div class="col-md-3 text-center">分类</div>
+    <div class="col-md-2 text-center">名称</div>
+    <div class="col-md-2 text-center">单价</div>
+    <div class="col-md-2 text-center">单位</div>
+    <div class="col-md-2 text-center">操作</div>
+  </div>
+  <div class="row">
+    <!--<td><select class="form-control" ng-model="myCategory" >-->
+    <!--<option  value="category.id" ng-selected="item.category==category.id" ng-repeat="category in categorys">-->
+    <!--{{category.name}}-->
+    <!--</option>-->
+    <!--</select>-->
+    <div class="col-md-3 text-center">
       <select ng-model="myCategory" ng-options="category.name for category in categorys"></select>
-      </td>
-      <td><input type="text" class="form-control" ng-model="item.name"></td>
-      <td><input type="text" class="form-control" ng-model="item.price"></td>
-      <td><input type="text" class="form-control" ng-model="item.unit"></td>
-      <td>
-        <a class="btn btn-primary" role="button" ng-click="addGoodsItems()" href="#manageGoodsItems">确定</a>
-        <a class="btn btn-default" role="button" href="#manageGoodsItems">取消</a>
-      </td>
-    </tr>
-  </table>
+    </div>
+    <div class="col-md-2 text-center">
+      <input type="text" class="form-control" ng-model="item.name" placeholder="请输入商品名称">
+    </div>
+    <div class="col-md-2 text-center">
+      <input type="text" class="form-control" ng-model="item.price" placeholder="请输入商品单价">
+    </div>
+    <div class="col-md-2 text-center">
+      <input type="text" class="form-control" ng-model="item.unit" placeholder="请输入商品单位">
+    </div>
+    <div class="col-md-2 text-center">
+      <a class="btn btn-primary" role="button" ng-click="addGoodsItems()" href="#manageGoodsItems">确定</a>
+      <a class="btn btn-default" role="button" href="#manageGoodsItems">取消</a>
+    </div>
+  </div>
 </div>
 
 
