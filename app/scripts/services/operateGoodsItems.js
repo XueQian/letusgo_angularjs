@@ -25,16 +25,12 @@ angular.module('angularLeteusgoApp')
       }
     };
     this.getItemsById = function (id) {
-     // console.log(id);
-     // console.log(this.loadGoodsItems());
-      var result = _.find(this.loadGoodsItems(), function (itemList) {
-        //console.log(this.loadGoodsItems());
 
-        //console.log(itemList.category);
+      var result = _.find(this.loadGoodsItems(), function (itemList) {
 
         return itemList.category == id;
       });
-       //console.log(result);
+
       return result ? false : true;
     };
 
@@ -74,7 +70,7 @@ angular.module('angularLeteusgoApp')
       });
 
       localStorageService.set('itemLists', itemLists);
-      console.log(itemList.category);
+
       return itemList;
     }
   });
