@@ -25,19 +25,6 @@ angular.module('angularLeteusgoApp')
       }
     };
 
-    this.getCategoryName = function () {
-
-      var categoryLists = [
-        {id: 1, name: '服装鞋包'},
-        {id: 2, name: '手机数码'},
-        {id: 3, name: '全球美食'},
-        {id: 4, name: '护肤彩妆'},
-        {id: 5, name: '母婴用品'}
-      ];
-
-      return categoryLists[0].name;
-    }
-
 //    this.getItemsById = function (id) {
 //      var result = _.find(operateGoodsItems.loadGoodsItems(), function (itemList) {
 //        //console.log(operateGoodsItems.loadGoodsItems());

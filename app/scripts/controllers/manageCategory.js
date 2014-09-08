@@ -26,15 +26,11 @@ angular.module('angularLeteusgoApp')
       operateCategoryService.addCategory($scope.category, $scope.categorys);
     };
 
-    $scope.myCategory = operateCategoryService.getCategoryName();
-
-
     //$scope.category = operateCategoryService.getCategoryById(id);
 
     $scope.modifyCategory = function () {
 
       return operateCategoryService.modifyCategory($scope.categorys);
     };
-
 
   });
