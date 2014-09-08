@@ -3,7 +3,7 @@
   <div class="panel-heading">
     <div class="row">
 
-      <div class="col-md-5">
+      <div class="col-md-6">
         <table>
           <tr>
             <th><h2>管理商品信息</h2></th>
@@ -12,16 +12,10 @@
         </table>
       </div>
 
-      <div class="col-md-2">
-        按分类查找: <input ng-model="search.category" class="form-control" placeholder="请输入商品类别">
+      <div class="col-md-3">
+        查找: <input ng-model="searchGoodsItems" class="form-control" placeholder="请输入商品信息">
       </div>
-      <div class="col-md-2">
-        按商品名称查找: <input ng-model="search.name" class="form-control" placeholder="请输入商品名称">
-      </div>
-      <div class="col-md-2">
-        按单价查找: <input ng-model="search.price" class="form-control" placeholder="请输入商品单价">
-      </div>
-      <div class="col-md-1">
+      <div class="col-md-2 col-md-offset-1">
         <h1 class="text-right">
           <a role="button" href="#addGoodsItems" class="btn btn-primary btn-lg">添加</a>
         </h1>
@@ -40,7 +34,7 @@
       <th class="text-center">操作</th>
     </tr>
 
-    <tr ng-repeat="product in products |filter:search:strict">
+    <tr ng-repeat="product in products |filter:searchGoodsItems">
       <td>{{getCategoryName(product.category)}}</td>
       <td>{{product.name}}</td>
       <td>{{product.price}}</td>
