@@ -13,5 +13,6 @@ angular.module('angularLeteusgoApp')
     $scope.modifyGoods = function () {
       operateGoodsItems.modifyGoods($scope.itemList);
     };
+
   });
 

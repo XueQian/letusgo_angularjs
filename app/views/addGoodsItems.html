@@ -22,13 +22,8 @@
   </div>
 
   <div class="row">
-    <!--<td><select class="form-control" ng-model="myCategory" >-->
-    <!--<option  value="category.id" ng-selected="item.category==category.id" ng-repeat="category in categorys">-->
-    <!--{{category.name}}-->
-    <!--</option>-->
-    <!--</select>-->
     <div class="col-md-3 text-center">
-      <select ng-model="myCategory" ng-options="category.name for category in categorys"></select>
+      <select ng-model="item.category" ng-options="category.name for category in categorys"></select>
     </div>
     <div class="col-md-2 text-center">
       <input type="text" class="form-control" ng-model="item.name" placeholder="请输入商品名称">

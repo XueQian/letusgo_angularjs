@@ -24,8 +24,22 @@ angular.module('angularLeteusgoApp')
         return itemLists;
       }
     };
+    this.getItemsById = function (id) {
+     // console.log(id);
+     // console.log(this.loadGoodsItems());
+      var result = _.find(this.loadGoodsItems(), function (itemList) {
+        //console.log(this.loadGoodsItems());
+
+        //console.log(itemList.category);
+
+        return itemList.category == id;
+      });
+       //console.log(result);
+      return result ? false : true;
+    };
 
     this.addGoodsItems = function (item, itemLists) {
+      item.category  =  item.category.id;
 
       var hasExistGoodsItems = _.any(itemLists, function (itemList) {
 
@@ -48,6 +62,8 @@ angular.module('angularLeteusgoApp')
     };
 
     this.modifyGoods = function (itemList) {
+
+      itemList.category  =  itemList.category.id;
       var itemLists = localStorageService.get('itemLists');
 
       _.forEach(itemLists, function (item, index) {
@@ -58,6 +74,7 @@ angular.module('angularLeteusgoApp')
       });
 
       localStorageService.set('itemLists', itemLists);
+      console.log(itemList.category);
       return itemList;
     }
   });

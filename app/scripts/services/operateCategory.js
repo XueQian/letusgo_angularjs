@@ -38,16 +38,18 @@ angular.module('angularLeteusgoApp')
       return categoryLists[0].name;
     }
 
-    this.getItemsById = function (id) {
-      var result = _.find(operateGoodsItems.loadGoodsItems(), function (itemList) {
-
-        return itemList.category = id;
-      });
-      return result ? false : true;
-    };
+//    this.getItemsById = function (id) {
+//      var result = _.find(operateGoodsItems.loadGoodsItems(), function (itemList) {
+//        //console.log(operateGoodsItems.loadGoodsItems());
+//        console.log(itemList.category);
+//
+//        return itemList.category == id;
+//      });
+//     // console.log(result);
+//      return result ? false : true;
+//    };
 
     this.getCategoryById = function (id) {
-
       var result = _.find(this.loadCategorys(), function (category) {
 
         return category.id == id;
@@ -88,7 +90,6 @@ angular.module('angularLeteusgoApp')
 
       localStorageService.set('categoryLists', categoryLists);
       return category;
-
 
 
     };

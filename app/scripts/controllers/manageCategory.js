@@ -5,12 +5,12 @@ angular.module('angularLeteusgoApp')
 
     $scope.categorys = operateCategoryService.loadCategorys();
 
-    console.log($scope.categorys);
-
     $scope.getItemsById = function (id) {
-      return operateCategoryService.getItemsById(id);
-      console.log(operateCategoryService.getItemsById(id)+'1111111111111111');
-    }
+      console.log(id);
+
+      //console.log(operateCategoryService.getItemsById(id)+'1111111111111111');
+      return operateGoodsItems.getItemsById(id);
+    };
 
     $scope.deleteCategory = function (index,id) {
 
