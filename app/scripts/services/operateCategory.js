@@ -66,7 +66,6 @@ angular.module('angularLeteusgoApp')
 
       localStorageService.set('categoryLists', categoryLists);
       return category;
-
     };
 
   });

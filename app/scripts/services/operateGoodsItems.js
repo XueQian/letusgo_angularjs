@@ -44,6 +44,9 @@ angular.module('angularLeteusgoApp')
       });
 
       if (!hasExistGoodsItems) {
+        var barcode = itemLists[itemLists.length - 1].barcode.substring(8);
+
+        item.barcode = itemLists[itemLists.length - 1].barcode.substring(0,8)+(++barcode);
 
         itemLists.push(item);
 
