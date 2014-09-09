@@ -3,6 +3,8 @@
 angular.module('angularLeteusgoApp')
   .controller('manageGoodsItemsCtrl', function ($scope, goodsItemService, operateCategoryService, operateGoodsItems, localStorageService) {
 
+    $scope.$emit('_parent_manageActive');
+
     $scope.products = operateGoodsItems.loadGoodsItems();
 
     $scope.getCategoryName = function (id) {

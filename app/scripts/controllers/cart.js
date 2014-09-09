@@ -3,6 +3,8 @@
 angular.module('angularLeteusgoApp')
   .controller('cartCtrl', function ($scope, goodsItemService, cartItemService) {
 
+    $scope.$emit('_parent_cartActive');
+
     $scope.cartItems = goodsItemService.get('cartProduct');
 
     $scope.$emit('_parent_totalCount');

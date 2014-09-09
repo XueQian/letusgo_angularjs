@@ -3,6 +3,8 @@
 angular.module('angularLeteusgoApp')
   .controller('goodsListCtrl', function ($scope, goodsItemService, operateCategoryService) {
 
+    $scope.$emit('_parent_goodsListActive');
+
     var itemLists = goodsItemService.loadItem();
     var cartList = goodsItemService.get('cartProduct');
 
