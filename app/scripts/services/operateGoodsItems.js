@@ -62,7 +62,7 @@ angular.module('angularLeteusgoApp')
 
     this.modifyGoods = function (itemList) {
 
-      itemList.category  =  itemList.category.id;
+     // itemList.category  =  itemList.category.id;
       var itemLists = localStorageService.get('itemLists');
 
       _.forEach(itemLists, function (item, index) {

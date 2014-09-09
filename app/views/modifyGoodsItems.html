@@ -23,7 +23,14 @@
 
   <div class="row">
     <div class="col-md-3 text-center">
-      <select ng-model="itemList.category" ng-options="category.name for category in categorys"></select>
+      <!--<select ng-model="itemList.category" ng-options="category.name for category in categorys">-->
+      <!--</select>-->
+      <select class="form-control" ng-model='itemList.category'>
+        <option value={{category.id}} ng-selected={{itemList.category==category.id}}
+                ng-repeat="category in categorys">
+          {{category.name}}
+        </option>
+      </select>
     </div>
     <div class="col-md-2 text-center">
       <input type="text" class="form-control" ng-model="itemList.name">
@@ -44,7 +51,7 @@
 
 
 
-
+<!--ng-options="category.name for category in categorys"-->
 
 
 
