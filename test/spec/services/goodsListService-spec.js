@@ -20,16 +20,6 @@ describe("goodsItemService", function () {
 
             expect(angular.isFunction(goodsItemService.loadItem)).toBe(true);
         });
-
-        it('loadItem() is OK', function () {
-
-            var result = goodsItemService.loadItem();
-
-            expect(result.length).toBe(6);
-            expect(result[1].barcode).toBe('ITEM00001');
-            expect(result[3].name).toBe('美食１');
-            expect(result[5].price).toBe(11);
-        });
     });
 
     describe("getTotalCount", function () {
