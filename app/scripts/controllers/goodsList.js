@@ -11,7 +11,6 @@ angular.module('angularLeteusgoApp')
     $scope.getCategoryName = function (id) {
       return operateCategoryService.getCategoryById(id);
     };
-
     goodsItemService.set('itemLists', itemLists);
     goodsItemService.set('totalCount', goodsItemService.getTotalCount(cartList));
 

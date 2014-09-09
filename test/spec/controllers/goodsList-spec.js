@@ -2,7 +2,7 @@
 
 describe("goodsListCtrl", function () {
 
-  var $scope, goodsItemService, createController, localStorageService;
+  var $scope, goodsItemService, createController, localStorageService,operateCategoryService;
 
   beforeEach(function () {
 
@@ -13,6 +13,7 @@ describe("goodsListCtrl", function () {
       $scope = $injector.get('$rootScope').$new();
       goodsItemService = $injector.get('goodsItemService');
       localStorageService = $injector.get('localStorageService');
+      operateCategoryService = $injector.get('operateCategoryService');
       var $controller = $injector.get('$controller');
 
       createController = function () {
@@ -20,7 +21,7 @@ describe("goodsListCtrl", function () {
         return $controller('goodsListCtrl', {
           $scope: $scope,
           goodsItemService: goodsItemService,
-          localStorageService: localStorageService
+          operateCategoryService: operateCategoryService
         });
       };
     });
@@ -70,7 +71,7 @@ describe("goodsListCtrl", function () {
 
     });
 
-    it('addToCart if is ok', function () {
+    it('addToCart  is ok', function () {
 
       var productItem={};
 
@@ -82,6 +83,19 @@ describe("goodsListCtrl", function () {
       $scope.addToCart(productItem);
 
       expect(goodsItemService.getTotalCount(cartList)).toBe(0);
+    });
+//
+//    $scope.getCategoryName = function (id) {
+//      return operateCategoryService.getCategoryById(id);
+//    };
+
+    it('getCategoryName  is ok', function () {
+     var id=0;
+     var result = '服装鞋包';
+      spyOn(operateCategoryService, 'getCategoryById').andReturn(result);
+
+      createController();
+      expect($scope.getCategoryName(id)).toBe('服装鞋包');
     });
 
   });
