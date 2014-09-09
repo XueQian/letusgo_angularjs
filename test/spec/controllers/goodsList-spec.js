@@ -84,10 +84,6 @@ describe("goodsListCtrl", function () {
 
       expect(goodsItemService.getTotalCount(cartList)).toBe(0);
     });
-//
-//    $scope.getCategoryName = function (id) {
-//      return operateCategoryService.getCategoryById(id);
-//    };
 
     it('getCategoryName  is ok', function () {
      var id=0;
