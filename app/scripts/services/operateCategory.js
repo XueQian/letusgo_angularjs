@@ -37,7 +37,9 @@ angular.module('angularLeteusgoApp')
     this.getCategorysById = function (id) {
       var categorys = localStorageService.get('categoryLists');
 
-      return _.find(categorys, {id: id}) || {};
+      return _.find(categorys, function(category){
+        return category.id == id;
+      }) || {};
     };
 
     this.addCategory = function (category, categoryLists) {
@@ -61,12 +63,12 @@ angular.module('angularLeteusgoApp')
     };
 
     this.modifyCategory = function (category) {
-    //  category.name  = category.id;
+
       var categoryLists = localStorageService.get('categoryLists');
 
-      _.forEach(categoryLists, function (category, index) {
+      _.forEach(categoryLists, function (category1, index) {
 
-        if (category.id === category.id) {
+        if (category1.id == category.id) {
           categoryLists[index] = category;
         }
       });

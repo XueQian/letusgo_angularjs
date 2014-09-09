@@ -55,9 +55,9 @@ angular
         templateUrl: 'views/addGoodsItems.html',
         controller: 'manageGoodsItemsCtrl'
       })
-      .when('/modifyCategory', {
+      .when('/modifyCategory/:id', {
         templateUrl: 'views/modifyCategory.html',
-        controller: 'manageCategoryCtrl'
+        controller: 'modifyCategoryCtrl'
       })
       .when('/modifyGoodsItems/:barcode', {
         templateUrl: 'views/modifyGoodsItems.html',
