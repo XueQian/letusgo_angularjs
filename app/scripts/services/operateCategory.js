@@ -34,6 +34,12 @@ angular.module('angularLeteusgoApp')
       return result ? result.name : id;
     };
 
+    this.getCategorysById = function (id) {
+      var categorys = localStorageService.get('categoryLists');
+
+      return _.find(categorys, {id: id}) || {};
+    };
+
     this.addCategory = function (category, categoryLists) {
 
       var hasExistCategory = _.any(categoryLists, function (categoryList) {
@@ -55,6 +61,7 @@ angular.module('angularLeteusgoApp')
     };
 
     this.modifyCategory = function (category) {
+    //  category.name  = category.id;
       var categoryLists = localStorageService.get('categoryLists');
 
       _.forEach(categoryLists, function (category, index) {
