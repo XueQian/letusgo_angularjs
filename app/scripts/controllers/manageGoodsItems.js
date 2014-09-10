@@ -8,9 +8,8 @@ angular.module('angularLeteusgoApp')
     $scope.products = operateGoodsItems.loadGoodsItems();
 
     $scope.getCategoryName = function (id) {
-      return operateCategoryService.getCategoryById(id);
+      return operateCategoryService.getCategorysById(id,null).name;
     };
-
 
     $scope.deleteCategory = function (index) {
 

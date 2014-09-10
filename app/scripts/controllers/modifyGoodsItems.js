@@ -8,8 +8,7 @@ angular.module('angularLeteusgoApp')
     $scope.itemList = operateGoodsItems.getGoodsItemsByBarcode($routeParams.barcode);
 
     $scope.categorys = operateCategoryService.loadCategorys();
-    var id = operateCategoryService.getCategoryIdById($scope.itemList.category);
-    $scope.category = $scope.categorys[id-1];
+    $scope.category= operateCategoryService.getCategorysById($scope.itemList.category,$scope.categorys);
 
     $scope.modifyGoods = function () {
 

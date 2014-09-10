@@ -5,11 +5,11 @@ angular.module('angularLeteusgoApp')
     this.loadCategorys = function () {
 
       var categoryLists = [
-        {id: 1, name: '服装鞋包'},
-        {id: 2, name: '手机数码'},
-        {id: 3, name: '全球美食'},
-        {id: 4, name: '护肤彩妆'},
-        {id: 5, name: '母婴用品'}
+        {id: 0, name: '服装鞋包'},
+        {id: 1, name: '手机数码'},
+        {id: 2, name: '全球美食'},
+        {id: 3, name: '护肤彩妆'},
+        {id: 4, name: '母婴用品'}
       ];
 
       var temp = localStorageService.get('categoryLists');
@@ -25,28 +25,14 @@ angular.module('angularLeteusgoApp')
       }
     };
 
-    this.getCategoryById = function (id) {
-      var result = _.find(this.loadCategorys(), function (category) {
+    this.getCategorysById = function (id,categorys) {
+      if (categorys === null) {
 
-        return category.id == id;
-      });
-
-      return result ? result.name : id;
-    };
-
-    this.getCategoryIdById = function (id) {
-      var result = _.find(this.loadCategorys(), function (category) {
-
-        return category.id == id;
-      });
-
-      return result ? result.id : id;
-    };
-
-    this.getCategorysById = function (id) {
-      var categorys = localStorageService.get('categoryLists');
+        categorys = localStorageService.get('categoryLists');
+      }
 
       return _.find(categorys, function(category){
+
         return category.id == id;
       }) || {};
     };
