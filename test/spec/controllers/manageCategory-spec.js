@@ -19,7 +19,7 @@ describe("manageCategoryCtrl", function () {
 
       createController = function () {
 
-        return $controller('goodsListCtrl', {
+        return $controller('manageCategoryCtrl', {
           $scope: $scope,
           goodsItemService: goodsItemService,
           operateCategoryService: operateCategoryService,
@@ -29,7 +29,7 @@ describe("manageCategoryCtrl", function () {
     });
   });
 
-  describe('operate itemList', function () {
+  xdescribe('operate itemList', function () {
 
     var itemList;
 
@@ -48,7 +48,46 @@ describe("manageCategoryCtrl", function () {
       expect($scope.products[0].name).toEqual('服装１');
     });
 
+  });
+  describe('$emit', function () {
 
+    it('$emit', function () {
+      spyOn($scope, '$emit');
+      createController();
+      expect($scope.$emit).toHaveBeenCalledWith('_parent_manageActive');
+    });
+  });
+
+  describe('getItemsById', function () {
+
+    it('getItemsById', function () {
+      var id = 1 ;
+      var result = true;
+      spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
+      createController();
+      expect($scope.getItemsById(id)).toBe(true);
+    });
+  });
+
+  xit('getCategoryName  is ok', function () {
+    var id = 0;
+    var index = 2;
+    var result = true;
+    spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
+    $scope.deleteCategory(index,id);
+
+//    spyOn(operateCategoryService,'loadCategorys').andReturn([{id:0,name:'测试1'},{id:1,name:'测试2'}]);
+//    spyOn(goodsItemService,'set');
+    createController();
+
+//    expect($scope.deleteCategory).toHaveBeenCalledWith('index,id');
+    expect($scope.categorys.splice).toHaveBeenCalledWith(index,1);
+    expect(goodsItemService.set).toHaveBeenCalledWith('categoryLists', $scope.categorys);
+
+   // expect(getItemsById(id)).toBe(true);
   });
 
 });
+
+
+

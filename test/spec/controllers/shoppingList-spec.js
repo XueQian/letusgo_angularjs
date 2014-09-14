@@ -27,7 +27,7 @@ describe("shoppingListCtrl", function () {
     });
   });
 
-  it('goodsItemService.get has been called',function(){
+  it('goodsItemService.get and getTotalMoney has been called',function(){
 
     var cartItem={};
 

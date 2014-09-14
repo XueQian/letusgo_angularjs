@@ -7,14 +7,14 @@ angular.module('angularLeteusgoApp')
 
     $scope.categorys = operateCategoryService.loadCategorys();
 
-    var getItemsById = function (id) {
+    $scope.getItemsById = function (id) {
 
       return operateGoodsItems.getItemsById(id);
     };
 
     $scope.deleteCategory = function (index,id) {
 
-      if (getItemsById(id)) {
+      if ($scope.getItemsById(id)) {
 
         $scope.categorys.splice(index, 1);
         goodsItemService.set('categoryLists', $scope.categorys);
