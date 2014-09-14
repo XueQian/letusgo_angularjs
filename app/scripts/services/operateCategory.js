@@ -17,12 +17,10 @@ angular.module('angularLeteusgoApp')
       if (temp) {
 
         return temp;
-      } else {
+      }
 
         localStorageService.set('categoryLists', categoryLists);
-
         return categoryLists;
-      }
     };
 
     this.getCategorysById = function (id,categorys) {

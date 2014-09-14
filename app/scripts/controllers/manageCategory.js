@@ -18,7 +18,6 @@ angular.module('angularLeteusgoApp')
 
         $scope.categorys.splice(index, 1);
         goodsItemService.set('categoryLists', $scope.categorys);
-        return;
       }
     };
 

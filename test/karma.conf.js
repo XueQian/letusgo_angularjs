@@ -18,6 +18,11 @@ module.exports = function (config) {
 
     // coverage reporter generates the coverage
     reporters: ['progress', 'coverage'],
+    // optionally, configure the reporter
+    coverageReporter: {
+      type : 'text',
+      dir : 'coverage/'
+    },
 
     // list of files / patterns to load in the browser
     files: [

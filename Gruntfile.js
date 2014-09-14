@@ -21,7 +21,6 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
-
   // Define the configuration for all the tasks
   grunt.initConfig({
 

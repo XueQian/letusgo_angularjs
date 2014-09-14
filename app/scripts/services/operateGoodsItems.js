@@ -18,11 +18,11 @@ angular.module('angularLeteusgoApp')
       if (temp) {
 
         return temp;
-      } else {
+      }
 
         localStorageService.set('itemLists', itemLists);
         return itemLists;
-      }
+      
     };
     this.getItemsById = function (id) {
 
