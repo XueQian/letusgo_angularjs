@@ -28,7 +28,6 @@ angular.module('angularLeteusgoApp')
 
         categorys = localStorageService.get('categoryLists');
       }
-
       return _.find(categorys, function(category){
 
         return category.id == id;
