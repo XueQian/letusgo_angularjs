@@ -29,17 +29,6 @@ describe("manageCategoryCtrl", function () {
     });
   });
 
-  xdescribe('operate itemList', function () {
-
-    spyOn(operateCategoryService,'loadCategorys').andReturn([{id:1,name:'1'}]);
-
-
-    it('products is OK', function () {
-
-      expect($scope.categorys[0].name).toEqual('1');
-    });
-
-  });
   describe('$emit', function () {
 
     it('$emit', function () {
@@ -60,7 +49,7 @@ describe("manageCategoryCtrl", function () {
     });
   });
 
-  it('deleteCategory', function () {
+  it('deleteCategory when true', function () {
     var id = 1;
     var index = 1;
     var result = true;
@@ -75,6 +64,22 @@ describe("manageCategoryCtrl", function () {
 
     expect(goodsItemService.set).toHaveBeenCalled();
     expect($scope.categorys.splice).toHaveBeenCalledWith(index,id);
+  });
+
+  it('deleteCategory when false', function () {
+    var id = 1;
+    var index = 1;
+    var result = false;
+    $scope.categorys = [{id:1,name:'1'},{id:2,name:'2'}];
+
+    createController();
+
+    spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
+    spyOn($scope.categorys,'splice');
+    spyOn(goodsItemService,'set');
+    $scope.deleteCategory(index,id);
+
+   
   });
 
   it('addCategory',function(){
