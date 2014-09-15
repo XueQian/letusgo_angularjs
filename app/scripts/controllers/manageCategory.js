@@ -12,8 +12,9 @@ angular.module('angularLeteusgoApp')
       return operateGoodsItems.getItemsById(id);
     };
 
-    $scope.deleteCategory = function (index,id) {
 
+    $scope.deleteCategory = function (index,id) {
+      console.log('111111111');
       if ($scope.getItemsById(id)) {
 
         $scope.categorys.splice(index, 1);
