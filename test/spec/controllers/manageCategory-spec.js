@@ -31,21 +31,12 @@ describe("manageCategoryCtrl", function () {
 
   xdescribe('operate itemList', function () {
 
-    var itemList;
+    spyOn(operateCategoryService,'loadCategorys').andReturn([{id:1,name:'1'}]);
 
-    beforeEach(function () {
-
-      itemList = [
-        {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}
-      ];
-
-      spyOn(goodsItemService, 'get').andReturn(itemList);
-      createController();
-    });
 
     it('products is OK', function () {
 
-      expect($scope.products[0].name).toEqual('服装１');
+      expect($scope.categorys[0].name).toEqual('1');
     });
 
   });
@@ -69,24 +60,37 @@ describe("manageCategoryCtrl", function () {
     });
   });
 
-  it('getCategoryName  is ok', function () {
-    var id = 0;
-    var index = 2;
+  it('deleteCategory', function () {
+    var id = 1;
+    var index = 1;
     var result = true;
+    $scope.categorys = [{id:1,name:'1'},{id:2,name:'2'}];
+
+    createController();
 
     spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
-//    spyOn(operateCategoryService,'loadCategorys').andReturn([{id:0,name:'测试1'},{id:1,name:'测试2'}]);
-//    spyOn(goodsItemService,'set');
-    createController();
+    spyOn($scope.categorys,'splice');
+    spyOn(goodsItemService,'set');
     $scope.deleteCategory(index,id);
-//    expect($scope.deleteCategory).toHaveBeenCalledWith('index,id');
-    //expect($scope.categorys.splice).toHaveBeenCalledWith(index,1);
-    //expect(goodsItemService.set).toHaveBeenCalledWith('categoryLists', $scope.categorys);
 
-   // expect(getItemsById(id)).toBe(true);
+    expect(goodsItemService.set).toHaveBeenCalled();
+    expect($scope.categorys.splice).toHaveBeenCalledWith(index,id);
+  });
+
+  it('addCategory',function(){
+    $scope.category = {id:1,name:'1'};
+    $scope.categorys = [{id:1,name:'1'},{id:2,name:'2'}];
+    spyOn(operateCategoryService,'addCategory');
+
+    createController();
+    $scope.addCategory();
+    expect(operateCategoryService.addCategory).toHaveBeenCalledWith($scope.category, $scope.categorys);
+
   });
 
 });
+
+
 
 
 
