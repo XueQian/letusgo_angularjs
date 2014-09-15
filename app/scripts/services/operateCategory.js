@@ -61,11 +61,13 @@ angular.module('angularLeteusgoApp')
       _.forEach(categoryLists, function (category1, index) {
 
         if (category1.id == category.id) {
+
           categoryLists[index] = category;
         }
       });
 
       localStorageService.set('categoryLists', categoryLists);
+
       return category;
     };
 

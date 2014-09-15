@@ -22,7 +22,7 @@ angular.module('angularLeteusgoApp')
 
         localStorageService.set('itemLists', itemLists);
         return itemLists;
-      
+
     };
     this.getItemsById = function (id) {
 
