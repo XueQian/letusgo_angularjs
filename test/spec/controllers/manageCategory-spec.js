@@ -79,7 +79,6 @@ describe("manageCategoryCtrl", function () {
     spyOn(goodsItemService,'set');
     $scope.deleteCategory(index,id);
 
-   
   });
 
   it('addCategory',function(){
