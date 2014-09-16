@@ -8,7 +8,11 @@ angular.module('letusgoApp')
     $scope.itemList = operateGoodsItems.getGoodsItemsByBarcode($routeParams.barcode);
 
     $scope.categorys = operateCategoryService.loadCategorys();
-    $scope.category = operateCategoryService.getCategorysById($scope.itemList.category, $scope.categorys);
+
+    $scope.category = _.find($scope.categorys, function (category){
+
+      return category.id === $scope.itemList.category;
+    }) || {};
 
     $scope.modifyGoods = function () {
 
