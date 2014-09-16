@@ -38,14 +38,14 @@ describe("manageCategoryCtrl", function () {
     });
   });
 
-  describe('getItemsById', function () {
+  describe('getItemById', function () {
 
-    it('getItemsById', function () {
+    it('getItemById', function () {
       var id = 1;
       var result = true;
-      spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
+      spyOn(operateGoodsItems, 'getItemById').andReturn(result);
       createController();
-      expect($scope.getItemsById(id)).toBe(true);
+      expect($scope.getItemById(id)).toBe(true);
     });
   });
 
@@ -60,7 +60,7 @@ describe("manageCategoryCtrl", function () {
 
     createController();
 
-    spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
+    spyOn(operateGoodsItems, 'getItemById').andReturn(result);
     spyOn($scope.categories, 'splice');
     spyOn(goodsItemService, 'set');
     $scope.deleteCategory(index, id);
@@ -80,7 +80,7 @@ describe("manageCategoryCtrl", function () {
 
     createController();
 
-    spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
+    spyOn(operateGoodsItems, 'getItemById').andReturn(result);
     spyOn($scope.categories, 'splice');
     spyOn(goodsItemService, 'set');
     $scope.deleteCategory(index, id);

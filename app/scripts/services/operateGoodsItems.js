@@ -25,7 +25,7 @@ angular.module('letusgoApp')
       return itemList;
 
     };
-    this.getItemsById = function (id) {
+    this.getItemById = function (id) {
 
       var result = _.find(this.loadGoodsItems(), function (ItemList) {
 

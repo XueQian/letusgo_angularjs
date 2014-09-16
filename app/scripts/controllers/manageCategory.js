@@ -7,15 +7,15 @@ angular.module('letusgoApp')
 
     $scope.categories = operatecategorieservice.loadcategories();
 
-    $scope.getItemsById = function (id) {
+    $scope.getItemById = function (id) {
 
-      return operateGoodsItems.getItemsById(id);
+      return operateGoodsItems.getItemById(id);
     };
 
 
     $scope.deleteCategory = function (index, id) {
 
-      if ($scope.getItemsById(id)) {
+      if ($scope.getItemById(id)) {
 
         $scope.categories.splice(index, 1);
         goodsItemService.set('categoryList', $scope.categories);

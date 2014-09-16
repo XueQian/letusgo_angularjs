@@ -43,21 +43,21 @@ describe("operatecategorieservice", function () {
       expect(result.length).toBe(2);
     });
 
-    it('getItemsById true', function () {
+    it('getItemById true', function () {
       var id = 1;
       spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemList);
 
-      operateGoodsItems.getItemsById(id);
-      expect(operateGoodsItems.getItemsById(id)).toBe(true);
+      operateGoodsItems.getItemById(id);
+      expect(operateGoodsItems.getItemById(id)).toBe(true);
 
     });
 
-    it('getItemsById false', function () {
+    it('getItemById false', function () {
       var id = 0;
       spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemList);
 
-      operateGoodsItems.getItemsById(id);
-      expect(operateGoodsItems.getItemsById(id)).toBe(false);
+      operateGoodsItems.getItemById(id);
+      expect(operateGoodsItems.getItemById(id)).toBe(false);
 
     });
 
