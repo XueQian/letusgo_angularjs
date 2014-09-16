@@ -2,7 +2,7 @@
 
 angular.module('letusgoApp')
   .service('goodsItemService', function (localStorageService) {
-    this.loadItem = function () {
+    this.loadItems = function () {
 
       return localStorageService.get('itemLists') || [];
     };

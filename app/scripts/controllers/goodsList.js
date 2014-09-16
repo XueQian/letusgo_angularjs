@@ -5,7 +5,7 @@ angular.module('letusgoApp')
 
     $scope.$emit('parent_goodsListActive');
 
-    var itemLists = goodsItemService.loadItem();
+    var itemLists = goodsItemService.loadItems();
     var cartList = goodsItemService.get('cartItems');
 
     $scope.getCategoryName = function (id) {

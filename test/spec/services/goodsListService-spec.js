@@ -18,7 +18,7 @@ describe("goodsItemService", function () {
 
     it('should use loadItem function', function () {
 
-      expect(angular.isFunction(goodsItemService.loadItem)).toBe(true);
+      expect(angular.isFunction(goodsItemService.loadItems)).toBe(true);
     });
   });
 
