@@ -2,7 +2,7 @@
 
 describe("manageGoodsItemsCtrl", function () {
 
-  var createController, $scope, goodsItemService, operateCategoryService, operateGoodsItems, localStorageService;
+  var createController, $scope, goodsItemService, operatecategorieservice, operateGoodsItems, localStorageService;
 
   beforeEach(function () {
 
@@ -12,7 +12,7 @@ describe("manageGoodsItemsCtrl", function () {
 
       $scope = $injector.get('$rootScope').$new();
       goodsItemService = $injector.get('goodsItemService');
-      operateCategoryService = $injector.get('operateCategoryService');
+      operatecategorieservice = $injector.get('operatecategorieservice');
       operateGoodsItems = $injector.get('operateGoodsItems');
       localStorageService = $injector.get('localStorageService');
       var $controller = $injector.get('$controller');
@@ -22,7 +22,7 @@ describe("manageGoodsItemsCtrl", function () {
         return $controller('manageGoodsItemsCtrl', {
           $scope: $scope,
           goodsItemService: goodsItemService,
-          operateCategoryService: operateCategoryService,
+          operatecategorieservice: operatecategorieservice,
           operateGoodsItems: operateGoodsItems,
           localStorageService: localStorageService
 
@@ -42,7 +42,7 @@ describe("manageGoodsItemsCtrl", function () {
 
     createController();
 
-    spyOn(operateCategoryService, 'getCategorysById').andReturn({id: 0, name: '0'});
+    spyOn(operatecategorieservice, 'getcategoriesById').andReturn({id: 0, name: '0'});
     $scope.getCategoryName(id);
 
     expect($scope.getCategoryName(id)).toBe('0');

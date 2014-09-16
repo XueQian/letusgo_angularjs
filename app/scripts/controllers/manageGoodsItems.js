@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('letusgoApp')
-  .controller('manageGoodsItemsCtrl', function ($scope, goodsItemService, operateCategoryService, operateGoodsItems, localStorageService) {
+  .controller('manageGoodsItemsCtrl', function ($scope, goodsItemService, operatecategorieservice, operateGoodsItems, localStorageService) {
 
     $scope.$emit('parent_manageActive');
 
     $scope.products = operateGoodsItems.loadGoodsItems();
 
     $scope.getCategoryName = function (id) {
-      return operateCategoryService.getCategorysById(id, null).name;
+      return operatecategorieservice.getcategoriesById(id, null).name;
     };
 
     $scope.deleteCategory = function (index) {
@@ -18,7 +18,7 @@ angular.module('letusgoApp')
       goodsItemService.set('itemList', $scope.products);
     };
 
-    $scope.categorys = operateCategoryService.loadCategorys();
+    $scope.categories = operatecategorieservice.loadcategories();
 
     $scope.itemList = localStorageService.get('itemList');
 

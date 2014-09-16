@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('letusgoApp')
-  .service('operateCategoryService', function (localStorageService) {
-    this.loadCategorys = function () {
+  .service('operatecategorieservice', function (localStorageService) {
+    this.loadcategories = function () {
 
       var categoryList = [
         {id: 0, name: '服装鞋包'},
@@ -23,12 +23,12 @@ angular.module('letusgoApp')
       return categoryList;
     };
 
-    this.getCategorysById = function (id, categorys) {
-      if (categorys === null) {
+    this.getcategoriesById = function (id, categories) {
+      if (categories === null) {
 
-        categorys = localStorageService.get('categoryList');
+        categories = localStorageService.get('categoryList');
       }
-      return _.find(categorys, function (category) {
+      return _.find(categories, function (category) {
 
         return category.id == id;
       }) || {};

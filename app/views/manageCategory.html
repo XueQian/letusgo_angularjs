@@ -31,7 +31,7 @@
       <th class="text-center">操作</th>
     </tr>
 
-    <tr ng-repeat="category in categorys | filter:searchCategory">
+    <tr ng-repeat="category in categories | filter:searchCategory">
       <td>{{category.name}}</td>
       <td>
         <button type="button" class="btn btn-danger " ng-click="deleteCategory($index,category.id)">

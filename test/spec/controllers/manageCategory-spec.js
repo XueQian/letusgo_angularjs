@@ -2,7 +2,7 @@
 
 describe("manageCategoryCtrl", function () {
 
-  var $scope, goodsItemService, createController, localStorageService, operateCategoryService, operateGoodsItems;
+  var $scope, goodsItemService, createController, localStorageService, operatecategorieservice, operateGoodsItems;
 
   beforeEach(function () {
 
@@ -13,7 +13,7 @@ describe("manageCategoryCtrl", function () {
       $scope = $injector.get('$rootScope').$new();
       goodsItemService = $injector.get('goodsItemService');
       localStorageService = $injector.get('localStorageService');
-      operateCategoryService = $injector.get('operateCategoryService');
+      operatecategorieservice = $injector.get('operatecategorieservice');
       operateGoodsItems = $injector.get('operateGoodsItems');
       var $controller = $injector.get('$controller');
 
@@ -22,7 +22,7 @@ describe("manageCategoryCtrl", function () {
         return $controller('manageCategoryCtrl', {
           $scope: $scope,
           goodsItemService: goodsItemService,
-          operateCategoryService: operateCategoryService,
+          operatecategorieservice: operatecategorieservice,
           operateGoodsItems: operateGoodsItems
         });
       };
@@ -53,7 +53,7 @@ describe("manageCategoryCtrl", function () {
     var id = 1;
     var index = 1;
     var result = true;
-    $scope.categorys = [
+    $scope.categories = [
       {id: 1, name: '1'},
       {id: 2, name: '2'}
     ];
@@ -61,19 +61,19 @@ describe("manageCategoryCtrl", function () {
     createController();
 
     spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
-    spyOn($scope.categorys, 'splice');
+    spyOn($scope.categories, 'splice');
     spyOn(goodsItemService, 'set');
     $scope.deleteCategory(index, id);
 
     expect(goodsItemService.set).toHaveBeenCalled();
-    expect($scope.categorys.splice).toHaveBeenCalledWith(index, id);
+    expect($scope.categories.splice).toHaveBeenCalledWith(index, id);
   });
 
   it('deleteCategory when false', function () {
     var id = 1;
     var index = 1;
     var result = false;
-    $scope.categorys = [
+    $scope.categories = [
       {id: 1, name: '1'},
       {id: 2, name: '2'}
     ];
@@ -81,7 +81,7 @@ describe("manageCategoryCtrl", function () {
     createController();
 
     spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
-    spyOn($scope.categorys, 'splice');
+    spyOn($scope.categories, 'splice');
     spyOn(goodsItemService, 'set');
     $scope.deleteCategory(index, id);
 
@@ -89,15 +89,15 @@ describe("manageCategoryCtrl", function () {
 
   it('addCategory', function () {
     $scope.category = {id: 1, name: '1'};
-    $scope.categorys = [
+    $scope.categories = [
       {id: 1, name: '1'},
       {id: 2, name: '2'}
     ];
-    spyOn(operateCategoryService, 'addCategory');
+    spyOn(operatecategorieservice, 'addCategory');
 
     createController();
     $scope.addCategory();
-    expect(operateCategoryService.addCategory).toHaveBeenCalledWith($scope.category, $scope.categorys);
+    expect(operatecategorieservice.addCategory).toHaveBeenCalledWith($scope.category, $scope.categories);
 
   });
 
