@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('letusgoApp')
-  .controller('manageCategoryCtrl', function ($scope, operatecategorieservice, GoodsItemService, operateGoodsItems) {
+  .controller('manageCategoryCtrl', function ($scope, Operatecategorieservice, GoodsItemService, operateGoodsItems) {
 
     $scope.$emit('parent_manageActive');
 
-    $scope.categories = operatecategorieservice.loadcategories();
+    $scope.categories = Operatecategorieservice.loadcategories();
 
     $scope.getItemById = function (id) {
 
@@ -24,7 +24,7 @@ angular.module('letusgoApp')
 
     $scope.addCategory = function () {
 
-      operatecategorieservice.addCategory($scope.category, $scope.categories);
+      Operatecategorieservice.addCategory($scope.category, $scope.categories);
     };
 
 

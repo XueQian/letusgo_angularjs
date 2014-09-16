@@ -2,7 +2,7 @@
 
 describe("modifyGoodsItemsCtrl", function () {
 
-  var createController, $scope, GoodsItemService, operatecategorieservice, operateGoodsItems, $routeParams;
+  var createController, $scope, GoodsItemService, Operatecategorieservice, operateGoodsItems, $routeParams;
 
   beforeEach(function () {
 
@@ -12,7 +12,7 @@ describe("modifyGoodsItemsCtrl", function () {
 
       $scope = $injector.get('$rootScope').$new();
       GoodsItemService = $injector.get('GoodsItemService');
-      operatecategorieservice = $injector.get('operatecategorieservice');
+      Operatecategorieservice = $injector.get('Operatecategorieservice');
       operateGoodsItems = $injector.get('operateGoodsItems');
       $routeParams = $injector.get('$routeParams');
       var $controller = $injector.get('$controller');
@@ -22,7 +22,7 @@ describe("modifyGoodsItemsCtrl", function () {
         return $controller('modifyGoodsItemsCtrl', {
           $scope: $scope,
           GoodsItemService: GoodsItemService,
-          operatecategorieservice: operatecategorieservice,
+          Operatecategorieservice: Operatecategorieservice,
           operateGoodsItems: operateGoodsItems,
           $routeParams: $routeParams
         });
@@ -38,7 +38,7 @@ describe("modifyGoodsItemsCtrl", function () {
 
   it('getGoodsItemsByBarcode,categories and category',function(){
     spyOn(operateGoodsItems,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
-    spyOn(operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
+    spyOn(Operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
 
     createController();
     expect($scope.itemList.name).toBe('用品１');
@@ -48,7 +48,7 @@ describe("modifyGoodsItemsCtrl", function () {
 
   it('modifyGoods', function () {
     spyOn(operateGoodsItems,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
-    spyOn(operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
+    spyOn(Operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
     spyOn(operateGoodsItems, 'modifyGoods');
     createController();
     $scope.modifyGoods();

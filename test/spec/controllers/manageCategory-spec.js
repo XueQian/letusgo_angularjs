@@ -2,7 +2,7 @@
 
 describe("manageCategoryCtrl", function () {
 
-  var $scope, GoodsItemService, createController, localStorageService, operatecategorieservice, operateGoodsItems;
+  var $scope, GoodsItemService, createController, localStorageService, Operatecategorieservice, operateGoodsItems;
 
   beforeEach(function () {
 
@@ -13,7 +13,7 @@ describe("manageCategoryCtrl", function () {
       $scope = $injector.get('$rootScope').$new();
       GoodsItemService = $injector.get('GoodsItemService');
       localStorageService = $injector.get('localStorageService');
-      operatecategorieservice = $injector.get('operatecategorieservice');
+      Operatecategorieservice = $injector.get('Operatecategorieservice');
       operateGoodsItems = $injector.get('operateGoodsItems');
       var $controller = $injector.get('$controller');
 
@@ -22,7 +22,7 @@ describe("manageCategoryCtrl", function () {
         return $controller('manageCategoryCtrl', {
           $scope: $scope,
           GoodsItemService: GoodsItemService,
-          operatecategorieservice: operatecategorieservice,
+          Operatecategorieservice: Operatecategorieservice,
           operateGoodsItems: operateGoodsItems
         });
       };
@@ -93,11 +93,11 @@ describe("manageCategoryCtrl", function () {
       {id: 1, name: '1'},
       {id: 2, name: '2'}
     ];
-    spyOn(operatecategorieservice, 'addCategory');
+    spyOn(Operatecategorieservice, 'addCategory');
 
     createController();
     $scope.addCategory();
-    expect(operatecategorieservice.addCategory).toHaveBeenCalledWith($scope.category, $scope.categories);
+    expect(Operatecategorieservice.addCategory).toHaveBeenCalledWith($scope.category, $scope.categories);
 
   });
 

@@ -1,15 +1,15 @@
 'use strict';
 
-describe("operatecategorieservice", function () {
+describe("Operatecategorieservice", function () {
 
-  var operatecategorieservice, localStorageService;
+  var Operatecategorieservice, localStorageService;
 
   beforeEach(function () {
     module('letusgoApp');
 
     inject(function ($injector) {
 
-      operatecategorieservice = $injector.get('operatecategorieservice');
+      Operatecategorieservice = $injector.get('Operatecategorieservice');
       localStorageService = $injector.get('localStorageService');
     });
 
@@ -19,7 +19,7 @@ describe("operatecategorieservice", function () {
 
     spyOn(localStorageService, 'get').andReturn(categoryList);
     spyOn(localStorageService, 'set');
-    operatecategorieservice.loadcategories();
+    Operatecategorieservice.loadcategories();
 
     expect(localStorageService.set).toHaveBeenCalled();
   });
@@ -33,7 +33,7 @@ describe("operatecategorieservice", function () {
     it('loadcategories', function () {
 
       spyOn(localStorageService, 'get').andReturn(categoryList);
-      var result = operatecategorieservice.loadcategories();
+      var result = Operatecategorieservice.loadcategories();
 
       expect(result).toEqual([
         {id: 1, name: '测试1'},
@@ -47,7 +47,7 @@ describe("operatecategorieservice", function () {
       var categories = null;
       spyOn(localStorageService, 'get').andReturn(categoryList);
 
-      operatecategorieservice.getcategoryById(id, categories);
+      Operatecategorieservice.getcategoryById(id, categories);
 
       expect(localStorageService.get).toHaveBeenCalledWith('categoryList');
 
@@ -57,7 +57,7 @@ describe("operatecategorieservice", function () {
       var category = {id: 1, name: '1'};
       spyOn(localStorageService, 'set');
 
-      operatecategorieservice.addCategory(category, categoryList);
+      Operatecategorieservice.addCategory(category, categoryList);
 
       expect(localStorageService.set).toHaveBeenCalledWith('categoryList', categoryList);
 
@@ -68,7 +68,7 @@ describe("operatecategorieservice", function () {
       spyOn(localStorageService, 'get').andReturn(categoryList);
       spyOn(localStorageService, 'set');
 
-      operatecategorieservice.modifyCategory(category);
+      Operatecategorieservice.modifyCategory(category);
 
       expect(localStorageService.set).toHaveBeenCalledWith('categoryList', categoryList);
 
