@@ -45,6 +45,26 @@ describe("modifyGoodsItemsCtrl", function () {
     expect(operateGoodsItems.modifyGoods).toHaveBeenCalledWith($scope.itemList);
 
   });
+
+  it('modifyGoods', function () {
+//    $scope.itemList = {barcode:'1',name:'测试1',category:''};
+    $scope.category = {id:1,name:'test'};
+
+    createController();
+    spyOn(operateGoodsItems, 'modifyGoods');
+
+    $scope.modifyGoods();
+    expect($scope.itemList.category).toBe(1);
+
+    expect(operateGoodsItems.modifyGoods).toHaveBeenCalled();
+
+  });
+
 //  $scope.itemList = operateGoodsItems.getGoodsItemsByBarcode($routeParams.barcode);
 
+//  $scope.modifyGoods = function () {
+//
+//    $scope.itemList.category = $scope.category.id;
+//    operateGoodsItems.modifyGoods($scope.itemList);
+//  };
 });
