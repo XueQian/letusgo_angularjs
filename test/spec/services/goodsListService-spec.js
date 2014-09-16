@@ -1,15 +1,15 @@
 'use strict';
 
-describe("goodsItemService", function () {
+describe("GoodsItemService", function () {
 
-  var goodsItemService, localStorageService;
+  var GoodsItemService, localStorageService;
 
   beforeEach(function () {
     module('letusgoApp');
 
     inject(function ($injector) {
 
-      goodsItemService = $injector.get('goodsItemService');
+      GoodsItemService = $injector.get('GoodsItemService');
       localStorageService = $injector.get('localStorageService');
     });
   });
@@ -18,7 +18,7 @@ describe("goodsItemService", function () {
 
     it('should use loadItem function', function () {
 
-      expect(angular.isFunction(goodsItemService.loadItems)).toBe(true);
+      expect(angular.isFunction(GoodsItemService.loadItems)).toBe(true);
     });
   });
 
@@ -26,7 +26,7 @@ describe("goodsItemService", function () {
 
     it('should use getTotalCount function', function () {
 
-      expect(angular.isFunction(goodsItemService.getTotalCount)).toBe(true);
+      expect(angular.isFunction(GoodsItemService.getTotalCount)).toBe(true);
     });
 
     it('getTotalCount return totalCount===0', function () {
@@ -35,7 +35,7 @@ describe("goodsItemService", function () {
 
       spyOn(localStorageService, 'get').andReturn(cartLists);
 
-      expect(goodsItemService.getTotalCount(cartLists)).toBe(0);
+      expect(GoodsItemService.getTotalCount(cartLists)).toBe(0);
     });
 
     it('getTotalCount return totalCount===4 ', function () {
@@ -48,7 +48,7 @@ describe("goodsItemService", function () {
 
       spyOn(localStorageService, 'get').andReturn(cartLists);
 
-      expect(goodsItemService.getTotalCount(cartLists)).toBe(4);
+      expect(GoodsItemService.getTotalCount(cartLists)).toBe(4);
 
     });
 
@@ -58,7 +58,7 @@ describe("goodsItemService", function () {
 
     it('should use addToCartList function', function () {
 
-      expect(angular.isFunction(goodsItemService.addToCartList)).toBe(true);
+      expect(angular.isFunction(GoodsItemService.addToCartList)).toBe(true);
     });
 
     it('same product count++', function () {
@@ -68,7 +68,7 @@ describe("goodsItemService", function () {
       ];
       var product = {barcode: 'ITEM00000', category: '服装鞋包', name: '服装1', price: 11, unit: '件'};
 
-      var result = goodsItemService.addToCartList(product, cartLists);
+      var result = GoodsItemService.addToCartList(product, cartLists);
 
       expect(result[0].count).toEqual(2);
     });
@@ -80,7 +80,7 @@ describe("goodsItemService", function () {
       ];
       var product = {barcode: 'ITEM00002', category: '手机数码', name: '手机１', price: 1111, unit: '件'};
 
-      var result = goodsItemService.addToCartList(product, cartLists);
+      var result = GoodsItemService.addToCartList(product, cartLists);
 
       expect(result.length).toEqual(2);
     });
@@ -96,14 +96,14 @@ describe("goodsItemService", function () {
 
     it('should use get function', function () {
 
-      expect(angular.isFunction(goodsItemService.get)).toBe(true);
+      expect(angular.isFunction(GoodsItemService.get)).toBe(true);
     });
 
     it('localStorageService get is OK', function () {
 
       spyOn(localStorageService, 'get').andReturn(cartLists);
 
-      var result = goodsItemService.get();
+      var result = GoodsItemService.get();
 
       expect(result).toEqual(cartLists);
     });
@@ -114,7 +114,7 @@ describe("goodsItemService", function () {
 
     it('should use set function', function () {
 
-      expect(angular.isFunction(goodsItemService.set)).toBe(true);
+      expect(angular.isFunction(GoodsItemService.set)).toBe(true);
     });
 
   });

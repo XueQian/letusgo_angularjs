@@ -2,7 +2,7 @@
 
 describe("goodsListCtrl", function () {
 
-  var $scope, goodsItemService, createController, localStorageService, operatecategorieservice;
+  var $scope, GoodsItemService, createController, localStorageService, operatecategorieservice;
 
   beforeEach(function () {
 
@@ -11,7 +11,7 @@ describe("goodsListCtrl", function () {
     inject(function ($injector) {
 
       $scope = $injector.get('$rootScope').$new();
-      goodsItemService = $injector.get('goodsItemService');
+      GoodsItemService = $injector.get('GoodsItemService');
       localStorageService = $injector.get('localStorageService');
       operatecategorieservice = $injector.get('operatecategorieservice');
       var $controller = $injector.get('$controller');
@@ -20,7 +20,7 @@ describe("goodsListCtrl", function () {
 
         return $controller('goodsListCtrl', {
           $scope: $scope,
-          goodsItemService: goodsItemService,
+          GoodsItemService: GoodsItemService,
           operatecategorieservice: operatecategorieservice
         });
       };
@@ -37,7 +37,7 @@ describe("goodsListCtrl", function () {
         {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}
       ];
 
-      spyOn(goodsItemService, 'get').andReturn(itemList);
+      spyOn(GoodsItemService, 'get').andReturn(itemList);
       createController();
     });
 
@@ -54,11 +54,11 @@ describe("goodsListCtrl", function () {
     it('use localStorageService .set', function () {
       var productItem = {barcode: 'ITEM00002', category: '手机数码', name: '手机１', price: 1111, unit: '件'};
 
-      spyOn(goodsItemService, 'set');
+      spyOn(GoodsItemService, 'set');
       createController();
       $scope.addToCart(productItem);
 
-      expect(goodsItemService.set.callCount).toEqual(4);
+      expect(GoodsItemService.set.callCount).toEqual(4);
 
     });
 
@@ -77,12 +77,12 @@ describe("goodsListCtrl", function () {
 
       var cartList = null;
 
-      spyOn(goodsItemService, 'get').andReturn(cartList);
+      spyOn(GoodsItemService, 'get').andReturn(cartList);
 
       createController();
       $scope.addToCart(productItem);
 
-      expect(goodsItemService.getTotalCount(cartList)).toBe(0);
+      expect(GoodsItemService.getTotalCount(cartList)).toBe(0);
     });
 
     it('getCategoryName  is ok', function () {

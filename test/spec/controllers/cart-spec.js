@@ -2,7 +2,7 @@
 
 describe("cartCtrl", function () {
 
-  var $scope, goodsItemService, createController, localStorageService, CartItemService;
+  var $scope, GoodsItemService, createController, localStorageService, CartItemService;
 
   beforeEach(function () {
 
@@ -11,7 +11,7 @@ describe("cartCtrl", function () {
     inject(function ($injector) {
 
       $scope = $injector.get('$rootScope').$new();
-      goodsItemService = $injector.get('goodsItemService');
+      GoodsItemService = $injector.get('GoodsItemService');
       localStorageService = $injector.get('localStorageService');
       CartItemService = $injector.get('CartItemService');
       var $controller = $injector.get('$controller');
@@ -20,7 +20,7 @@ describe("cartCtrl", function () {
 
         return $controller('cartCtrl', {
           $scope: $scope,
-          goodsItemService: goodsItemService,
+          GoodsItemService: GoodsItemService,
           CartItemService: CartItemService
         });
       };
@@ -48,7 +48,7 @@ describe("cartCtrl", function () {
     });
 
     it('cartItems is OK', function () {
-      spyOn(goodsItemService, 'get').andReturn(cartItems);
+      spyOn(GoodsItemService, 'get').andReturn(cartItems);
       spyOn(CartItemService, 'getTotalMoney').andReturn(1);
 
       createController();
@@ -61,13 +61,13 @@ describe("cartCtrl", function () {
       var item_ = [
         {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 1}
       ];
-      spyOn(goodsItemService, 'set');
+      spyOn(GoodsItemService, 'set');
 
       createController();
 
       $scope.changeCount(item_);
 
-      expect(goodsItemService.set.callCount).toEqual(2);
+      expect(GoodsItemService.set.callCount).toEqual(2);
     });
 
     it('same name, count=count', function () {
@@ -79,7 +79,7 @@ describe("cartCtrl", function () {
       var cartItems = [
         {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 0}
       ];
-      spyOn(goodsItemService, 'get').andReturn(cartItems);
+      spyOn(GoodsItemService, 'get').andReturn(cartItems);
       // console.log(cartItem.count);
 
       createController();

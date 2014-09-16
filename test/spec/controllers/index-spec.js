@@ -2,7 +2,7 @@
 
 describe("indexCtrl", function () {
 
-  var $scope, goodsItemService, createController, $rootScope;
+  var $scope, GoodsItemService, createController, $rootScope;
 
   beforeEach(function () {
 
@@ -12,14 +12,14 @@ describe("indexCtrl", function () {
 
       $rootScope = $injector.get('$rootScope');
       $scope = $injector.get('$rootScope').$new();
-      goodsItemService = $injector.get('goodsItemService');
+      GoodsItemService = $injector.get('GoodsItemService');
       var $controller = $injector.get('$controller');
 
       createController = function () {
 
         return $controller('indexCtrl', {
           $scope: $scope,
-          goodsItemService: goodsItemService
+          GoodsItemService: GoodsItemService
         });
       };
     });
@@ -27,7 +27,7 @@ describe("indexCtrl", function () {
 
   it('parent_totalCount', function () {
 
-    spyOn(goodsItemService, 'getTotalCount').andReturn(2);
+    spyOn(GoodsItemService, 'getTotalCount').andReturn(2);
 
     createController();
     $scope.$digest();

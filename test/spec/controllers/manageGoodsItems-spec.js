@@ -2,7 +2,7 @@
 
 describe("manageGoodsItemsCtrl", function () {
 
-  var createController, $scope, goodsItemService, operatecategorieservice, operateGoodsItems, localStorageService;
+  var createController, $scope, GoodsItemService, operatecategorieservice, operateGoodsItems, localStorageService;
 
   beforeEach(function () {
 
@@ -11,7 +11,7 @@ describe("manageGoodsItemsCtrl", function () {
     inject(function ($injector) {
 
       $scope = $injector.get('$rootScope').$new();
-      goodsItemService = $injector.get('goodsItemService');
+      GoodsItemService = $injector.get('GoodsItemService');
       operatecategorieservice = $injector.get('operatecategorieservice');
       operateGoodsItems = $injector.get('operateGoodsItems');
       localStorageService = $injector.get('localStorageService');
@@ -21,7 +21,7 @@ describe("manageGoodsItemsCtrl", function () {
 
         return $controller('manageGoodsItemsCtrl', {
           $scope: $scope,
-          goodsItemService: goodsItemService,
+          GoodsItemService: GoodsItemService,
           operatecategorieservice: operatecategorieservice,
           operateGoodsItems: operateGoodsItems,
           localStorageService: localStorageService
@@ -58,11 +58,11 @@ describe("manageGoodsItemsCtrl", function () {
     createController();
 
     spyOn($scope.products, 'splice');
-    spyOn(goodsItemService, 'set');
+    spyOn(GoodsItemService, 'set');
     $scope.deleteCategory(index);
 
     expect($scope.products.splice).toHaveBeenCalledWith(index, 1);
-    expect(goodsItemService.set).toHaveBeenCalledWith('itemList', $scope.products);
+    expect(GoodsItemService.set).toHaveBeenCalledWith('itemList', $scope.products);
 
   });
 

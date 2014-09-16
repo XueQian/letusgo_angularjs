@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('letusgoApp')
-  .controller('manageCategoryCtrl', function ($scope, operatecategorieservice, goodsItemService, operateGoodsItems) {
+  .controller('manageCategoryCtrl', function ($scope, operatecategorieservice, GoodsItemService, operateGoodsItems) {
 
     $scope.$emit('parent_manageActive');
 
@@ -18,7 +18,7 @@ angular.module('letusgoApp')
       if ($scope.getItemById(id)) {
 
         $scope.categories.splice(index, 1);
-        goodsItemService.set('categoryList', $scope.categories);
+        GoodsItemService.set('categoryList', $scope.categories);
       }
     };
 
