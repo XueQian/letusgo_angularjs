@@ -3,7 +3,7 @@
 angular.module('letusgoApp')
   .controller('manageCategoryCtrl', function ($scope, operateCategoryService, goodsItemService, operateGoodsItems) {
 
-    $scope.$emit('_parent_manageActive');
+    $scope.$emit('parent_manageActive');
 
     $scope.categorys = operateCategoryService.loadCategorys();
 

@@ -34,7 +34,7 @@ describe("manageCategoryCtrl", function () {
     it('$emit', function () {
       spyOn($scope, '$emit');
       createController();
-      expect($scope.$emit).toHaveBeenCalledWith('_parent_manageActive');
+      expect($scope.$emit).toHaveBeenCalledWith('parent_manageActive');
     });
   });
 

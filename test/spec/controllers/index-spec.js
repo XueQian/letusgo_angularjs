@@ -25,86 +25,86 @@ describe("indexCtrl", function () {
     });
   });
 
-  it('_parent_totalCount', function () {
+  it('parent_totalCount', function () {
 
     spyOn(goodsItemService, 'getTotalCount').andReturn(2);
 
     createController();
     $scope.$digest();
 
-    $rootScope.$broadcast('_parent_totalCount');
+    $rootScope.$broadcast('parent_totalCount');
     $scope.$digest();
 
     expect($scope.totalCount).toBe(2);
 
   });
 
-  it('_parent_totalCount===0', function () {
+  it('parent_totalCount===0', function () {
 
     createController();
     $scope.$digest();
 
-    $rootScope.$broadcast('_parent_totalCount===0');
+    $rootScope.$broadcast('parent_totalCount===0');
     $scope.$digest();
 
     expect($scope.totalCount).toBe(0);
 
   });
 
-  it('_parent_totalCount===0', function () {
+  it('parent_totalCount===0', function () {
 
     createController();
     $scope.$digest();
 
-    $rootScope.$broadcast('_parent_totalCount===0');
+    $rootScope.$broadcast('parent_totalCount===0');
     $scope.$digest();
 
     expect($scope.totalCount).toBe(0);
 
   });
 
-  it('_parent_indexActive', function () {
+  it('parent_indexActive', function () {
 
     createController();
     $scope.$digest();
 
-    $rootScope.$broadcast('_parent_indexActive');
+    $rootScope.$broadcast('parent_indexActive');
     $scope.$digest();
 
     expect($scope.indexActive).toBe(true);
 
   });
 
-  it('_parent_goodsListActive', function () {
+  it('parent_goodsListActive', function () {
 
     createController();
     $scope.$digest();
 
-    $rootScope.$broadcast('_parent_goodsListActive');
+    $rootScope.$broadcast('parent_goodsListActive');
     $scope.$digest();
 
     expect($scope.goodsListActive).toBe(true);
 
   });
 
-  it('_parent_cartActive', function () {
+  it('parent_cartActive', function () {
 
     createController();
     $scope.$digest();
 
-    $rootScope.$broadcast('_parent_cartActive');
+    $rootScope.$broadcast('parent_cartActive');
     $scope.$digest();
 
     expect($scope.cartActive).toBe(true);
 
   });
 
-  it('_parent_manageActive', function () {
+  it('parent_manageActive', function () {
 
     createController();
     $scope.$digest();
 
-    $rootScope.$broadcast('_parent_manageActive');
+    $rootScope.$broadcast('parent_manageActive');
     $scope.$digest();
 
     expect($scope.manageActive).toBe(true);

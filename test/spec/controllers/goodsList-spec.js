@@ -65,8 +65,8 @@ describe("goodsListCtrl", function () {
     it('$emit', function () {
       spyOn($scope, '$emit');
       createController();
-      expect($scope.$emit).toHaveBeenCalledWith('_parent_totalCount');
-      expect($scope.$emit).toHaveBeenCalledWith('_parent_goodsListActive');
+      expect($scope.$emit).toHaveBeenCalledWith('parent_totalCount');
+      expect($scope.$emit).toHaveBeenCalledWith('parent_goodsListActive');
 
 
     });

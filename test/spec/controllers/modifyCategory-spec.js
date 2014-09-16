@@ -33,7 +33,7 @@ describe("modifyCategoryCtrl", function () {
   it('$emit', function () {
     spyOn($scope, '$emit');
     createController();
-    expect($scope.$emit).toHaveBeenCalledWith('_parent_manageGoodsActive');
+    expect($scope.$emit).toHaveBeenCalledWith('parent_manageGoodsActive');
   });
 
   it('modifyCategory', function () {

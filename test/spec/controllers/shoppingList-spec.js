@@ -52,8 +52,8 @@ describe("shoppingListCtrl", function () {
 
     $scope.remove();
 
-    expect($scope.$emit).toHaveBeenCalledWith('_parent_totalCount');
-    expect($scope.$emit).toHaveBeenCalledWith('_parent_totalCount===0');
+    expect($scope.$emit).toHaveBeenCalledWith('parent_totalCount');
+    expect($scope.$emit).toHaveBeenCalledWith('parent_totalCount===0');
   });
 
 });

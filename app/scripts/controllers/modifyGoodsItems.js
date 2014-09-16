@@ -3,7 +3,7 @@
 angular.module('letusgoApp')
   .controller('modifyGoodsItemsCtrl', function ($scope, goodsItemService, operateCategoryService, operateGoodsItems, $routeParams) {
 
-    $scope.$emit('_parent_manageGoodsActive');
+    $scope.$emit('parent_manageGoodsActive');
 
     $scope.itemList = operateGoodsItems.getGoodsItemsByBarcode($routeParams.barcode);
 
