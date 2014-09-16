@@ -21,7 +21,8 @@ angular.module('angularLeteusgoApp')
       }
 
         localStorageService.set('itemLists', itemLists);
-        return itemLists;
+
+      return itemLists;
 
     };
     this.getItemsById = function (id) {
@@ -35,6 +36,7 @@ angular.module('angularLeteusgoApp')
     };
 
     this.addGoodsItems = function (item, itemLists) {
+
       item.category  =  item.category.id;
 
       var hasExistGoodsItems = _.any(itemLists, function (itemList) {
@@ -44,6 +46,7 @@ angular.module('angularLeteusgoApp')
       });
 
       if (!hasExistGoodsItems) {
+
         var barcode = itemLists[itemLists.length - 1].barcode.substring(8);
 
         item.barcode = itemLists[itemLists.length - 1].barcode.substring(0,8)+(++barcode);

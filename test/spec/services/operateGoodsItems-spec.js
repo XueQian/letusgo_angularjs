@@ -60,9 +60,21 @@ describe("operateCategoryService", function () {
 
     });
 
-    it('addGoodsItems',function(){
+    it('addGoodsItems when hasExistGoodsItems',function(){
 
       var item = {barcode: 'ITEM00000', category: '0', name: '服装1', price: 11, unit: '件'};
+      spyOn(localStorageService,'set');
+
+      operateGoodsItems.addGoodsItems(item, itemLists);
+
+      expect(localStorageService.set).toHaveBeenCalledWith('itemLists', itemLists);
+
+    });
+
+
+    it('addGoodsItems when do not hasExistGoodsItems',function(){
+
+      var item = {barcode: 'ITEM00009', category: '0', name: '测试1', price: 11, unit: '件'};
       spyOn(localStorageService,'set');
 
       operateGoodsItems.addGoodsItems(item, itemLists);
