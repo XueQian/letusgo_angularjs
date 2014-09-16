@@ -4,7 +4,7 @@ angular.module('letusgoApp')
   .service('operateCategoryService', function (localStorageService) {
     this.loadCategorys = function () {
 
-      var categoryLists = [
+      var categoryList = [
         {id: 0, name: '服装鞋包'},
         {id: 1, name: '手机数码'},
         {id: 2, name: '全球美食'},
@@ -12,21 +12,21 @@ angular.module('letusgoApp')
         {id: 4, name: '母婴用品'}
       ];
 
-      var temp = localStorageService.get('categoryLists');
+      var temp = localStorageService.get('categoryList');
 
       if (temp) {
 
         return temp;
       }
 
-      localStorageService.set('categoryLists', categoryLists);
-      return categoryLists;
+      localStorageService.set('categoryList', categoryList);
+      return categoryList;
     };
 
     this.getCategorysById = function (id, categorys) {
       if (categorys === null) {
 
-        categorys = localStorageService.get('categoryLists');
+        categorys = localStorageService.get('categoryList');
       }
       return _.find(categorys, function (category) {
 
@@ -34,39 +34,39 @@ angular.module('letusgoApp')
       }) || {};
     };
 
-    this.addCategory = function (category, categoryLists) {
+    this.addCategory = function (category, categoryList) {
 
-      var hasExistCategory = _.any(categoryLists, function (categoryList) {
+      var hasExistCategory = _.any(categoryList, function (categoryList) {
 
         return category.name === categoryList.name;
       });
 
       if (!hasExistCategory) {
 
-        var id = parseInt(categoryLists[categoryLists.length - 1].id);
+        var id = parseInt(categoryList[categoryList.length - 1].id);
 
         category.id = id+1;
 
-        categoryLists.push(category);
+        categoryList.push(category);
 
       }
 
-      localStorageService.set('categoryLists', categoryLists);
+      localStorageService.set('categoryList', categoryList);
     };
 
     this.modifyCategory = function (category) {
 
-      var categoryLists = localStorageService.get('categoryLists');
+      var categoryList = localStorageService.get('categoryList');
 
-      _.forEach(categoryLists, function (category1, index) {
+      _.forEach(categoryList, function (category1, index) {
 
         if (category1.id == category.id) {
 
-          categoryLists[index] = category;
+          categoryList[index] = category;
         }
       });
 
-      localStorageService.set('categoryLists', categoryLists);
+      localStorageService.set('categoryList', categoryList);
 
       return category;
     };

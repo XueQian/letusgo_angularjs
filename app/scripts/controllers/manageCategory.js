@@ -18,7 +18,7 @@ angular.module('letusgoApp')
       if ($scope.getItemsById(id)) {
 
         $scope.categorys.splice(index, 1);
-        goodsItemService.set('categoryLists', $scope.categorys);
+        goodsItemService.set('categoryList', $scope.categorys);
       }
     };
 

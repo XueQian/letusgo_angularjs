@@ -14,7 +14,7 @@ angular.module('letusgoApp')
 //
 //      return category.id === $scope.itemList.category;
 //    });
-    console.log($scope.category);
+  //  console.log($scope.category);
 
     $scope.modifyGoods = function () {
 
