@@ -13,7 +13,7 @@ angular.module('letusgoApp')
         {barcode: 'ITEM00005', category: '4', name: '用品１', price: 11, unit: '件'}
       ];
 
-      var temp = localStorageService.get('iteOperategoodsItemservicemList');
+      var temp = localStorageService.get('itemList');
 
       if (temp) {
 

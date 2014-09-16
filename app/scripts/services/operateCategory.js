@@ -45,7 +45,7 @@ angular.module('letusgoApp')
 
         var id = parseInt(categoryList[categoryList.length - 1].id);
 
-        category.id = id+1;
+        category.id = id + 1;
 
         categoryList.push(category);
 

@@ -9,7 +9,7 @@ angular.module('letusgoApp')
 
     $scope.categories = Operatecategorieservice.loadcategories();
 
-    $scope.category = _.find($scope.categories, function (category){
+    $scope.category = _.find($scope.categories, function (category) {
 
       return category.id == $scope.itemList.category;
     });
