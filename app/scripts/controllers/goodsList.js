@@ -6,7 +6,7 @@ angular.module('letusgoApp')
     $scope.$emit('parent_goodsListActive');
 
     var itemLists = goodsItemService.loadItem();
-    var cartList = goodsItemService.get('cartProduct');
+    var cartList = goodsItemService.get('cartItems');
 
     $scope.getCategoryName = function (id) {
       return operateCategoryService.getCategorysById(id, null).name;
@@ -25,7 +25,7 @@ angular.module('letusgoApp')
 
       cartList = goodsItemService.addToCartList(productItem, cartList);
 
-      goodsItemService.set('cartProduct', cartList);
+      goodsItemService.set('cartItems', cartList);
       goodsItemService.set('totalCount', goodsItemService.getTotalCount(cartList));
 
       $scope.$emit('parent_totalCount');

@@ -11,12 +11,12 @@ angular.module('letusgoApp')
 
     $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItems);
 
-    $scope.changeCount = function (item_) {
+    $scope.changeCount = function (newCartItem) {
       _($scope.cartItems).forEach(function (cartItem) {
 
-        if (cartItem.item.name === item_.item.name) {
+        if (cartItem.item.name === newCartItem.item.name) {
 
-          cartItem.count = item_.count;
+          cartItem.count = newCartItem.count;
         }
       });
 
