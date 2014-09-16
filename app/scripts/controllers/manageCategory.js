@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularLeteusgoApp')
-  .controller('manageCategoryCtrl', function ($scope, operateCategoryService, goodsItemService,operateGoodsItems) {
+  .controller('manageCategoryCtrl', function ($scope, operateCategoryService, goodsItemService, operateGoodsItems) {
 
     $scope.$emit('_parent_manageActive');
 
@@ -13,7 +13,7 @@ angular.module('angularLeteusgoApp')
     };
 
 
-    $scope.deleteCategory = function (index,id) {
+    $scope.deleteCategory = function (index, id) {
 
       if ($scope.getItemsById(id)) {
 
@@ -26,7 +26,6 @@ angular.module('angularLeteusgoApp')
 
       operateCategoryService.addCategory($scope.category, $scope.categorys);
     };
-
 
 
   });

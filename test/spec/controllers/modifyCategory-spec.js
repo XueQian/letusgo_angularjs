@@ -14,7 +14,7 @@ describe("modifyCategoryCtrl", function () {
       goodsItemService = $injector.get('goodsItemService');
       operateCategoryService = $injector.get('operateCategoryService');
       operateGoodsItems = $injector.get('operateGoodsItems');
-      $routeParams =  $injector.get('$routeParams');
+      $routeParams = $injector.get('$routeParams');
       var $controller = $injector.get('$controller');
 
       createController = function () {
@@ -36,11 +36,11 @@ describe("modifyCategoryCtrl", function () {
     expect($scope.$emit).toHaveBeenCalledWith('_parent_manageGoodsActive');
   });
 
-  it('modifyCategory',function(){
+  it('modifyCategory', function () {
     $scope.category = {};
 
     createController();
-    spyOn(operateCategoryService,'modifyCategory');
+    spyOn(operateCategoryService, 'modifyCategory');
 
     $scope.modifyCategory();
 

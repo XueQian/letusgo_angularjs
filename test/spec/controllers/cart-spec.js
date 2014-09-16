@@ -72,13 +72,13 @@ describe("cartCtrl", function () {
 
     it('same name, count=count', function () {
       var item_ =
-        {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 1};
+      {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 1};
 
       spyOn(cartItemService, 'getTotalMoney');
 
       var cartItems = [
-          {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 0}
-        ];
+        {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 0}
+      ];
       spyOn(goodsItemService, 'get').andReturn(cartItems);
       // console.log(cartItem.count);
 

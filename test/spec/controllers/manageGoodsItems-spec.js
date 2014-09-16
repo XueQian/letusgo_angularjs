@@ -2,7 +2,7 @@
 
 describe("manageGoodsItemsCtrl", function () {
 
-  var createController,$scope, goodsItemService, operateCategoryService, operateGoodsItems, localStorageService;
+  var createController, $scope, goodsItemService, operateCategoryService, operateGoodsItems, localStorageService;
 
   beforeEach(function () {
 
@@ -37,25 +37,28 @@ describe("manageGoodsItemsCtrl", function () {
     expect($scope.$emit).toHaveBeenCalledWith('_parent_manageActive');
   });
 
-  it('getCategoryName',function(){
+  it('getCategoryName', function () {
     var id = 0;
 
     createController();
 
-    spyOn(operateCategoryService,'getCategorysById').andReturn({id:0,name:'0'});
+    spyOn(operateCategoryService, 'getCategorysById').andReturn({id: 0, name: '0'});
     $scope.getCategoryName(id);
 
     expect($scope.getCategoryName(id)).toBe('0');
   });
 
-  it('deleteCategory',function(){
+  it('deleteCategory', function () {
 
     var index = 1;
-    $scope.products = [{barcode:1,name:'测试1'},{barcode:2,name:'测试2'}];
+    $scope.products = [
+      {barcode: 1, name: '测试1'},
+      {barcode: 2, name: '测试2'}
+    ];
     createController();
 
-    spyOn($scope.products,'splice');
-    spyOn(goodsItemService,'set');
+    spyOn($scope.products, 'splice');
+    spyOn(goodsItemService, 'set');
     $scope.deleteCategory(index);
 
     expect($scope.products.splice).toHaveBeenCalledWith(index, 1);
@@ -63,12 +66,14 @@ describe("manageGoodsItemsCtrl", function () {
 
   });
 
-  it('addGoodsItems',function(){
+  it('addGoodsItems', function () {
     $scope.item = {};
-    $scope.itemLists = [{}];
+    $scope.itemLists = [
+      {}
+    ];
     createController();
 
-    spyOn(operateGoodsItems,'addGoodsItems');
+    spyOn(operateGoodsItems, 'addGoodsItems');
     $scope.addGoodsItems();
 
     expect(operateGoodsItems.addGoodsItems).toHaveBeenCalledWith($scope.item, $scope.itemLists);

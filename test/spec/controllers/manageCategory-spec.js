@@ -2,7 +2,7 @@
 
 describe("manageCategoryCtrl", function () {
 
-  var $scope, goodsItemService, createController, localStorageService,operateCategoryService,operateGoodsItems;
+  var $scope, goodsItemService, createController, localStorageService, operateCategoryService, operateGoodsItems;
 
   beforeEach(function () {
 
@@ -23,7 +23,7 @@ describe("manageCategoryCtrl", function () {
           $scope: $scope,
           goodsItemService: goodsItemService,
           operateCategoryService: operateCategoryService,
-          operateGoodsItems:operateGoodsItems
+          operateGoodsItems: operateGoodsItems
         });
       };
     });
@@ -41,7 +41,7 @@ describe("manageCategoryCtrl", function () {
   describe('getItemsById', function () {
 
     it('getItemsById', function () {
-      var id = 1 ;
+      var id = 1;
       var result = true;
       spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
       createController();
@@ -53,38 +53,47 @@ describe("manageCategoryCtrl", function () {
     var id = 1;
     var index = 1;
     var result = true;
-    $scope.categorys = [{id:1,name:'1'},{id:2,name:'2'}];
+    $scope.categorys = [
+      {id: 1, name: '1'},
+      {id: 2, name: '2'}
+    ];
 
     createController();
 
     spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
-    spyOn($scope.categorys,'splice');
-    spyOn(goodsItemService,'set');
-    $scope.deleteCategory(index,id);
+    spyOn($scope.categorys, 'splice');
+    spyOn(goodsItemService, 'set');
+    $scope.deleteCategory(index, id);
 
     expect(goodsItemService.set).toHaveBeenCalled();
-    expect($scope.categorys.splice).toHaveBeenCalledWith(index,id);
+    expect($scope.categorys.splice).toHaveBeenCalledWith(index, id);
   });
 
   it('deleteCategory when false', function () {
     var id = 1;
     var index = 1;
     var result = false;
-    $scope.categorys = [{id:1,name:'1'},{id:2,name:'2'}];
+    $scope.categorys = [
+      {id: 1, name: '1'},
+      {id: 2, name: '2'}
+    ];
 
     createController();
 
     spyOn(operateGoodsItems, 'getItemsById').andReturn(result);
-    spyOn($scope.categorys,'splice');
-    spyOn(goodsItemService,'set');
-    $scope.deleteCategory(index,id);
+    spyOn($scope.categorys, 'splice');
+    spyOn(goodsItemService, 'set');
+    $scope.deleteCategory(index, id);
 
   });
 
-  it('addCategory',function(){
-    $scope.category = {id:1,name:'1'};
-    $scope.categorys = [{id:1,name:'1'},{id:2,name:'2'}];
-    spyOn(operateCategoryService,'addCategory');
+  it('addCategory', function () {
+    $scope.category = {id: 1, name: '1'};
+    $scope.categorys = [
+      {id: 1, name: '1'},
+      {id: 2, name: '2'}
+    ];
+    spyOn(operateCategoryService, 'addCategory');
 
     createController();
     $scope.addCategory();

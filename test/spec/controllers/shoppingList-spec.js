@@ -27,12 +27,12 @@ describe("shoppingListCtrl", function () {
     });
   });
 
-  it('goodsItemService.get and getTotalMoney has been called',function(){
+  it('goodsItemService.get and getTotalMoney has been called', function () {
 
-    var cartItem={};
+    var cartItem = {};
 
-    spyOn(goodsItemService,'get');
-    spyOn(cartItemService,'getTotalMoney');
+    spyOn(goodsItemService, 'get');
+    spyOn(cartItemService, 'getTotalMoney');
 
     goodsItemService.get('cartProduct');
     cartItemService.getTotalMoney(cartItem);

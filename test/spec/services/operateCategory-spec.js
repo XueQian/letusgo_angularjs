@@ -14,42 +14,48 @@ describe("operateCategoryService", function () {
     });
 
   });
-  it ('if categoryLists is not null,loadCategorys',function(){
-    var categoryLists ='';
+  it('if categoryLists is not null,loadCategorys', function () {
+    var categoryLists = '';
 
-    spyOn(localStorageService,'get').andReturn(categoryLists);
-    spyOn(localStorageService,'set');
+    spyOn(localStorageService, 'get').andReturn(categoryLists);
+    spyOn(localStorageService, 'set');
     operateCategoryService.loadCategorys();
 
     expect(localStorageService.set).toHaveBeenCalled();
   });
 
-  describe('if categoryLists is not null',function(){
+  describe('if categoryLists is not null', function () {
 
-    var categoryLists = [{id:1,name:'测试1'},{id:2,name:'测试2'}];
-    it('loadCategorys',function(){
+    var categoryLists = [
+      {id: 1, name: '测试1'},
+      {id: 2, name: '测试2'}
+    ];
+    it('loadCategorys', function () {
 
-      spyOn(localStorageService,'get').andReturn(categoryLists);
+      spyOn(localStorageService, 'get').andReturn(categoryLists);
       var result = operateCategoryService.loadCategorys();
 
-      expect(result).toEqual([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
+      expect(result).toEqual([
+        {id: 1, name: '测试1'},
+        {id: 2, name: '测试2'}
+      ]);
 
     });
 
-    it('getCategorysById',function(){
-      var id=1;
+    it('getCategorysById', function () {
+      var id = 1;
       var categorys = null;
-      spyOn(localStorageService,'get').andReturn(categoryLists);
+      spyOn(localStorageService, 'get').andReturn(categoryLists);
 
-      operateCategoryService.getCategorysById(id,categorys);
+      operateCategoryService.getCategorysById(id, categorys);
 
       expect(localStorageService.get).toHaveBeenCalledWith('categoryLists');
 
     });
 
-    it('addCategory',function(){
-      var category = {id:1,name:'1'};
-      spyOn(localStorageService,'set');
+    it('addCategory', function () {
+      var category = {id: 1, name: '1'};
+      spyOn(localStorageService, 'set');
 
       operateCategoryService.addCategory(category, categoryLists);
 
@@ -57,10 +63,10 @@ describe("operateCategoryService", function () {
 
     });
 
-    it('modifyCategory',function(){
-      var category = {id:1,name:'1'};
-      spyOn(localStorageService,'get').andReturn(categoryLists);
-      spyOn(localStorageService,'set');
+    it('modifyCategory', function () {
+      var category = {id: 1, name: '1'};
+      spyOn(localStorageService, 'get').andReturn(categoryLists);
+      spyOn(localStorageService, 'set');
 
       operateCategoryService.modifyCategory(category);
 

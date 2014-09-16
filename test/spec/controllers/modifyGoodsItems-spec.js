@@ -2,7 +2,7 @@
 
 describe("modifyGoodsItemsCtrl", function () {
 
-  var createController,$scope, goodsItemService, operateCategoryService, operateGoodsItems, $routeParams;
+  var createController, $scope, goodsItemService, operateCategoryService, operateGoodsItems, $routeParams;
 
   beforeEach(function () {
 
@@ -36,10 +36,10 @@ describe("modifyGoodsItemsCtrl", function () {
     expect($scope.$emit).toHaveBeenCalledWith('_parent_manageGoodsActive');
   });
 
-  it('modifyGoods',function(){
+  it('modifyGoods', function () {
     $scope.itemList = {};
     createController();
-    spyOn(operateGoodsItems,'modifyGoods');
+    spyOn(operateGoodsItems, 'modifyGoods');
 
     $scope.modifyGoods();
 

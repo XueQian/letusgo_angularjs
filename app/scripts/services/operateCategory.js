@@ -19,16 +19,16 @@ angular.module('angularLeteusgoApp')
         return temp;
       }
 
-        localStorageService.set('categoryLists', categoryLists);
-        return categoryLists;
+      localStorageService.set('categoryLists', categoryLists);
+      return categoryLists;
     };
 
-    this.getCategorysById = function (id,categorys) {
+    this.getCategorysById = function (id, categorys) {
       if (categorys === null) {
 
         categorys = localStorageService.get('categoryLists');
       }
-      return _.find(categorys, function(category){
+      return _.find(categorys, function (category) {
 
         return category.id == id;
       }) || {};

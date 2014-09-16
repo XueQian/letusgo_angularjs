@@ -2,7 +2,7 @@
 
 describe("indexCtrl", function () {
 
-  var $scope, goodsItemService, createController,$rootScope;
+  var $scope, goodsItemService, createController, $rootScope;
 
   beforeEach(function () {
 
@@ -10,7 +10,7 @@ describe("indexCtrl", function () {
 
     inject(function ($injector) {
 
-      $rootScope=$injector.get('$rootScope');
+      $rootScope = $injector.get('$rootScope');
       $scope = $injector.get('$rootScope').$new();
       goodsItemService = $injector.get('goodsItemService');
       var $controller = $injector.get('$controller');
@@ -25,9 +25,9 @@ describe("indexCtrl", function () {
     });
   });
 
-  it('_parent_totalCount',function(){
+  it('_parent_totalCount', function () {
 
-    spyOn(goodsItemService,'getTotalCount').andReturn(2);
+    spyOn(goodsItemService, 'getTotalCount').andReturn(2);
 
     createController();
     $scope.$digest();
@@ -39,7 +39,7 @@ describe("indexCtrl", function () {
 
   });
 
-  it('_parent_totalCount===0',function(){
+  it('_parent_totalCount===0', function () {
 
     createController();
     $scope.$digest();
@@ -51,7 +51,7 @@ describe("indexCtrl", function () {
 
   });
 
-  it('_parent_totalCount===0',function(){
+  it('_parent_totalCount===0', function () {
 
     createController();
     $scope.$digest();
@@ -63,7 +63,7 @@ describe("indexCtrl", function () {
 
   });
 
-  it('_parent_indexActive',function(){
+  it('_parent_indexActive', function () {
 
     createController();
     $scope.$digest();
@@ -75,7 +75,7 @@ describe("indexCtrl", function () {
 
   });
 
-  it('_parent_goodsListActive',function(){
+  it('_parent_goodsListActive', function () {
 
     createController();
     $scope.$digest();
@@ -87,7 +87,7 @@ describe("indexCtrl", function () {
 
   });
 
-  it('_parent_cartActive',function(){
+  it('_parent_cartActive', function () {
 
     createController();
     $scope.$digest();
@@ -99,7 +99,7 @@ describe("indexCtrl", function () {
 
   });
 
-  it('_parent_manageActive',function(){
+  it('_parent_manageActive', function () {
 
     createController();
     $scope.$digest();

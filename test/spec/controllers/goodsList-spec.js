@@ -2,7 +2,7 @@
 
 describe("goodsListCtrl", function () {
 
-  var $scope, goodsItemService, createController, localStorageService,operateCategoryService;
+  var $scope, goodsItemService, createController, localStorageService, operateCategoryService;
 
   beforeEach(function () {
 
@@ -73,9 +73,9 @@ describe("goodsListCtrl", function () {
 
     it('addToCart  is ok', function () {
 
-      var productItem={};
+      var productItem = {};
 
-      var  cartList = null;
+      var cartList = null;
 
       spyOn(goodsItemService, 'get').andReturn(cartList);
 
@@ -86,8 +86,8 @@ describe("goodsListCtrl", function () {
     });
 
     it('getCategoryName  is ok', function () {
-     var id=0;
-     var result = {id:0,name:'服装鞋包'};
+      var id = 0;
+      var result = {id: 0, name: '服装鞋包'};
       spyOn(operateCategoryService, 'getCategorysById').andReturn(result);
 
       createController();

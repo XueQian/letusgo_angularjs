@@ -51,5 +51,4 @@ angular.module('angularLeteusgoApp')
     });
 
 
-
   });

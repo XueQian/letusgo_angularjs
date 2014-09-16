@@ -20,7 +20,7 @@ angular.module('angularLeteusgoApp')
         return temp;
       }
 
-        localStorageService.set('itemLists', itemLists);
+      localStorageService.set('itemLists', itemLists);
 
       return itemLists;
 
@@ -37,7 +37,7 @@ angular.module('angularLeteusgoApp')
 
     this.addGoodsItems = function (item, itemLists) {
 
-      item.category  =  item.category.id;
+      item.category = item.category.id;
 
       var hasExistGoodsItems = _.any(itemLists, function (itemList) {
 
@@ -49,7 +49,7 @@ angular.module('angularLeteusgoApp')
 
         var barcode = itemLists[itemLists.length - 1].barcode.substring(8);
 
-        item.barcode = itemLists[itemLists.length - 1].barcode.substring(0,8)+(++barcode);
+        item.barcode = itemLists[itemLists.length - 1].barcode.substring(0, 8) + (++barcode);
 
         itemLists.push(item);
 
