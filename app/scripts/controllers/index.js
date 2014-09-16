@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularLeteusgoApp')
+angular.module('letusgoApp')
   .controller('indexCtrl', function ($scope, goodsItemService) {
 
     $scope.$emit('_parent_indexActive');

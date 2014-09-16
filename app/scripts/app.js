@@ -1,15 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name angularLeteusgoApp
- * @description
- * # angularLeteusgoApp
- *
- * Main module of the application.
- */
 angular
-  .module('angularLeteusgoApp', [
+  .module('letusgoApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

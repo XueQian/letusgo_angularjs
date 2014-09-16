@@ -5,7 +5,7 @@ describe("cartItemService", function () {
   var cartItemService, localStorageService;
 
   beforeEach(function () {
-    module('angularLeteusgoApp');
+    module('letusgoApp');
 
     inject(function ($injector) {
 

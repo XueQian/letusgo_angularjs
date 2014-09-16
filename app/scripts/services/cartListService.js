@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularLeteusgoApp')
+angular.module('letusgoApp')
   .service('cartItemService', function (localStorageService) {
     this.getTotalMoney = function (cartItems) {
 

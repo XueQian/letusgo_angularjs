@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularLeteusgoApp')
+angular.module('letusgoApp')
   .controller('goodsListCtrl', function ($scope, goodsItemService, operateCategoryService) {
 
     $scope.$emit('_parent_goodsListActive');

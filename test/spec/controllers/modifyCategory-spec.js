@@ -6,7 +6,7 @@ describe("modifyCategoryCtrl", function () {
 
   beforeEach(function () {
 
-    module('angularLeteusgoApp');
+    module('letusgoApp');
 
     inject(function ($injector) {
 

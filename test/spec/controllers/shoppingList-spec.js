@@ -6,7 +6,7 @@ describe("shoppingListCtrl", function () {
 
   beforeEach(function () {
 
-    module('angularLeteusgoApp');
+    module('letusgoApp');
 
     inject(function ($injector) {
 

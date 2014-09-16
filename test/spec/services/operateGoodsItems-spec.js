@@ -5,7 +5,7 @@ describe("operateCategoryService", function () {
   var operateGoodsItems, localStorageService;
 
   beforeEach(function () {
-    module('angularLeteusgoApp');
+    module('letusgoApp');
 
     inject(function ($injector) {
 
