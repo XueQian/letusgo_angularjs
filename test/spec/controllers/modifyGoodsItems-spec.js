@@ -36,15 +36,15 @@ describe("modifyGoodsItemsCtrl", function () {
     expect($scope.$emit).toHaveBeenCalledWith('parent_manageGoodsActive');
   });
 
-  it('modifyGoods', function () {
+  xit('modifyGoods', function () {
     $scope.itemList = {};
     createController();
     spyOn(operateGoodsItems, 'modifyGoods');
-
+    spyOn (operateGoodsItems,'getGoodsItemsByBarcode').andReturn($scope.itemList);
     $scope.modifyGoods();
-
     expect(operateGoodsItems.modifyGoods).toHaveBeenCalledWith($scope.itemList);
 
   });
+//  $scope.itemList = operateGoodsItems.getGoodsItemsByBarcode($routeParams.barcode);
 
 });
