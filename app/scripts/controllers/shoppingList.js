@@ -5,7 +5,7 @@ angular.module('letusgoApp')
 
     $scope.$emit('parent_cartActive');
 
-    $scope.orderItems = goodsItemService.get('cartProduct');
+    $scope.orderItems = goodsItemService.get('cartItems');
 
     $scope.$emit('parent_totalCount');
 
@@ -13,7 +13,7 @@ angular.module('letusgoApp')
 
     $scope.remove = function () {
 
-      cartItemService.remove('cartProduct');
+      cartItemService.remove('cartItems');
 
       goodsItemService.set('totalCount', 0);
 
