@@ -9,7 +9,7 @@ angular.module('letusgoApp')
 
     $scope.$on('parent_totalCount', function () {
 
-      var cartList = goodsItemService.get('cartProduct');
+      var cartList = goodsItemService.get('cartItems');
       $scope.totalCount = goodsItemService.getTotalCount(cartList);
     });
 

@@ -62,13 +62,13 @@ describe("manageGoodsItemsCtrl", function () {
     $scope.deleteCategory(index);
 
     expect($scope.products.splice).toHaveBeenCalledWith(index, 1);
-    expect(goodsItemService.set).toHaveBeenCalledWith('itemLists', $scope.products);
+    expect(goodsItemService.set).toHaveBeenCalledWith('itemList', $scope.products);
 
   });
 
   it('addGoodsItems', function () {
     $scope.item = {};
-    $scope.itemLists = [
+    $scope.itemList = [
       {}
     ];
     createController();
@@ -76,7 +76,7 @@ describe("manageGoodsItemsCtrl", function () {
     spyOn(operateGoodsItems, 'addGoodsItems');
     $scope.addGoodsItems();
 
-    expect(operateGoodsItems.addGoodsItems).toHaveBeenCalledWith($scope.item, $scope.itemLists);
+    expect(operateGoodsItems.addGoodsItems).toHaveBeenCalledWith($scope.item, $scope.itemList);
 
   })
 

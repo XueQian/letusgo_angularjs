@@ -4,7 +4,7 @@ angular.module('letusgoApp')
   .service('operateGoodsItems', function (localStorageService) {
     this.loadGoodsItems = function () {
 
-      var itemLists = [
+      var itemList = [
         {barcode: 'ITEM00000', category: '0', name: '服装1', price: 11, unit: '件'},
         {barcode: 'ITEM00001', category: '0', name: '服装2', price: 11, unit: '件'},
         {barcode: 'ITEM00002', category: '1', name: '手机１', price: 1111, unit: '件'},
@@ -13,67 +13,67 @@ angular.module('letusgoApp')
         {barcode: 'ITEM00005', category: '4', name: '用品１', price: 11, unit: '件'}
       ];
 
-      var temp = localStorageService.get('itemLists');
+      var temp = localStorageService.get('itemList');
 
       if (temp) {
 
         return temp;
       }
 
-      localStorageService.set('itemLists', itemLists);
+      localStorageService.set('itemList', itemList);
 
-      return itemLists;
+      return itemList;
 
     };
     this.getItemsById = function (id) {
 
-      var result = _.find(this.loadGoodsItems(), function (itemList) {
+      var result = _.find(this.loadGoodsItems(), function (ItemList) {
 
-        return itemList.category == id;
+        return ItemList.category == id;
       });
 
       return result ? false : true;
     };
 
-    this.addGoodsItems = function (item, itemLists) {
+    this.addGoodsItems = function (item, itemList) {
 
       item.category = item.category.id;
 
-      var hasExistGoodsItems = _.any(itemLists, function (itemList) {
+      var hasExistGoodsItems = _.any(itemList, function (newItemList) {
 
-        return item.name === itemList.name;
+        return item.name === newItemList.name;
 
       });
 
       if (!hasExistGoodsItems) {
 
-        var barcode = itemLists[itemLists.length - 1].barcode.substring(8);
+        var barcode = itemList[itemList.length - 1].barcode.substring(8);
 
-        item.barcode = itemLists[itemLists.length - 1].barcode.substring(0, 8) + (++barcode);
+        item.barcode = itemList[itemList.length - 1].barcode.substring(0, 8) + (++barcode);
 
-        itemLists.push(item);
+        itemList.push(item);
 
       }
-      localStorageService.set('itemLists', itemLists);
+      localStorageService.set('itemList', itemList);
     };
 
     this.getGoodsItemsByBarcode = function (barcode) {
-      var itemLists = localStorageService.get('itemLists');
+      var itemList = localStorageService.get('itemList');
 
-      return _.find(itemLists, {barcode: barcode}) || {};
+      return _.find(itemList, {barcode: barcode}) || {};
     };
 
-    this.modifyGoods = function (itemList) {
-      var itemLists = localStorageService.get('itemLists');
+    this.modifyGoods = function (newItemList) {
+      var itemList = localStorageService.get('itemList');
 
-      _.forEach(itemLists, function (item, index) {
+      _.forEach(itemList, function (item, index) {
 
-        if (item.barcode === itemList.barcode) {
-          itemLists[index] = itemList;
+        if (item.barcode === newItemList.barcode) {
+          itemList[index] = itemList;
         }
       });
 
-      localStorageService.set('itemLists', itemLists);
+      localStorageService.set('itemList', itemList);
 
       return itemList;
     }

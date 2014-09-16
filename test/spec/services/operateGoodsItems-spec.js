@@ -15,10 +15,10 @@ describe("operateCategoryService", function () {
 
   });
 
-  it('if itemLists is null', function () {
-    var itemLists = '';
+  it('if itemList is null', function () {
+    var itemList = '';
 
-    spyOn(localStorageService, 'get').andReturn(itemLists);
+    spyOn(localStorageService, 'get').andReturn(itemList);
     spyOn(localStorageService, 'set');
     operateGoodsItems.loadGoodsItems();
 
@@ -26,10 +26,10 @@ describe("operateCategoryService", function () {
 
   });
 
-  describe('if itemLists is not null', function () {
-    var itemLists;
+  describe('if itemList is not null', function () {
+    var itemList;
     beforeEach(function () {
-      itemLists = [
+      itemList = [
         {barcode: 'ITEM00000', category: '0', name: '服装1', price: 11, unit: '件'},
         {barcode: 'ITEM00001', category: '0', name: '服装2', price: 11, unit: '件'}
       ];
@@ -38,14 +38,14 @@ describe("operateCategoryService", function () {
 
     it('loadGoodsItems', function () {
 
-      spyOn(localStorageService, 'get').andReturn(itemLists);
+      spyOn(localStorageService, 'get').andReturn(itemList);
       var result = operateGoodsItems.loadGoodsItems();
       expect(result.length).toBe(2);
     });
 
     it('getItemsById true', function () {
       var id = 1;
-      spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemLists);
+      spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemList);
 
       operateGoodsItems.getItemsById(id);
       expect(operateGoodsItems.getItemsById(id)).toBe(true);
@@ -54,7 +54,7 @@ describe("operateCategoryService", function () {
 
     it('getItemsById false', function () {
       var id = 0;
-      spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemLists);
+      spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemList);
 
       operateGoodsItems.getItemsById(id);
       expect(operateGoodsItems.getItemsById(id)).toBe(false);
@@ -66,9 +66,9 @@ describe("operateCategoryService", function () {
       var item = {barcode: 'ITEM00000', category: '0', name: '服装1', price: 11, unit: '件'};
       spyOn(localStorageService, 'set');
 
-      operateGoodsItems.addGoodsItems(item, itemLists);
+      operateGoodsItems.addGoodsItems(item, itemList);
 
-      expect(localStorageService.set).toHaveBeenCalledWith('itemLists', itemLists);
+      expect(localStorageService.set).toHaveBeenCalledWith('itemList', itemList);
 
     });
 
@@ -78,18 +78,18 @@ describe("operateCategoryService", function () {
       var item = {barcode: 'ITEM00009', category: '0', name: '测试1', price: 11, unit: '件'};
       spyOn(localStorageService, 'set');
 
-      operateGoodsItems.addGoodsItems(item, itemLists);
+      operateGoodsItems.addGoodsItems(item, itemList);
 
-      expect(localStorageService.set).toHaveBeenCalledWith('itemLists', itemLists);
+      expect(localStorageService.set).toHaveBeenCalledWith('itemList', itemList);
 
     });
 
     it('getGoodsItemsByBarcode', function () {
       var barcode = 'ITEM00000';
-      spyOn(localStorageService, 'get').andReturn(itemLists);
+      spyOn(localStorageService, 'get').andReturn(itemList);
       operateGoodsItems.getGoodsItemsByBarcode(barcode);
 
-      expect(localStorageService.get).toHaveBeenCalledWith('itemLists');
+      expect(localStorageService.get).toHaveBeenCalledWith('itemList');
       var result = operateGoodsItems.getGoodsItemsByBarcode(barcode);
 
       expect(result.name).toBe('服装1');
@@ -97,12 +97,12 @@ describe("operateCategoryService", function () {
 
     it('modifyGoods', function () {
       var itemList = {barcode: 'ITEM00000', category: '0', name: '服装1', price: 11, unit: '件'};
-      spyOn(localStorageService, 'get').andReturn(itemLists);
+      spyOn(localStorageService, 'get').andReturn(itemList);
       spyOn(localStorageService, 'set');
 
       operateGoodsItems.modifyGoods(itemList);
 
-      expect(localStorageService.set).toHaveBeenCalledWith('itemLists', itemLists);
+      expect(localStorageService.set).toHaveBeenCalledWith('itemList', itemList);
 
     });
 

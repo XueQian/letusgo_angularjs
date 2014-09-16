@@ -15,16 +15,16 @@ angular.module('letusgoApp')
 
       $scope.products.splice(index, 1);
 
-      goodsItemService.set('itemLists', $scope.products);
+      goodsItemService.set('itemList', $scope.products);
     };
 
     $scope.categorys = operateCategoryService.loadCategorys();
 
-    $scope.itemLists = localStorageService.get('itemLists');
+    $scope.itemList = localStorageService.get('itemList');
 
     $scope.addGoodsItems = function () {
 
-      operateGoodsItems.addGoodsItems($scope.item, $scope.itemLists);
+      operateGoodsItems.addGoodsItems($scope.item, $scope.itemList);
     };
 
   });
