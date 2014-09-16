@@ -36,35 +36,23 @@ describe("modifyGoodsItemsCtrl", function () {
     expect($scope.$emit).toHaveBeenCalledWith('parent_manageGoodsActive');
   });
 
-  xit('modifyGoods', function () {
-    $scope.itemList = {};
-    createController();
-    spyOn(operateGoodsItems, 'modifyGoods');
-    spyOn (operateGoodsItems,'getGoodsItemsByBarcode').andReturn($scope.itemList);
-    $scope.modifyGoods();
-    expect(operateGoodsItems.modifyGoods).toHaveBeenCalledWith($scope.itemList);
+  it('getGoodsItemsByBarcode,categories and category',function(){
+    spyOn(operateGoodsItems,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
+    spyOn(operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
 
+    createController();
+    expect($scope.itemList.name).toBe('用品１');
+    expect($scope.categories[0].name).toBe('测试1');
+    expect($scope.category.name).toBe('测试1');
   });
 
   it('modifyGoods', function () {
-//    $scope.itemList = {barcode:'1',name:'测试1',category:''};
-    $scope.category = {id:1,name:'test'};
-
-    createController();
+    spyOn(operateGoodsItems,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
+    spyOn(operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
     spyOn(operateGoodsItems, 'modifyGoods');
-
+    createController();
     $scope.modifyGoods();
-    expect($scope.itemList.category).toBe(1);
-
     expect(operateGoodsItems.modifyGoods).toHaveBeenCalled();
-
   });
 
-//  $scope.itemList = operateGoodsItems.getGoodsItemsByBarcode($routeParams.barcode);
-
-//  $scope.modifyGoods = function () {
-//
-//    $scope.itemList.category = $scope.category.id;
-//    operateGoodsItems.modifyGoods($scope.itemList);
-//  };
 });
