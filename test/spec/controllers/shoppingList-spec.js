@@ -2,7 +2,7 @@
 
 describe("shoppingListCtrl", function () {
 
-  var $scope, goodsItemService, createController, cartItemService, localStorageService;
+  var $scope, goodsItemService, createController, CartItemService, localStorageService;
 
   beforeEach(function () {
 
@@ -12,7 +12,7 @@ describe("shoppingListCtrl", function () {
 
       $scope = $injector.get('$rootScope').$new();
       goodsItemService = $injector.get('goodsItemService');
-      cartItemService = $injector.get('cartItemService');
+      CartItemService = $injector.get('CartItemService');
       localStorageService = $injector.get('localStorageService');
       var $controller = $injector.get('$controller');
 
@@ -21,7 +21,7 @@ describe("shoppingListCtrl", function () {
         return $controller('shoppingListCtrl', {
           $scope: $scope,
           goodsItemService: goodsItemService,
-          cartItemService: cartItemService
+          CartItemService: CartItemService
         });
       };
     });
@@ -32,15 +32,15 @@ describe("shoppingListCtrl", function () {
     var cartItem = {};
 
     spyOn(goodsItemService, 'get');
-    spyOn(cartItemService, 'getTotalMoney');
+    spyOn(CartItemService, 'getTotalMoney');
 
     goodsItemService.get('cartProduct');
-    cartItemService.getTotalMoney(cartItem);
+    CartItemService.getTotalMoney(cartItem);
 
     createController();
 
     expect(goodsItemService.get).toHaveBeenCalledWith('cartProduct');
-    expect(cartItemService.getTotalMoney).toHaveBeenCalledWith(cartItem);
+    expect(CartItemService.getTotalMoney).toHaveBeenCalledWith(cartItem);
 
   });
 

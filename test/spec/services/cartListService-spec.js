@@ -1,15 +1,15 @@
 'use strict';
 
-describe("cartItemService", function () {
+describe("CartItemService", function () {
 
-  var cartItemService, localStorageService;
+  var CartItemService, localStorageService;
 
   beforeEach(function () {
     module('letusgoApp');
 
     inject(function ($injector) {
 
-      cartItemService = $injector.get('cartItemService');
+      CartItemService = $injector.get('CartItemService');
       localStorageService = $injector.get('localStorageService');
     });
   });
@@ -18,7 +18,7 @@ describe("cartItemService", function () {
 
     it('should use getTotalMoney function', function () {
 
-      expect(angular.isFunction(cartItemService.getTotalMoney)).toBe(true);
+      expect(angular.isFunction(CartItemService.getTotalMoney)).toBe(true);
     });
 
     it('getTotalMoney return totalMoney===0', function () {
@@ -27,7 +27,7 @@ describe("cartItemService", function () {
 
       spyOn(localStorageService, 'get').andReturn(cartItems);
 
-      expect(cartItemService.getTotalMoney(cartItems)).toBe(0);
+      expect(CartItemService.getTotalMoney(cartItems)).toBe(0);
     });
 
     it('getTotalMoney return totalMoney ', function () {
@@ -39,7 +39,7 @@ describe("cartItemService", function () {
 
       spyOn(localStorageService, 'get').andReturn(cartItems);
 
-      expect(cartItemService.getTotalMoney(cartItems)).toBe(1133);
+      expect(CartItemService.getTotalMoney(cartItems)).toBe(1133);
 
     });
 
@@ -51,10 +51,10 @@ describe("cartItemService", function () {
 
       spyOn(localStorageService, 'remove');
 
-      cartItemService.remove('cartProduct');
+      CartItemService.remove('cartProduct');
 
       expect(localStorageService.remove).toHaveBeenCalledWith('cartProduct');
-      expect(angular.isFunction(cartItemService.remove)).toBe(true);
+      expect(angular.isFunction(CartItemService.remove)).toBe(true);
     });
 
   });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('letusgoApp')
-  .controller('cartCtrl', function ($scope, goodsItemService, cartItemService) {
+  .controller('cartCtrl', function ($scope, goodsItemService, CartItemService) {
 
     $scope.$emit('parent_cartActive');
 
@@ -9,7 +9,7 @@ angular.module('letusgoApp')
 
     $scope.$emit('parent_totalCount');
 
-    $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItems);
+    $scope.totalMoney = CartItemService.getTotalMoney($scope.cartItems);
 
     $scope.changeCount = function (newCartItem) {
       _($scope.cartItems).forEach(function (cartItem) {
@@ -21,7 +21,7 @@ angular.module('letusgoApp')
       });
 
       goodsItemService.set('cartItems', $scope.cartItems);
-      $scope.totalMoney = cartItemService.getTotalMoney($scope.cartItems);
+      $scope.totalMoney = CartItemService.getTotalMoney($scope.cartItems);
 
       goodsItemService.set('totalCount', goodsItemService.getTotalCount($scope.cartItems));
 

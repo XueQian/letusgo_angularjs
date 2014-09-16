@@ -2,7 +2,7 @@
 
 describe("cartCtrl", function () {
 
-  var $scope, goodsItemService, createController, localStorageService, cartItemService;
+  var $scope, goodsItemService, createController, localStorageService, CartItemService;
 
   beforeEach(function () {
 
@@ -13,7 +13,7 @@ describe("cartCtrl", function () {
       $scope = $injector.get('$rootScope').$new();
       goodsItemService = $injector.get('goodsItemService');
       localStorageService = $injector.get('localStorageService');
-      cartItemService = $injector.get('cartItemService');
+      CartItemService = $injector.get('CartItemService');
       var $controller = $injector.get('$controller');
 
       createController = function () {
@@ -21,7 +21,7 @@ describe("cartCtrl", function () {
         return $controller('cartCtrl', {
           $scope: $scope,
           goodsItemService: goodsItemService,
-          cartItemService: cartItemService
+          CartItemService: CartItemService
         });
       };
     });
@@ -49,7 +49,7 @@ describe("cartCtrl", function () {
 
     it('cartItems is OK', function () {
       spyOn(goodsItemService, 'get').andReturn(cartItems);
-      spyOn(cartItemService, 'getTotalMoney').andReturn(1);
+      spyOn(CartItemService, 'getTotalMoney').andReturn(1);
 
       createController();
       expect($scope.cartItems[0].name).toEqual('服装１');
@@ -74,7 +74,7 @@ describe("cartCtrl", function () {
       var item_ =
       {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 1};
 
-      spyOn(cartItemService, 'getTotalMoney');
+      spyOn(CartItemService, 'getTotalMoney');
 
       var cartItems = [
         {item: {barcode: 'ITEM00000', 'category': '服装鞋包', name: '服装１', 'price': 11, 'unit': '件'}, count: 0}
