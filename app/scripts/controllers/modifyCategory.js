@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('letusgoApp')
-  .controller('modifyCategoryCtrl', function ($scope, GoodsItemService, Operatecategorieservice, operateGoodsItems, $routeParams) {
+  .controller('modifyCategoryCtrl', function ($scope, GoodsItemService, Operatecategorieservice, Operategoodsitemservice, $routeParams) {
 
     $scope.$emit('parent_manageGoodsActive');
 

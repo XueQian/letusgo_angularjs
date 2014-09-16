@@ -2,7 +2,7 @@
 
 describe("modifyCategoryCtrl", function () {
 
-  var createController, $scope, GoodsItemService, Operatecategorieservice, operateGoodsItems, $routeParams;
+  var createController, $scope, GoodsItemService, Operatecategorieservice, Operategoodsitemservice, $routeParams;
 
   beforeEach(function () {
 
@@ -13,7 +13,7 @@ describe("modifyCategoryCtrl", function () {
       $scope = $injector.get('$rootScope').$new();
       GoodsItemService = $injector.get('GoodsItemService');
       Operatecategorieservice = $injector.get('Operatecategorieservice');
-      operateGoodsItems = $injector.get('operateGoodsItems');
+      Operategoodsitemservice = $injector.get('Operategoodsitemservice');
       $routeParams = $injector.get('$routeParams');
       var $controller = $injector.get('$controller');
 
@@ -23,7 +23,7 @@ describe("modifyCategoryCtrl", function () {
           $scope: $scope,
           GoodsItemService: GoodsItemService,
           Operatecategorieservice: Operatecategorieservice,
-          operateGoodsItems: operateGoodsItems,
+          Operategoodsitemservice: Operategoodsitemservice,
           $routeParams: $routeParams
         });
       };

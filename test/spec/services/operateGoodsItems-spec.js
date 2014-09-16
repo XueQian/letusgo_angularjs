@@ -2,14 +2,14 @@
 
 describe("Operatecategorieservice", function () {
 
-  var operateGoodsItems, localStorageService;
+  var Operategoodsitemservice, localStorageService;
 
   beforeEach(function () {
     module('letusgoApp');
 
     inject(function ($injector) {
 
-      operateGoodsItems = $injector.get('operateGoodsItems');
+      Operategoodsitemservice = $injector.get('Operategoodsitemservice');
       localStorageService = $injector.get('localStorageService');
     });
 
@@ -20,7 +20,7 @@ describe("Operatecategorieservice", function () {
 
     spyOn(localStorageService, 'get').andReturn(itemList);
     spyOn(localStorageService, 'set');
-    operateGoodsItems.loadGoodsItems();
+    Operategoodsitemservice.loadGoodsItems();
 
     expect(localStorageService.set).toHaveBeenCalled();
 
@@ -39,25 +39,25 @@ describe("Operatecategorieservice", function () {
     it('loadGoodsItems', function () {
 
       spyOn(localStorageService, 'get').andReturn(itemList);
-      var result = operateGoodsItems.loadGoodsItems();
+      var result = Operategoodsitemservice.loadGoodsItems();
       expect(result.length).toBe(2);
     });
 
     it('getItemById true', function () {
       var id = 1;
-      spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemList);
+      spyOn(Operategoodsitemservice, 'loadGoodsItems').andReturn(itemList);
 
-      operateGoodsItems.getItemById(id);
-      expect(operateGoodsItems.getItemById(id)).toBe(true);
+      Operategoodsitemservice.getItemById(id);
+      expect(Operategoodsitemservice.getItemById(id)).toBe(true);
 
     });
 
     it('getItemById false', function () {
       var id = 0;
-      spyOn(operateGoodsItems, 'loadGoodsItems').andReturn(itemList);
+      spyOn(Operategoodsitemservice, 'loadGoodsItems').andReturn(itemList);
 
-      operateGoodsItems.getItemById(id);
-      expect(operateGoodsItems.getItemById(id)).toBe(false);
+      Operategoodsitemservice.getItemById(id);
+      expect(Operategoodsitemservice.getItemById(id)).toBe(false);
 
     });
 
@@ -66,7 +66,7 @@ describe("Operatecategorieservice", function () {
       var item = {barcode: 'ITEM00000', category: '0', name: '服装1', price: 11, unit: '件'};
       spyOn(localStorageService, 'set');
 
-      operateGoodsItems.addGoodsItems(item, itemList);
+      Operategoodsitemservice.addGoodsItems(item, itemList);
 
       expect(localStorageService.set).toHaveBeenCalledWith('itemList', itemList);
 
@@ -78,7 +78,7 @@ describe("Operatecategorieservice", function () {
       var item = {barcode: 'ITEM00009', category: '0', name: '测试1', price: 11, unit: '件'};
       spyOn(localStorageService, 'set');
 
-      operateGoodsItems.addGoodsItems(item, itemList);
+      Operategoodsitemservice.addGoodsItems(item, itemList);
 
       expect(localStorageService.set).toHaveBeenCalledWith('itemList', itemList);
 
@@ -87,10 +87,10 @@ describe("Operatecategorieservice", function () {
     it('getGoodsItemsByBarcode', function () {
       var barcode = 'ITEM00000';
       spyOn(localStorageService, 'get').andReturn(itemList);
-      operateGoodsItems.getGoodsItemsByBarcode(barcode);
+      Operategoodsitemservice.getGoodsItemsByBarcode(barcode);
 
       expect(localStorageService.get).toHaveBeenCalledWith('itemList');
-      var result = operateGoodsItems.getGoodsItemsByBarcode(barcode);
+      var result = Operategoodsitemservice.getGoodsItemsByBarcode(barcode);
 
       expect(result.name).toBe('服装1');
     });
@@ -100,7 +100,7 @@ describe("Operatecategorieservice", function () {
       spyOn(localStorageService, 'get').andReturn(itemList);
       spyOn(localStorageService, 'set');
 
-      operateGoodsItems.modifyGoods(itemList);
+      Operategoodsitemservice.modifyGoods(itemList);
 
       expect(localStorageService.set).toHaveBeenCalledWith('itemList', itemList);
 

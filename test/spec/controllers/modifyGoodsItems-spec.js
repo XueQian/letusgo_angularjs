@@ -2,7 +2,7 @@
 
 describe("modifyGoodsItemsCtrl", function () {
 
-  var createController, $scope, GoodsItemService, Operatecategorieservice, operateGoodsItems, $routeParams;
+  var createController, $scope, GoodsItemService, Operatecategorieservice, Operategoodsitemservice, $routeParams;
 
   beforeEach(function () {
 
@@ -13,7 +13,7 @@ describe("modifyGoodsItemsCtrl", function () {
       $scope = $injector.get('$rootScope').$new();
       GoodsItemService = $injector.get('GoodsItemService');
       Operatecategorieservice = $injector.get('Operatecategorieservice');
-      operateGoodsItems = $injector.get('operateGoodsItems');
+      Operategoodsitemservice = $injector.get('Operategoodsitemservice');
       $routeParams = $injector.get('$routeParams');
       var $controller = $injector.get('$controller');
 
@@ -23,7 +23,7 @@ describe("modifyGoodsItemsCtrl", function () {
           $scope: $scope,
           GoodsItemService: GoodsItemService,
           Operatecategorieservice: Operatecategorieservice,
-          operateGoodsItems: operateGoodsItems,
+          Operategoodsitemservice: Operategoodsitemservice,
           $routeParams: $routeParams
         });
       };
@@ -37,7 +37,7 @@ describe("modifyGoodsItemsCtrl", function () {
   });
 
   it('getGoodsItemsByBarcode,categories and category',function(){
-    spyOn(operateGoodsItems,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
+    spyOn(Operategoodsitemservice,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
     spyOn(Operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
 
     createController();
@@ -47,12 +47,12 @@ describe("modifyGoodsItemsCtrl", function () {
   });
 
   it('modifyGoods', function () {
-    spyOn(operateGoodsItems,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
+    spyOn(Operategoodsitemservice,'getGoodsItemsByBarcode').andReturn({barcode: 'ITEM00005', category: '1', name: '用品１', price: 11, unit: '件'});
     spyOn(Operatecategorieservice,'loadcategories').andReturn([{id:1,name:'测试1'},{id:2,name:'测试2'}]);
-    spyOn(operateGoodsItems, 'modifyGoods');
+    spyOn(Operategoodsitemservice, 'modifyGoods');
     createController();
     $scope.modifyGoods();
-    expect(operateGoodsItems.modifyGoods).toHaveBeenCalled();
+    expect(Operategoodsitemservice.modifyGoods).toHaveBeenCalled();
   });
 
 });

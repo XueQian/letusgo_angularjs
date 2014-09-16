@@ -2,7 +2,7 @@
 
 describe("manageCategoryCtrl", function () {
 
-  var $scope, GoodsItemService, createController, localStorageService, Operatecategorieservice, operateGoodsItems;
+  var $scope, GoodsItemService, createController, localStorageService, Operatecategorieservice, Operategoodsitemservice;
 
   beforeEach(function () {
 
@@ -14,7 +14,7 @@ describe("manageCategoryCtrl", function () {
       GoodsItemService = $injector.get('GoodsItemService');
       localStorageService = $injector.get('localStorageService');
       Operatecategorieservice = $injector.get('Operatecategorieservice');
-      operateGoodsItems = $injector.get('operateGoodsItems');
+      Operategoodsitemservice = $injector.get('Operategoodsitemservice');
       var $controller = $injector.get('$controller');
 
       createController = function () {
@@ -23,7 +23,7 @@ describe("manageCategoryCtrl", function () {
           $scope: $scope,
           GoodsItemService: GoodsItemService,
           Operatecategorieservice: Operatecategorieservice,
-          operateGoodsItems: operateGoodsItems
+          Operategoodsitemservice: Operategoodsitemservice
         });
       };
     });
@@ -43,7 +43,7 @@ describe("manageCategoryCtrl", function () {
     it('getItemById', function () {
       var id = 1;
       var result = true;
-      spyOn(operateGoodsItems, 'getItemById').andReturn(result);
+      spyOn(Operategoodsitemservice, 'getItemById').andReturn(result);
       createController();
       expect($scope.getItemById(id)).toBe(true);
     });
@@ -60,7 +60,7 @@ describe("manageCategoryCtrl", function () {
 
     createController();
 
-    spyOn(operateGoodsItems, 'getItemById').andReturn(result);
+    spyOn(Operategoodsitemservice, 'getItemById').andReturn(result);
     spyOn($scope.categories, 'splice');
     spyOn(GoodsItemService, 'set');
     $scope.deleteCategory(index, id);
@@ -80,7 +80,7 @@ describe("manageCategoryCtrl", function () {
 
     createController();
 
-    spyOn(operateGoodsItems, 'getItemById').andReturn(result);
+    spyOn(Operategoodsitemservice, 'getItemById').andReturn(result);
     spyOn($scope.categories, 'splice');
     spyOn(GoodsItemService, 'set');
     $scope.deleteCategory(index, id);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('letusgoApp')
-  .service('operateGoodsItems', function (localStorageService) {
+  .service('Operategoodsitemservice', function (localStorageService) {
     this.loadGoodsItems = function () {
 
       var itemList = [
@@ -13,7 +13,7 @@ angular.module('letusgoApp')
         {barcode: 'ITEM00005', category: '4', name: '用品１', price: 11, unit: '件'}
       ];
 
-      var temp = localStorageService.get('itemList');
+      var temp = localStorageService.get('iteOperategoodsItemservicemList');
 
       if (temp) {
 
