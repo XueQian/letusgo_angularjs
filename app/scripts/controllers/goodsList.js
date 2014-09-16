@@ -9,7 +9,7 @@ angular.module('letusgoApp')
     var cartList = goodsItemService.get('cartItems');
 
     $scope.getCategoryName = function (id) {
-      return operatecategorieservice.getcategoriesById(id, null).name;
+      return operatecategorieservice.getcategoryById(id, null).name;
     };
     goodsItemService.set('itemList', itemList);
     goodsItemService.set('totalCount', goodsItemService.getTotalCount(cartList));

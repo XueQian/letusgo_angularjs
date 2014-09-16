@@ -42,7 +42,7 @@ describe("manageGoodsItemsCtrl", function () {
 
     createController();
 
-    spyOn(operatecategorieservice, 'getcategoriesById').andReturn({id: 0, name: '0'});
+    spyOn(operatecategorieservice, 'getcategoryById').andReturn({id: 0, name: '0'});
     $scope.getCategoryName(id);
 
     expect($scope.getCategoryName(id)).toBe('0');

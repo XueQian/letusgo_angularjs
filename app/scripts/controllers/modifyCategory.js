@@ -5,7 +5,7 @@ angular.module('letusgoApp')
 
     $scope.$emit('parent_manageGoodsActive');
 
-    $scope.category = operatecategorieservice.getcategoriesById($routeParams.id, null);
+    $scope.category = operatecategorieservice.getcategoryById($routeParams.id, null);
     $scope.categories = operatecategorieservice.loadcategories();
 
     $scope.modifyCategory = function () {

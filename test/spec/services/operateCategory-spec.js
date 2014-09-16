@@ -42,12 +42,12 @@ describe("operatecategorieservice", function () {
 
     });
 
-    it('getcategoriesById', function () {
+    it('getcategoryById', function () {
       var id = 1;
       var categories = null;
       spyOn(localStorageService, 'get').andReturn(categoryList);
 
-      operatecategorieservice.getcategoriesById(id, categories);
+      operatecategorieservice.getcategoryById(id, categories);
 
       expect(localStorageService.get).toHaveBeenCalledWith('categoryList');
 

@@ -23,7 +23,7 @@ angular.module('letusgoApp')
       return categoryList;
     };
 
-    this.getcategoriesById = function (id, categories) {
+    this.getcategoryById = function (id, categories) {
       if (categories === null) {
 
         categories = localStorageService.get('categoryList');

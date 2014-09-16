@@ -88,7 +88,7 @@ describe("goodsListCtrl", function () {
     it('getCategoryName  is ok', function () {
       var id = 0;
       var result = {id: 0, name: '服装鞋包'};
-      spyOn(operatecategorieservice, 'getcategoriesById').andReturn(result);
+      spyOn(operatecategorieservice, 'getcategoryById').andReturn(result);
 
       createController();
       expect($scope.getCategoryName(id)).toBe('服装鞋包');

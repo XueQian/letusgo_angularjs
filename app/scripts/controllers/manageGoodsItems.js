@@ -8,7 +8,7 @@ angular.module('letusgoApp')
     $scope.products = operateGoodsItems.loadGoodsItems();
 
     $scope.getCategoryName = function (id) {
-      return operatecategorieservice.getcategoriesById(id, null).name;
+      return operatecategorieservice.getcategoryById(id, null).name;
     };
 
     $scope.deleteCategory = function (index) {
