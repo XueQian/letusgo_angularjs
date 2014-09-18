@@ -18,7 +18,6 @@ angular.module('letusgoApp')
 
       $scope.itemList.category = $scope.category.id;
       Operategoodsitemservice.modifyGoods($scope.itemList);
-      //console.log($scope.itemList);
     };
 
   });
